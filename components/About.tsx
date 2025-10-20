@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import { FiMonitor } from 'react-icons/fi'
-import { FaMobileAlt, FaServer } from 'react-icons/fa'
+import { FaMobileAlt } from 'react-icons/fa'
 import SectionFloatingIcons from './SectionFloatingIcons';
 
 const services = [

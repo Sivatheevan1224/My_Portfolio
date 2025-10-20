@@ -92,12 +92,20 @@ const ContactForm = () => {
                 toast.success("Message sent successfully");
                 setFormData({ name: "", email: "", message: "" });
             })
-            .catch((err: any) => {
+            .catch((err: unknown) => {
                 // Log error for debugging
                 console.error('EmailJS send error:', err);
 
-                // Show descriptive toast
-                const errMsg = err && err.text ? err.text : (err && err.message) ? err.message : 'Failed to send message. Using mail client fallback.';
+                // Safely extract message from unknown error
+                let errMsg = 'Failed to send message. Using mail client fallback.';
+                if (typeof err === 'object' && err !== null) {
+                    const maybe = err as { text?: string; message?: string };
+                    if (maybe.text) errMsg = maybe.text;
+                    else if (maybe.message) errMsg = maybe.message;
+                } else if (typeof err === 'string') {
+                    errMsg = err;
+                }
+
                 toast.error(errMsg);
 
                 // Fallback: open mail client with prefilled subject/body so messages still get delivered

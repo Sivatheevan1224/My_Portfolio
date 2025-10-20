@@ -169,11 +169,8 @@ const FloatingIcon: React.FC<FloatingIconProps> = ({
   );
 };
 
-interface FloatingIconsProps {
-  theme?: 'light' | 'dark';
-}
-
-const FloatingIcons: React.FC<FloatingIconsProps> = ({ theme = 'dark' }) => {
+// No props are required for FloatingIcons at this time
+const FloatingIcons: React.FC = () => {
   const [containerDimensions, setContainerDimensions] = useState({
     width: typeof window !== 'undefined' ? window.innerWidth : 1920,
     height: typeof window !== 'undefined' ? window.innerHeight : 1080
