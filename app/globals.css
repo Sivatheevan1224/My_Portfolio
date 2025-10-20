@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body {
+ height: 100%;
+ margin: 0;
+}
+
+body{
+  font-family: "Inter", "Poppins", sans-serif;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode (default) - Full Black Background */
+body {
+  background: #000000;
+  background-attachment: fixed;
+  color: #f1f5f9;
+}
+
+.bg-img{
+  background: #000000;
+  background-attachment: fixed;
+}
+
+/* Light Mode */
+html:not(.dark) body {
+  background: #ffffff !important;
+  color: #1f2937 !important;
+}
+
+html:not(.dark) .bg-img{
+  background: #ffffff !important;
+}
+
+/* CRITICAL: Keep SAME gradient colors in light mode (blue-purple-pink from dark mode) */
+html:not(.dark) .bg-gradient-to-r.bg-clip-text.text-transparent,
+html:not(.dark) .bg-gradient-to-r.from-blue-500.via-purple-500.to-pink-500,
+html:not(.dark) h1.bg-clip-text,
+html:not(.dark) h2.bg-clip-text,
+html:not(.dark) h3.bg-clip-text,
+html:not(.dark) h4.bg-clip-text,
+html:not(.dark) h1.text-transparent,
+html:not(.dark) h2.text-transparent,
+html:not(.dark) h3.text-transparent,
+html:not(.dark) h4.text-transparent {
+  background: linear-gradient(90deg, rgb(59, 130, 246), rgb(147, 51, 234), rgb(236, 72, 153)) !important;
+  background-size: 200% 200% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.6)) 
+          drop-shadow(0 0 25px rgba(147, 51, 234, 0.5)) !important;
+  animation: glowPulse 4s ease-in-out infinite, gradientShift 3s ease infinite !important;
+  transition: all 0.3s ease !important;
+}
+
+html:not(.dark) .bg-gradient-to-r.bg-clip-text.text-transparent:hover,
+html:not(.dark) h1.bg-clip-text:hover,
+html:not(.dark) h2.bg-clip-text:hover,
+html:not(.dark) h3.bg-clip-text:hover,
+html:not(.dark) h4.bg-clip-text:hover {
+  filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.8)) 
+          drop-shadow(0 0 35px rgba(147, 51, 234, 0.7)) !important;
+  transform: scale(1.03) translateY(-2px) !important;
+}
+
+/* Text color utilities for light mode - readable dark text */
+html:not(.dark) .text-white:not(.bg-clip-text):not(.text-transparent) {
+  color: #1f2937 !important;
+}
+
+html:not(.dark) .text-gray-400:not(.bg-clip-text):not(.text-transparent) {
+  color: #6b7280 !important;
+}
+
+html:not(.dark) .text-gray-300:not(.bg-clip-text):not(.text-transparent) {
+  color: #4b5563 !important;
+}
+
+html:not(.dark) .text-gray-200:not(.bg-clip-text):not(.text-transparent) {
+  color: #374151 !important;
+}
+
+html:not(.dark) h1:not(.bg-clip-text):not(.text-transparent),
+html:not(.dark) h2:not(.bg-clip-text):not(.text-transparent),
+html:not(.dark) h3:not(.bg-clip-text):not(.text-transparent),
+html:not(.dark) h4:not(.bg-clip-text):not(.text-transparent),
+html:not(.dark) h5:not(.bg-clip-text):not(.text-transparent),
+html:not(.dark) h6:not(.bg-clip-text):not(.text-transparent) {
+  color: #111827 !important;
+}
+
+html:not(.dark) p:not(.bg-clip-text):not(.text-transparent),
+html:not(.dark) span:not(.bg-clip-text):not(.text-transparent),
+html:not(.dark) li:not(.bg-clip-text):not(.text-transparent),
+html:not(.dark) a:not(.bg-clip-text):not(.text-transparent) {
+  color: #374151 !important;
+}
+
+/* Background utilities for light mode */
+html:not(.dark) .bg-black,
+html:not(.dark) .bg-black\/20,
+html:not(.dark) .bg-black\/10 {
+  background: #ffffff !important;
+}
+
+html:not(.dark) .bg-gray-900 {
+  background: #f9fafb !important;
+}
+
+html:not(.dark) .bg-gray-800 {
+  background: #f3f4f6 !important;
+}
+
+html:not(.dark) .bg-white\/5,
+html:not(.dark) .bg-white\/10,
+html:not(.dark) .bg-white\/20 {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Border colors for light mode */
+html:not(.dark) .border-gray-800 {
+  border-color: #e5e7eb !important;
+}
+
+html:not(.dark) .border-gray-700 {
+  border-color: #d1d5db !important;
+}
+
+/* Backdrop blur backgrounds for light mode */
+html:not(.dark) .backdrop-blur-lg,
+html:not(.dark) .backdrop-blur-xl {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Section backgrounds in light mode */
+html:not(.dark) section {
+  background: #ffffff !important;
+}
+
+/* Input backgrounds for light mode */
+html:not(.dark) input,
+html:not(.dark) textarea {
+  background: #f9fafb !important;
+  color: #111827 !important;
+  border-color: #d1d5db !important;
+}
+
+html:not(.dark) input::placeholder,
+html:not(.dark) textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+/* Button styles for light mode */
+html:not(.dark) button:not([class*="bg-gradient"]) {
+  color: #111827 !important;
+}
+
+/* Special color overrides for icons in light mode */
+html:not(.dark) .text-yellow-400 {
+  color: #f59e0b !important;
+}
+
+html:not(.dark) .text-blue-500 {
+  color: #3b82f6 !important;
+}
+
+html:not(.dark) .text-special {
+  color: #4361ee !important;
+}
+
+/* Animations for gradient text */
+@keyframes glowPulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4)) 
+            drop-shadow(0 0 16px rgba(147, 51, 234, 0.3))
+            drop-shadow(0 0 24px rgba(236, 72, 153, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 16px rgba(59, 130, 246, 0.6)) 
+            drop-shadow(0 0 32px rgba(147, 51, 234, 0.5))
+            drop-shadow(0 0 48px rgba(236, 72, 153, 0.3));
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+
