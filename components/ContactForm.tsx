@@ -124,7 +124,7 @@ const ContactForm = () => {
     };
 
     return (
-        <section className='relative container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-gray-900 dark:text-white' id='contact'>
+        <section className='relative container mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-8 md:pt-10 pb-8 sm:pb-12 md:pb-16 text-gray-900 dark:text-white' id='contact'>
             {/* Background effects */}
             <div className="absolute inset-0 overflow-hidden -z-10">
                 <div className="absolute inset-0 bg-white/60 dark:bg-black/90" />

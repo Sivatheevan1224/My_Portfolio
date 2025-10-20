@@ -172,12 +172,15 @@ const FloatingIcon: React.FC<FloatingIconProps> = ({
 // No props are required for FloatingIcons at this time
 const FloatingIcons: React.FC = () => {
   const [containerDimensions, setContainerDimensions] = useState({
-    width: typeof window !== 'undefined' ? window.innerWidth : 1920,
-    height: typeof window !== 'undefined' ? window.innerHeight : 1080
+    width: 1920,
+    height: 1080
   });
+  const [isMounted, setIsMounted] = useState(false);
 
   // Set container dimensions based on actual window size
   useEffect(() => {
+    setIsMounted(true);
+    
     const updateDimensions = () => {
       setContainerDimensions({
         width: window.innerWidth,
@@ -192,6 +195,11 @@ const FloatingIcons: React.FC = () => {
       window.removeEventListener('resize', updateDimensions);
     };
   }, []);
+
+  // Don't render icons until mounted to avoid hydration mismatch
+  if (!isMounted) {
+    return <div className="absolute inset-0 overflow-hidden pointer-events-none" />;
+  }
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">

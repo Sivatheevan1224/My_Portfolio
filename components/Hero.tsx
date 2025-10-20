@@ -39,14 +39,14 @@ const techStack = [
 const Hero = () => {
   return (
     <>
-      <section className="relative min-h-[90vh] sm:min-h-screen text-gray-900 dark:text-white px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32 2xl:px-40 overflow-hidden w-full" id="hero">
+      <section className="relative min-h-[90vh] sm:min-h-screen text-gray-900 dark:text-white overflow-hidden w-screen" id="hero">
         {/* Background effects */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-white/80 dark:bg-black" />
+        <div className="absolute inset-0 overflow-hidden w-screen">
+          <div className="absolute inset-0 bg-white/80 dark:bg-black w-screen" />
           <HeroFloatingIcons />
         </div>
 
-        <div className="relative container mx-auto flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16 pt-20 sm:pt-24 md:pt-32 xl:pt-40 max-w-full">
+        <div className="relative w-full flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16 pt-20 sm:pt-24 md:pt-32 xl:pt-40 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -162,7 +162,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative w-full md:w-1/2 flex justify-center px-4 sm:px-6 md:px-0"
+            className="relative w-full md:w-1/2 flex justify-center"
           >
             <div className="relative">
               <motion.div
@@ -177,9 +177,9 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.8 }}
                 src={cardimg.src}
                 alt="my image"
-                className="relative w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[500px] h-auto object-contain"
-                width={500}
-                height={450}
+                className="relative w-full max-w-[320px] sm:max-w-[420px] md:max-w-[480px] lg:max-w-[580px] xl:max-w-[650px] h-auto object-contain"
+                width={650}
+                height={600}
               />
             </div>
           </motion.div>

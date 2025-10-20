@@ -89,7 +89,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <nav className='fixed left-0 right-0 top-4 z-50 px-4'>
+            <nav className='fixed left-0 right-0 top-4 z-50 px-2 sm:px-4'>
                 <div className='mx-auto hidden w-fit items-center 
                 justify-center rounded-3xl bg-white/10 dark:bg-black/30
                 py-3 px-6 backdrop-blur-xl backdrop-saturate-150 border-2 border-white/30 dark:border-white/20 shadow-lg hover:border-white/40 dark:hover:border-white/30 transition-all duration-300
@@ -144,40 +144,38 @@ const Navbar = () => {
                     </div>
                 </div>
                 {/* mobile menu */}
-                <div className='rounded-3xl lg:hidden overflow-hidden'>
-                    <div className='flex items-center justify-end gap-4 bg-white/10 dark:bg-black/30 backdrop-blur-xl backdrop-saturate-150 border-2 border-white/30 dark:border-white/20 shadow-lg rounded-3xl p-2 hover:border-white/40 dark:hover:border-white/30 transition-all duration-300'>
+                <div className='rounded-3xl lg:hidden overflow-hidden w-fit ml-auto mr-4'>
+                    <div className='flex items-center justify-center gap-3 sm:gap-4 bg-white/10 dark:bg-black/30 backdrop-blur-xl backdrop-saturate-150 border-2 border-white/30 dark:border-white/20 shadow-lg rounded-3xl p-2.5 sm:p-3 hover:border-white/40 dark:hover:border-white/30 transition-all duration-300'>
                         {/* Mobile Theme Toggle */}
                         <button
                             onClick={toggleTheme}
-                            className='p-2 rounded-xl bg-white/5 hover:bg-white/20 dark:hover:bg-white/15 transition-all duration-300 hover:scale-105'
+                            className='p-2 sm:p-2.5 rounded-xl bg-white/5 hover:bg-white/20 dark:hover:bg-white/15 transition-all duration-300 hover:scale-105'
                             aria-label='Toggle theme'
                         >
                             {theme === 'dark' ? (
-                                <FiSun className='w-6 h-6 text-yellow-400' />
+                                <FiSun className='w-5 h-5 sm:w-6 sm:h-6 text-yellow-400' />
                             ) : (
-                                <FiMoon className='w-6 h-6 text-blue-500' />
+                                <FiMoon className='w-5 h-5 sm:w-6 sm:h-6 text-blue-500' />
                             )}
                         </button>
-                        <div className='flex items-center'>
-                            <button className='focus:outline-none lg:hidden p-3 sm:p-4 touch-manipulation'
-                                onClick={toggleMobileMenu}>
-                                {isMobileMenuOpen ? (
-                                    <FaTimes className='m-2 h-6 w-6 sm:h-7 sm:w-7 backdrop-blur-lg' />
-                                ) : (
-                                    <FaBars className='m-2 h-6 w-6 sm:h-7 sm:w-7 backdrop-blur-lg' />
-                                )}
-                            </button>
-                        </div>
+                        <button className='focus:outline-none p-2 sm:p-2.5 touch-manipulation'
+                            onClick={toggleMobileMenu}>
+                            {isMobileMenuOpen ? (
+                                <FaTimes className='h-5 w-5 sm:h-6 sm:w-6 backdrop-blur-lg' />
+                            ) : (
+                                <FaBars className='h-5 w-5 sm:h-6 sm:w-6 backdrop-blur-lg' />
+                            )}
+                        </button>
                     </div>
                     {isMobileMenuOpen && (
-                        <ul className='mt-4 flex flex-col gap-4 bg-white/10 dark:bg-black/30 backdrop-blur-xl backdrop-saturate-150 border-2 border-white/30 dark:border-white/20 shadow-lg p-5 rounded-3xl text-xl sm:text-2xl hover:border-white/40 dark:hover:border-white/30 transition-all duration-300'>
+                        <ul className='mt-3 sm:mt-4 flex flex-col gap-2 sm:gap-4 bg-white/10 dark:bg-black/30 backdrop-blur-xl backdrop-saturate-150 border-2 border-white/30 dark:border-white/20 shadow-lg p-3 sm:p-5 rounded-3xl hover:border-white/40 dark:hover:border-white/30 transition-all duration-300'>
                             {NAVIGATION_LINKS.map((item, index) => (
                                 <li key={index}>
                                     <a 
                                         href={item.href}
                                         className={`
-                                            ${index === 0 ? 'flex items-center gap-3' : 'block w-full'}
-                                            text-xl sm:text-2xl font-medium py-2 touch-manipulation transition-all duration-300
+                                            ${index === 0 ? 'flex items-center gap-2 sm:gap-3' : 'block w-full'}
+                                            text-lg sm:text-xl md:text-2xl font-medium py-1.5 sm:py-2 touch-manipulation transition-all duration-300
                                             ${isActive(item.href) 
                                                 ? 'text-special scale-105' 
                                                 : 'text-gray-300 hover:text-special hover:translate-x-2 hover:drop-shadow-[0_0_10px_rgba(67,97,238,0.8)]'
@@ -189,7 +187,7 @@ const Navbar = () => {
                                         } : {}}
                                         onClick={(e) => handleLinkClick(e, item.href)}
                                     >
-                                        {index === 0 && <FiHome className="w-6 h-6" />}
+                                        {index === 0 && <FiHome className="w-5 h-5 sm:w-6 sm:h-6" />}
                                         {item.label}
                                     </a>
                                 </li>

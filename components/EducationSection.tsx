@@ -7,7 +7,7 @@ import SectionFloatingIcons from './SectionFloatingIcons';
 
 const EducationSection = () => {
     return (
-        <section className='relative min-h-screen text-gray-900 dark:text-white w-full px-4 sm:px-6 lg:px-8 py-8 sm:py-16 md:py-20' id='education'>
+        <section className='relative min-h-screen text-gray-900 dark:text-white w-full px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 md:pt-12 pb-4 sm:pb-8 md:pb-10' id='education'>
             {/* Background effects */}
             <div className="absolute inset-0 overflow-hidden">
                 {/* light-mode subtle backdrop; dark-mode keeps dark backdrop */}
@@ -47,7 +47,7 @@ const EducationSection = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: index * 0.2 }}
                             key={index}
-                            className='relative flex flex-col gap-4 mb-6 sm:mb-8 md:mb-12 group'
+                            className='relative flex flex-col gap-4 mb-4 sm:mb-6 md:mb-8 group'
                         >
                             {/* Timeline dot */}
                             <div className='absolute left-3 xs:left-4 transform -translate-x-1/2 w-5 xs:w-6 sm:w-8 md:w-10 h-5 xs:h-6 sm:h-8 md:h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full border-[2px] xs:border-[3px] sm:border-4 border-black shadow-lg shadow-blue-500/25 z-10'>
