@@ -15,19 +15,33 @@ const Navbar = () => {
         // Use Intersection Observer for more reliable section detection
         const observerOptions = {
             root: null,
-            rootMargin: '-20% 0px -70% 0px', // Trigger when section is in the middle-top area
-            threshold: 0
+            rootMargin: '-100px 0px -60% 0px', // Fixed pixel offset from top, percentage from bottom
+            threshold: [0, 0.1, 0.2, 0.3, 0.5]
         };
 
         const observerCallback = (entries: IntersectionObserverEntry[]) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    if (id) {
-                        setActiveSection(id);
+            // Find the most visible section
+            const visibleEntries = entries.filter(entry => entry.isIntersecting);
+            
+            if (visibleEntries.length > 0) {
+                // Sort by intersection ratio and position to find the most visible section
+                visibleEntries.sort((a, b) => {
+                    // Prioritize by intersection ratio
+                    const ratioDiff = b.intersectionRatio - a.intersectionRatio;
+                    if (Math.abs(ratioDiff) > 0.1) {
+                        return ratioDiff;
                     }
+                    // If ratios are similar, prefer the one closer to top of viewport
+                    const aTop = Math.abs(a.boundingClientRect.top);
+                    const bTop = Math.abs(b.boundingClientRect.top);
+                    return aTop - bTop;
+                });
+                const mostVisible = visibleEntries[0];
+                const id = mostVisible.target.getAttribute('id');
+                if (id) {
+                    setActiveSection(id);
                 }
-            });
+            }
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
@@ -76,13 +90,13 @@ const Navbar = () => {
     return (
         <div>
             <nav className='fixed left-0 right-0 top-4 z-50 px-4'>
-                <div className='mx-auto hidden max-w-2xl items-center 
+                <div className='mx-auto hidden w-fit items-center 
                 justify-center rounded-3xl bg-white/10 dark:bg-black/30
-                py-3 px-4 backdrop-blur-xl backdrop-saturate-150 border-2 border-white/30 dark:border-white/20 shadow-lg hover:border-white/40 dark:hover:border-white/30 transition-all duration-300
-                lg:flex xl:max-w-3xl 2xl:max-w-4xl overflow-hidden'>
-                    <div className='flex items-center justify-between gap-8'>
+                py-3 px-6 backdrop-blur-xl backdrop-saturate-150 border-2 border-white/30 dark:border-white/20 shadow-lg hover:border-white/40 dark:hover:border-white/30 transition-all duration-300
+                lg:flex'>
+                    <div className='flex items-center justify-center gap-4 xl:gap-6'>
                         <div className=''>
-                            <ul className='flex items-center gap-3 xl:gap-4 2xl:gap-6 justify-center'>
+                            <ul className='flex items-center gap-3 xl:gap-4 justify-center'>
                                 {NAVIGATION_LINKS.map((item, index) => (
                                     <li key={index}>
                                         <a 

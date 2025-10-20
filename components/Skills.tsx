@@ -61,19 +61,19 @@ const categories = [
 
 const Skills = () => {
   const [active, setActive] = useState(0);
-  const [hoveredSkill, setHoveredSkill] = useState<number | null>(null);
-  const [direction, setDirection] = useState(1);
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
 
   const handleCategoryChange = (index: number) => {
-    setDirection(index > active ? 1 : -1);
     setActive(index);
+    setHoveredSkill(null); // Clear hover state when changing category
   };
 
   return (
-    <section className='relative min-h-screen text-white w-full px-3 sm:px-6 lg:px-8 py-8 sm:py-16 md:py-20' id='skills'>
+    <section className='relative min-h-screen text-gray-900 dark:text-white w-full px-3 sm:px-6 lg:px-8 py-8 sm:py-16 md:py-20' id='skills'>
       {/* Background effects with FloatingIcons */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-100" />
+        {/* lighter overlay in light mode, keep dark overlay for dark mode */}
+        <div className="absolute inset-0 bg-white/60 dark:bg-black/90" />
         <FloatingIcons />
       </div>
 
@@ -99,7 +99,7 @@ const Skills = () => {
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           />
-          <p className='text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-3 sm:px-4'>
+          <p className='text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-2xl mx-auto px-3 sm:px-4'>
             A showcase of my technical expertise and the tools I use to build amazing web applications
           </p>
         </motion.div>
@@ -120,7 +120,7 @@ const Skills = () => {
                     className={`relative px-4 sm:px-6 py-3 sm:py-4 rounded-xl sm:rounded-2xl text-sm sm:text-base font-semibold transition-all duration-300 flex items-center gap-3 sm:gap-4 min-w-max lg:min-w-0 group overflow-hidden
                       ${active === index 
                         ? `${category.bgColor} ${category.borderColor} border-2 text-white shadow-xl` 
-                        : 'bg-gray-900/50 border-2 border-gray-800 text-gray-400 hover:text-white hover:border-gray-700'}`}
+                        : 'bg-white/60 dark:bg-gray-900/50 border-2 border-gray-200 dark:border-gray-800 text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-gray-700'}`}
                   >
                     {/* Background gradient animation */}
                     {active === index && (
@@ -132,11 +132,11 @@ const Skills = () => {
                     )}
                     
                     <motion.div 
-                      className="relative z-10"
+                      className='relative z-10'
                       animate={{ rotate: active === index ? 360 : 0 }}
                       transition={{ duration: 0.6 }}
                     >
-                      <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${active === index ? 'text-white' : 'text-gray-400 group-hover:text-white'}`} />
+                      <Icon className={`w-5 h-5 sm:w-6 sm:h-6 ${active === index ? 'text-white' : 'text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white'}`} />
                     </motion.div>
                     <span className='relative z-10 flex-1 text-left'>{category.label}</span>
                     {active === index && (
@@ -165,77 +165,107 @@ const Skills = () => {
                 variants={containerVariants}
                 className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6'
               >
-                {skills[active].map((tech, index) => (
+                {skills[active].map((tech) => {
+                  const skillId = `${active}-${tech.id}`;
+                  const isHovered = hoveredSkill === skillId;
+                  
+                  return (
                   <motion.div
                     key={tech.id}
                     variants={itemVariants}
-                    onHoverStart={() => setHoveredSkill(index)}
-                    onHoverEnd={() => setHoveredSkill(null)}
-                    whileHover={{ 
-                      y: -10,
-                      rotateY: 10,
-                      scale: 1.05,
-                      transition: { type: "spring", stiffness: 300, damping: 20 }
-                    }}
-                    className='relative group perspective-1000'
+                    onMouseEnter={() => setHoveredSkill(skillId)}
+                    onMouseLeave={() => setHoveredSkill(null)}
+                    className='relative'
                   >
-                    {/* Card Container with 3D effect */}
-                    <div className={`relative p-4 sm:p-6 md:p-8 rounded-2xl bg-gradient-to-br from-gray-900 to-gray-800 border-2 transition-all duration-500
-                      ${hoveredSkill === index 
-                        ? `${categories[active].borderColor} shadow-2xl` 
-                        : 'border-gray-800 hover:border-gray-700'}`}
-                      style={{
-                        transformStyle: 'preserve-3d',
+                    {/* Card Container */}
+                    <motion.div 
+                      className={`relative p-4 sm:p-6 md:p-8 rounded-2xl bg-white/80 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 border-2 text-gray-900 dark:text-white overflow-hidden
+                        ${isHovered 
+                          ? `${categories[active].borderColor} shadow-2xl` 
+                          : 'border-gray-200 dark:border-gray-800 shadow-lg'}`}
+                      animate={{
+                        y: isHovered ? -12 : 0,
+                        scale: isHovered ? 1.05 : 1,
+                      }}
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 300, 
+                        damping: 20,
+                        duration: 0.3
                       }}
                     >
                       {/* Animated background glow */}
                       <motion.div 
-                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${categories[active].color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}
+                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${categories[active].color} blur-xl`}
                         animate={{
-                          scale: hoveredSkill === index ? [1, 1.2, 1] : 1,
+                          opacity: isHovered ? 0.15 : 0
                         }}
-                        transition={{ duration: 2, repeat: Infinity }}
+                        transition={{ duration: 0.3 }}
                       />
                       
-                      {/* Shimmer effect */}
-                      <motion.div
-                        className="absolute inset-0 rounded-2xl overflow-hidden"
-                        initial={{ x: '-100%' }}
-                        whileHover={{ x: '100%' }}
-                        transition={{ duration: 0.8 }}
-                      >
-                        <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12`} />
-                      </motion.div>
+                      {/* Shimmer effect - only on hover */}
+                      <AnimatePresence>
+                        {isHovered && (
+                          <motion.div
+                            className="absolute inset-0 rounded-2xl overflow-hidden"
+                            initial={{ x: '-100%' }}
+                            animate={{ x: '100%' }}
+                            exit={{ x: '100%' }}
+                            transition={{ duration: 0.6, ease: "easeInOut" }}
+                          >
+                            <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/30 dark:via-white/15 to-transparent skew-x-12`} />
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
 
                       <div className='flex flex-col items-center justify-center gap-3 sm:gap-4 relative z-10'>
+                        {/* Icon with animation */}
                         <motion.div
                           animate={{
-                            scale: hoveredSkill === index ? [1, 1.2, 1] : 1,
-                            rotate: hoveredSkill === index ? [0, 10, -10, 0] : 0,
+                            scale: isHovered ? 1.2 : 1,
+                            rotate: isHovered ? [0, -8, 8, 0] : 0,
                           }}
                           transition={{ 
-                            duration: 0.6,
-                            repeat: hoveredSkill === index ? Infinity : 0,
-                            repeatDelay: 0.5
+                            duration: 0.4,
+                            ease: "easeInOut"
                           }}
-                          className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl filter drop-shadow-lg'
+                          className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl'
                         >
                           {tech.icon}
                         </motion.div>
+                        
+                        {/* Text with animation */}
                         <motion.p 
-                          className='text-xs sm:text-sm md:text-base font-semibold text-center text-gray-300 group-hover:text-white transition-colors'
-                          animate={{ y: hoveredSkill === index ? [0, -3, 0] : 0 }}
-                          transition={{ duration: 0.4 }}
+                          className='text-xs sm:text-sm md:text-base font-semibold text-center text-gray-700 dark:text-gray-300'
+                          animate={{ 
+                            y: isHovered ? -3 : 0,
+                            scale: isHovered ? 1.05 : 1,
+                            color: isHovered ? (
+                              // Dynamic color based on theme
+                              'rgb(17, 24, 39)' // gray-900 for light
+                            ) : undefined
+                          }}
+                          transition={{ duration: 0.3 }}
+                          style={{
+                            color: isHovered 
+                              ? 'var(--skill-hover-color, rgb(17, 24, 39))' 
+                              : undefined
+                          }}
                         >
                           {tech.name}
                         </motion.p>
                       </div>
 
                       {/* Corner accent */}
-                      <div className={`absolute top-0 right-0 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br ${categories[active].color} rounded-bl-2xl rounded-tr-2xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
-                    </div>
+                      <motion.div 
+                        className={`absolute top-0 right-0 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br ${categories[active].color} rounded-bl-2xl rounded-tr-2xl`}
+                        animate={{ opacity: isHovered ? 0.4 : 0 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    </motion.div>
                   </motion.div>
-                ))}
+                  );
+                })}
               </motion.div>
             </AnimatePresence>
           </div>

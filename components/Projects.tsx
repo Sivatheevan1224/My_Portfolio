@@ -5,6 +5,7 @@ import { MdArrowOutward } from 'react-icons/md'
 import { motion } from 'framer-motion'
 import { StaticImageData } from 'next/image'
 import { FiGithub, FiExternalLink } from 'react-icons/fi'
+import SectionFloatingIcons from './SectionFloatingIcons'
 
 interface Project {
   id: number;
@@ -18,10 +19,11 @@ interface Project {
 
 const Projects = () => {
   return (
-    <section className='relative min-h-screen text-white px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20' id='projects'>
+    <section className='relative min-h-screen text-gray-900 dark:text-white px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20' id='projects'>
       {/* Background effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-100" />
+        <div className="absolute inset-0 bg-white/80 dark:bg-black" />
+        <SectionFloatingIcons />
       </div>
 
       <div className="relative container mx-auto">
@@ -55,7 +57,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
               whileHover={{ y: -5 }}
-              className='group bg-gray-900 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-800 hover:border-blue-500/50 flex flex-col'
+              className='group bg-white/90 dark:bg-gray-900 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-gray-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 flex flex-col'
             >
               {/* Image Container */}
               <div className='relative aspect-[16/9] overflow-hidden'>
@@ -66,7 +68,7 @@ const Projects = () => {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.4 }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-gray-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
 
               {/* Content Container */}
@@ -84,7 +86,7 @@ const Projects = () => {
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ duration: 0.3, delay: 0.3 }}
-                  className='text-sm sm:text-base text-gray-300 flex-grow'
+                  className='text-sm sm:text-base text-gray-700 dark:text-gray-300 flex-grow'
                 >
                   {project.description}
                 </motion.p>
@@ -96,7 +98,7 @@ const Projects = () => {
                   transition={{ duration: 0.3, delay: 0.35 }}
                   className='pt-2'
                 >
-                  <h4 className='text-xs sm:text-sm font-medium text-gray-400 mb-3'>Technologies Used</h4>
+                  <h4 className='text-xs sm:text-sm font-medium text-gray-600 dark:text-gray-400 mb-3'>Technologies Used</h4>
                   <div className='flex flex-wrap gap-2'>
                     {project.tech.map((tech: string, index: number) => (
                       <motion.span
@@ -104,7 +106,7 @@ const Projects = () => {
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.2, delay: index * 0.1 }}
-                        className='px-3 py-1.5 text-xs font-medium text-white bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-105'
+                        className='px-3 py-1.5 text-xs font-medium text-gray-900 dark:text-white bg-gray-200 dark:bg-white/10 rounded-full hover:bg-gray-300 dark:hover:bg-white/20 transition-all duration-300 hover:scale-105'
                       >
                         {tech}
                       </motion.span>
@@ -124,7 +126,7 @@ const Projects = () => {
                     rel='noopener noreferrer'
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className='flex items-center justify-center gap-2 bg-white/10 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-white hover:text-black transition-all duration-300 group'
+                    className='flex items-center justify-center gap-2 bg-gray-200 dark:bg-white/10 text-gray-900 dark:text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 group'
                   >
                     <FiGithub className="text-lg group-hover:rotate-12 transition-transform duration-300" />
                     View on GitHub
@@ -136,7 +138,7 @@ const Projects = () => {
                     rel='noopener noreferrer'
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className='flex items-center justify-center gap-2 bg-white text-black px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-100 transition-all duration-300 group'
+                    className='flex items-center justify-center gap-2 bg-gray-900 dark:bg-white text-white dark:text-black px-6 py-2.5 rounded-full text-sm font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-300 group'
                   >
                     <FiExternalLink className="text-lg group-hover:rotate-12 transition-transform duration-300" />
                     View Project

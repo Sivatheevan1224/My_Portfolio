@@ -4,6 +4,7 @@ import emailjs from '@emailjs/browser';
 import toast, { Toaster } from 'react-hot-toast';
 import { FiSend, FiUser, FiMail, FiMessageSquare } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import SectionFloatingIcons from './SectionFloatingIcons';
 
 const ContactForm = () => {
     const [formData, setFormData] = useState({
@@ -50,34 +51,78 @@ const ContactForm = () => {
                 email: validationErrors.email || "",
                 message: validationErrors.message || "",
             });
-        } else {
-            setErrors({
-                name: "",
-                email: "",
-                message: "",
-            });
-            setIsSending(true);
-
-            emailjs.send("service_tqqmtt3", "template_a1uk9lj", formData, process.env.NEXT_PUBLIC_EMAIL_API_ID)
-                .then(() => {
-                    toast.success("Message sent successfully");
-                    setFormData({
-                        name: "",
-                        email: "",
-                        message: "",
-                    });
-                })
-                .catch(() => {
-                    toast.error("Failed to send message. Please try again later");
-                })
-                .finally(() => {
-                    setIsSending(false);
-                });
+            return;
         }
+
+        setErrors({ name: "", email: "", message: "" });
+        setIsSending(true);
+
+    // Use provided public key by default but allow overriding via env
+    const emailJsKey = process.env.NEXT_PUBLIC_EMAIL_API_ID || "04JcnQJdOYeFysvHu";
+        // Allow overriding service/template via env, otherwise use provided IDs
+        const SERVICE_ID = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID || "service_v62518j";
+        const TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID || "template_y77c2mp";
+
+        if (!emailJsKey) {
+            // Fallback: open user's mail client with prefilled subject and body
+            const subject = encodeURIComponent(`Contact from ${formData.name} via portfolio`);
+            const body = encodeURIComponent(`Name: ${formData.name}%0AEmail: ${formData.email}%0A%0A${formData.message}`);
+            const mailto = `mailto:sivatheevan1224@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = mailto;
+            toast('Email client opened as fallback (EmailJS not configured)', { icon: '✉️' });
+            setIsSending(false);
+            return;
+        }
+
+        // Prepare template params using many common variable names to maximize compatibility
+        const templateParams = {
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            from_name: formData.name,
+            from_email: formData.email,
+            user_name: formData.name,
+            user_email: formData.email,
+            to_name: "Sivatheevan",
+        };
+
+        // Send using EmailJS. If it fails (e.g., 412 Template mismatch), log details and fallback to mailto.
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, emailJsKey)
+            .then(() => {
+                toast.success("Message sent successfully");
+                setFormData({ name: "", email: "", message: "" });
+            })
+            .catch((err: any) => {
+                // Log error for debugging
+                console.error('EmailJS send error:', err);
+
+                // Show descriptive toast
+                const errMsg = err && err.text ? err.text : (err && err.message) ? err.message : 'Failed to send message. Using mail client fallback.';
+                toast.error(errMsg);
+
+                // Fallback: open mail client with prefilled subject/body so messages still get delivered
+                try {
+                    const subject = encodeURIComponent(`Contact from ${formData.name} via portfolio`);
+                    const body = encodeURIComponent(`Name: ${formData.name}%0AEmail: ${formData.email}%0A%0A${formData.message}`);
+                    const mailto = `mailto:sivatheevan1224@gmail.com?subject=${subject}&body=${body}`;
+                    if (typeof window !== 'undefined') window.location.href = mailto;
+                } catch (e) {
+                    console.error('Failed to open mailto fallback', e);
+                }
+            })
+            .finally(() => {
+                setIsSending(false);
+            });
     };
 
     return (
-        <section className='container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20' id='contact'>
+        <section className='relative container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 text-gray-900 dark:text-white' id='contact'>
+            {/* Background effects */}
+            <div className="absolute inset-0 overflow-hidden -z-10">
+                <div className="absolute inset-0 bg-white/60 dark:bg-black/90" />
+                <SectionFloatingIcons />
+            </div>
+            
             <Toaster />
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -88,7 +133,7 @@ const ContactForm = () => {
                 <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent'>
                     Let&apos;s Connect
                 </h2>
-                <p className='text-gray-400 text-center mb-12 text-sm sm:text-base'>
+                <p className='text-gray-600 dark:text-gray-400 text-center mb-12 text-sm sm:text-base'>
                     Have a question or want to work together? Feel free to reach out!
                 </p>
 
@@ -101,7 +146,7 @@ const ContactForm = () => {
                 >
                     <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
                         <div className='relative group'>
-                            <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 group-focus-within:text-blue-500 transition-colors'>
+                            <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-600 dark:text-gray-400 group-focus-within:text-blue-500 transition-colors'>
                                 <FiUser className="w-5 h-5" />
                             </div>
                             <input
@@ -113,8 +158,8 @@ const ContactForm = () => {
                                 onChange={handleChange}
                                 onFocus={() => setFocusedField('name')}
                                 onBlur={() => setFocusedField(null)}
-                                className={`w-full pl-10 pr-4 py-3 bg-gray-900 rounded-lg border ${
-                                    focusedField === 'name' ? 'border-blue-500' : errors.name ? 'border-red-500' : 'border-gray-800'
+                                className={`w-full pl-10 pr-4 py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-lg border ${
+                                    focusedField === 'name' ? 'border-blue-500' : errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-800'
                                 } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300`}
                             />
                             {errors.name && (
@@ -129,7 +174,7 @@ const ContactForm = () => {
                         </div>
 
                         <div className='relative group'>
-                            <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 group-focus-within:text-blue-500 transition-colors'>
+                            <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-600 dark:text-gray-400 group-focus-within:text-blue-500 transition-colors'>
                                 <FiMail className="w-5 h-5" />
                             </div>
                             <input
@@ -141,8 +186,8 @@ const ContactForm = () => {
                                 onChange={handleChange}
                                 onFocus={() => setFocusedField('email')}
                                 onBlur={() => setFocusedField(null)}
-                                className={`w-full pl-10 pr-4 py-3 bg-gray-900 rounded-lg border ${
-                                    focusedField === 'email' ? 'border-blue-500' : errors.email ? 'border-red-500' : 'border-gray-800'
+                                className={`w-full pl-10 pr-4 py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-lg border ${
+                                    focusedField === 'email' ? 'border-blue-500' : errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-800'
                                 } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300`}
                             />
                             {errors.email && (
@@ -158,7 +203,7 @@ const ContactForm = () => {
                     </div>
 
                     <div className='relative group'>
-                        <div className='absolute top-3 left-0 pl-3 flex items-center pointer-events-none text-gray-400 group-focus-within:text-blue-500 transition-colors'>
+                        <div className='absolute top-3 left-0 pl-3 flex items-center pointer-events-none text-gray-600 dark:text-gray-400 group-focus-within:text-blue-500 transition-colors'>
                             <FiMessageSquare className="w-5 h-5" />
                         </div>
                         <textarea
@@ -169,8 +214,8 @@ const ContactForm = () => {
                             onChange={handleChange}
                             onFocus={() => setFocusedField('message')}
                             onBlur={() => setFocusedField(null)}
-                            className={`w-full pl-10 pr-4 py-3 bg-gray-900 rounded-lg border ${
-                                focusedField === 'message' ? 'border-blue-500' : errors.message ? 'border-red-500' : 'border-gray-800'
+                            className={`w-full pl-10 pr-4 py-3 bg-white dark:bg-gray-900 text-gray-900 dark:text-white rounded-lg border ${
+                                focusedField === 'message' ? 'border-blue-500' : errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-800'
                             } focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all duration-300 min-h-[160px] resize-y`}
                         />
                         {errors.message && (

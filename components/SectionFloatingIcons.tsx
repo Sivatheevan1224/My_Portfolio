@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { 
   FiCode, FiGitBranch, FiTerminal, FiDatabase, FiServer, FiLayers, FiCpu, FiCloud,
@@ -11,49 +11,11 @@ import {
   SiGit, SiGithub, SiDocker, SiVisualstudiocode, SiBootstrap, SiPhp, SiC
 } from 'react-icons/si';
 
-const HeroFloatingIcons = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [viewport, setViewport] = useState({ width: 1200, height: 800 });
-  const [lightningBolts, setLightningBolts] = useState<Array<{ id: number; x: number; y: number }>>([]);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      
-      // Create lightning bolt effect randomly on mouse move (increased frequency)
-      if (Math.random() > 0.92) { // Increased from 0.95 to 0.92
-        const newBolt = {
-          id: Date.now(),
-          x: e.clientX,
-          y: e.clientY
-        };
-        setLightningBolts(prev => [...prev, newBolt]);
-        
-        // Remove bolt after animation
-        setTimeout(() => {
-          setLightningBolts(prev => prev.filter(bolt => bolt.id !== newBolt.id));
-        }, 1200); // Increased from 1000 to 1200
-      }
-    };
-
-    if (typeof window !== 'undefined') {
-      window.addEventListener('mousemove', handleMouseMove);
-      // initialize viewport
-      setViewport({ width: window.innerWidth, height: window.innerHeight });
-      const handleResize = () => setViewport({ width: window.innerWidth, height: window.innerHeight });
-      window.addEventListener('resize', handleResize);
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-        window.removeEventListener('resize', handleResize);
-      };
-    }
-    return () => {};
-  }, []);
-
+const SectionFloatingIcons = () => {
   const icons = [
     // Frontend
     { Icon: SiReact, color: 'text-cyan-400', size: 'text-4xl', delay: 0 },
-    { Icon: SiNextdotjs, color: 'text-white', size: 'text-3xl', delay: 0.5 },
+    { Icon: SiNextdotjs, color: 'text-gray-600 dark:text-white', size: 'text-3xl', delay: 0.5 },
     { Icon: SiHtml5, color: 'text-orange-500', size: 'text-4xl', delay: 1 },
     { Icon: SiCss3, color: 'text-blue-500', size: 'text-3xl', delay: 1.5 },
     { Icon: SiTailwindcss, color: 'text-cyan-500', size: 'text-4xl', delay: 2 },
@@ -76,7 +38,7 @@ const HeroFloatingIcons = () => {
     
     // Tools & DevOps
     { Icon: SiGit, color: 'text-orange-500', size: 'text-4xl', delay: 0.8 },
-    { Icon: SiGithub, color: 'text-white', size: 'text-3xl', delay: 1.3 },
+    { Icon: SiGithub, color: 'text-gray-700 dark:text-white', size: 'text-3xl', delay: 1.3 },
     { Icon: SiDocker, color: 'text-blue-500', size: 'text-4xl', delay: 1.8 },
     { Icon: SiVisualstudiocode, color: 'text-blue-400', size: 'text-3xl', delay: 2.3 },
     
@@ -112,60 +74,27 @@ const HeroFloatingIcons = () => {
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Lightning bolts */}
-      {lightningBolts.map((bolt) => (
-        <motion.div
-          key={bolt.id}
-          className="absolute w-2 bg-gradient-to-b from-blue-400 via-purple-500 to-transparent"
-          style={{
-            left: bolt.x,
-            top: bolt.y,
-            transformOrigin: 'top',
-          }}
-          initial={{ height: 0, opacity: 1, scaleX: 1 }}
-          animate={{ 
-            height: [0, 300, 0],
-            opacity: [1, 0.9, 0],
-            scaleX: [1, 0.6, 0.3],
-          }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {/* Lightning glow - enhanced */}
-          <div className="absolute inset-0 blur-md bg-gradient-to-b from-blue-300 via-purple-400 to-transparent opacity-80" />
-        </motion.div>
-      ))}
-
-      {/* Floating Icons with mouse interaction */}
-      <div className="opacity-50 dark:opacity-60">
+      {/* Simple Floating Icons - no mouse tracking, always visible */}
+      <div className="opacity-60 dark:opacity-70">
         {icons.map((item, index) => {
           const { Icon, color, size, delay } = item;
           const position = positions[index % positions.length];
-
-          // Calculate mouse-based movement - enhanced responsiveness
-          const moveX = (mousePosition.x - viewport.width / 2) / (30 + index);
-          const moveY = (mousePosition.y - viewport.height / 2) / (30 + index);
 
           return (
             <motion.div
               key={index}
               className={`absolute ${position} ${color} ${size}`}
-              initial={{ opacity: 0, scale: 0 }}
+              initial={{ opacity: 1, scale: 1 }}
               animate={{
-                opacity: [0.6, 1, 0.6],
-                scale: [1, 1.3, 1],
-                y: [0, -30, 0],
-                rotate: [0, 15, -15, 0],
+                scale: [1, 1.1, 1],
+                y: [0, -15, 0],
+                rotate: [0, 8, -8, 0],
               }}
               transition={{
-                duration: 5 + index * 0.2,
+                duration: 6 + index * 0.3,
                 repeat: Infinity,
                 delay: delay,
                 ease: "easeInOut",
-              }}
-              style={{
-                transform: `translate(${moveX}px, ${moveY}px)`,
-                transition: 'transform 0.2s ease-out',
-                filter: 'drop-shadow(0 0 8px currentColor) drop-shadow(0 0 12px currentColor)',
               }}
             >
               <Icon />
@@ -173,47 +102,8 @@ const HeroFloatingIcons = () => {
           );
         })}
       </div>
-
-      {/* Mouse follower glow - enhanced */}
-      <motion.div
-        className="absolute w-96 h-96 rounded-full pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(147, 51, 234, 0.15) 50%, transparent 70%)',
-          left: mousePosition.x - 192,
-          top: mousePosition.y - 192,
-          filter: 'blur(50px)',
-        }}
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.6, 1, 0.6],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-
-      {/* Additional mouse trail effect */}
-      <motion.div
-        className="absolute w-32 h-32 rounded-full pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, rgba(168, 85, 247, 0.2) 50%, transparent 70%)',
-          left: mousePosition.x - 64,
-          top: mousePosition.y - 64,
-          filter: 'blur(30px)',
-        }}
-        animate={{
-          scale: [1, 1.5, 1],
-        }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
     </div>
   );
 };
 
-export default HeroFloatingIcons;
+export default SectionFloatingIcons;

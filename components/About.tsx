@@ -3,6 +3,7 @@ import React from 'react'
 import { motion } from 'framer-motion';
 import { FiMonitor } from 'react-icons/fi'
 import { FaMobileAlt, FaServer } from 'react-icons/fa'
+import SectionFloatingIcons from './SectionFloatingIcons';
 
 const services = [
   {
@@ -48,10 +49,11 @@ const stats = [
 
 const About = () => {
   return (
-    <section className='relative min-h-screen text-white px-4 sm:px-6 md:px-12 lg:px-24 py-16 sm:py-20' id='about'>
+    <section className='relative min-h-screen text-gray-900 dark:text-white px-4 sm:px-6 md:px-12 lg:px-24 py-16 sm:py-20' id='about'>
       {/* Animated background effects */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-100" />
+        <div className="absolute inset-0 bg-white/80 dark:bg-black" />
+        <SectionFloatingIcons />
       </div>
       
       <div className="container relative mx-auto">
@@ -103,14 +105,14 @@ const About = () => {
                   </div>
                   <div className="space-y-2">
                     <div className="flex gap-4 items-center">
-                      <div className={`p-3 rounded-lg bg-gray-900 group-hover:bg-gradient-to-br ${service.color} group-hover:bg-opacity-10 transition-all duration-300`}>
+                      <div className={`p-3 rounded-lg bg-gray-100 dark:bg-gray-900 group-hover:bg-gradient-to-br ${service.color} group-hover:bg-opacity-10 transition-all duration-300`}>
                         {service.icon}
                       </div>
                       <h3 className={`text-xl sm:text-2xl font-semibold bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
                         {service.title}
                       </h3>
                     </div>
-                    <p className="text-gray-400 pl-[52px] group-hover:text-gray-300 transition-colors duration-300">
+                    <p className="text-gray-600 dark:text-gray-400 pl-[52px] group-hover:text-gray-800 dark:group-hover:text-gray-300 transition-colors duration-300">
                       {service.description}
                     </p>
                   </div>
@@ -127,10 +129,10 @@ const About = () => {
             className="space-y-8"
           >
             <motion.div 
-              className="p-6 rounded-xl bg-gray-900 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/10"
+              className="p-6 rounded-xl bg-white/90 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/10"
               whileHover={{ scale: 1.01 }}
             >
-              <p className="text-lg text-gray-300 leading-relaxed">
+              <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                 I am an enthusiastic Full Stack Developer with a strong foundation in modern technologies like React, Node.js, and PHP. My journey began with a fascination for technology, and I thrive in dynamic environments, collaborating with fellow developers to craft innovative solutions. With a focus on clean, efficient code and continuous learning, I explore new technologies to push the boundaries of software development.
               </p>
             </motion.div>
@@ -144,7 +146,7 @@ const About = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   whileHover={{ scale: 1.05 }}
-                  className="p-4 rounded-lg bg-gray-900 border border-gray-800 hover:border-blue-500/50 transition-all duration-300 group"
+                  className="p-4 rounded-lg bg-white/90 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 group"
                 >
                   <div className="text-center">
                     <div className="text-2xl mb-2 transform group-hover:scale-110 transition-transform duration-300">
@@ -152,9 +154,9 @@ const About = () => {
                     </div>
                     <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-2">
                       {stat.number}
-                      <span className="text-white">{stat.suffix}</span>
+                      <span className="text-gray-900 dark:text-white">{stat.suffix}</span>
                     </div>
-                    <p className="text-sm sm:text-base text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
+                    <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-300 transition-colors duration-300">
                       {stat.text}
                     </p>
                   </div>
