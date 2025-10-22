@@ -97,6 +97,15 @@ export const PROJECTS = [
       "",
     tech: ["React", "json"],
   },
+  {
+id: 4,
+name: "Restaurant Website",
+description: "Responsive restaurant landing site built with HTML, CSS and vanilla JavaScript; features menu sections, image gallery, and a mobile-friendly layout.",
+image: projectImage4,
+githubLink: "https://github.com/Sivatheevan1224/Restaurant-Website",
+viewDemo: "",
+tech: ["HTML", "CSS", "JavaScript"]
+},
 ];
 
 export const BIO = [
