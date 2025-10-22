@@ -100,7 +100,7 @@ export const PROJECTS = [
   {
 id: 4,
 name: "Restaurant Website",
-description: "Responsive restaurant landing site built with HTML, CSS and vanilla JavaScript; features menu sections, image gallery, and a mobile-friendly layout.",
+description: "Clean, responsive restaurant website built with semantic HTML, modern CSS (flexbox/grid) and vanilla JavaScript; includes an interactive menu, image gallery, and mobile-first layout. Ideal for showcasing menus and reservations.",
 image: projectImage4,
 githubLink: "https://github.com/Sivatheevan1224/Restaurant-Website",
 viewDemo: "",
