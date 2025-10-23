@@ -79,7 +79,7 @@ export const PROJECTS = [
     id: 2,
     name: "GYM Management System",
     description:
-      "The Gym Management System is designed to help gyms and fitness centres efficiently manage their operations, including member enrolment, trainer assignments, and payment tracking, through a single unified interface. It simplifies administrative tasks by replacing manual logs and spreadsheets with a streamlined web-based platform, ensuring better record-keeping and organization of member details, trainer data, and payment histories. This system is ideal for small to medium-sized gyms looking to digitize their management processes and can also serve as a valuable learning resource for developers interested in understanding how to build a real-world CRUD web application using PHP, a database, and user role management.",
+      "The Gym Management System is designed to help gyms and fitness centres efficiently manage their operations, including member enrolment, trainer assignments, and payment tracking, through a single unified interface. This system is ideal for small to medium-sized gyms looking to digitize their management processes and can also serve as a valuable learning resource for developers interested in understanding how to build a real-world CRUD web application using PHP, a database, and user role management.",
     image: projectImage2,
     githubLink: "https://github.com/Sivatheevan1224/Gym_Management_System.git",
     viewDemo:
@@ -109,10 +109,11 @@ tech: ["HTML", "CSS", "JavaScript"]
 ];
 
 export const BIO = [
-  "I am an enthusiastic Full Stack Developer with a strong foundation in modern technologies like React, Node.js, and PHP. My journey began with a fascination for technology, leading me to create seamless web applications that enhance user experiences.",
-  "Collaboration drives my work ethic. I thrive in dynamic environments, exchanging ideas with fellow developers and designers to craft innovative solutions. My focus on clean, efficient code ensures that projects remain maintainable.",
-  "In my spare time, I explore new programming languages and frameworks, continuously expanding my skill set and pushing the boundaries of software development.",
+  "I am an enthusiastic Full Stack Developer and a Computer Science and Technology student at Uva Wellassa University of Sri Lanka, driven by a passion for continuous learning, innovation, and problem-solving. My journey began with a fascination for technology, which inspired me to build efficient and user-centric web applications using modern technologies.",
+  "Collaboration drives my work ethic. I thrive in dynamic environments, exchanging ideas with fellow developers and designers to craft innovative, scalable solutions. I prioritize writing clean, maintainable, and efficient code that ensures long-term project quality and performance.",
+  "Beyond academics, I actively explore emerging technologies, programming languages, and frameworks through hands-on projects and continuous learning. My dedication to lifelong growth, adaptability, and technical excellence empowers me to contribute meaningfully to the evolving landscape of the tech industry.",
 ];
+
 
 export const FRONTENDSKILLS = [
   {

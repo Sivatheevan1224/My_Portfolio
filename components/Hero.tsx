@@ -60,7 +60,7 @@ const Hero = () => {
               className="mb-6 sm:mb-8"
             >
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
-                Hello <span className="text-special">.</span>
+                Hello <span className="text-special">...</span>
               </h1>
               
               <div className="relative inline-block md:block pl-6 mb-4 sm:mb-6">

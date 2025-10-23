@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { FiMonitor } from 'react-icons/fi'
 import { FaMobileAlt } from 'react-icons/fa'
 import SectionFloatingIcons from './SectionFloatingIcons';
+import Certificates from './Certificates';
 
 const services = [
   {
@@ -26,26 +27,26 @@ const services = [
   // },
 ];
 
-const stats = [
-  {
-    number: "03",
-    suffix: "+",
-    text: "Completed Projects",
-    icon: "🎯"
-  },
-  {
-    number: "95",
-    suffix: "%",
-    text: "Client satisfaction",
-    icon: "⭐"
-  },
-  {
-    number: "01",
-    suffix: "+",
-    text: "Years of experience",
-    icon: "💫"
-  }
-];
+// const stats = [
+//   {
+//     number: "03",
+//     suffix: "+",
+//     text: "Completed Projects",
+//     icon: "🎯"
+//   },
+//   {
+//     number: "95",
+//     suffix: "%",
+//     text: "Client satisfaction",
+//     icon: "⭐"
+//   },
+//   {
+//     number: "01",
+//     suffix: "+",
+//     text: "Years of experience",
+//     icon: "💫"
+//   }
+// ];
 
 const About = () => {
   return (
@@ -133,12 +134,12 @@ const About = () => {
               whileHover={{ scale: 1.01 }}
             >
               <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                I am an enthusiastic Full Stack Developer with a strong foundation in modern technologies like React, Node.js, and PHP. My journey began with a fascination for technology, and I thrive in dynamic environments, collaborating with fellow developers to craft innovative solutions. With a focus on clean, efficient code and continuous learning, I explore new technologies to push the boundaries of software development.
+                I’m a passionate Full Stack Developer and Computer Science student at Uva Wellassa University of Sri Lanka, driven by curiosity, innovation, and problem-solving. I specialize in building efficient, user-centric web applications using modern technologies such as React, Node.js, PHP, Java, Python, and SQL. I value collaboration, clean code, and scalable design principles that enhance user experience and ensure project sustainability. Continuously exploring new technologies and frameworks, I stay committed to lifelong learning and contributing meaningfully to the ever-evolving tech industry.
               </p>
             </motion.div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 sm:gap-6">
+            {/* <div className="grid grid-cols-3 gap-4 sm:gap-6">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
@@ -162,8 +163,13 @@ const About = () => {
                   </div>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
           </motion.div>
+        </div>
+
+        {/* Certificates card */}
+        <div className="mt-8 sm:mt-12">
+          <Certificates />
         </div>
       </div>
     </section>
