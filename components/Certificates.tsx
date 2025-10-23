@@ -5,13 +5,14 @@ import Image from "next/image";
 import certificateImg from "@/assets/certificate.png";
 
 // Hard-coded list of certificate files in public/certificates
+const basePath = process.env.NODE_ENV === 'production' ? '/My_Portfolio' : '';
 const certificates = [
-  { id: 1, name: "Certificate of Participation", file: "/certificates/Certificate of Participation_UWU_XTREME.jpg" },
-  { id: 2, name: "Dean List", file: "/certificates/DeanList_Semester_100_I.JPG" },
-  { id: 3, name: "HTML Certificate", file: "/certificates/Html.png" },
-  { id: 4, name: "Java Certificate", file: "/certificates/Java .png" },
-  { id: 5, name: "Python Certificate", file: "/certificates/Python_for_Beginners_E-Certificate.PNG" },
-  { id: 6, name: "SQL Certificate", file: "/certificates/SQL.png" },
+  { id: 1, name: "Certificate of Participation", file: `${basePath}/certificates/Certificate of Participation_UWU_XTREME.jpg` },
+  { id: 2, name: "Dean List", file: `${basePath}/certificates/DeanList_Semester_100_I.JPG` },
+  { id: 3, name: "HTML Certificate", file: `${basePath}/certificates/Html.png` },
+  { id: 4, name: "Java Certificate", file: `${basePath}/certificates/Java .png` },
+  { id: 5, name: "Python Certificate", file: `${basePath}/certificates/Python_for_Beginners_E-Certificate.PNG` },
+  { id: 6, name: "SQL Certificate", file: `${basePath}/certificates/SQL.png` },
 ];
 
 const Certificates: React.FC = () => {
