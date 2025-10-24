@@ -1,6 +1,6 @@
 "use client";
 import { HERO, SOCIAL_MEDIA_LINKS } from "@/constants";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import cardimg from "@/assets/hero3.png";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiDownload, FiEye } from 'react-icons/fi';
@@ -37,6 +37,46 @@ const techStack = [
 ];
 
 const Hero = () => {
+  const [typedText, setTypedText] = useState("");
+  const fullText = "Software Developer";
+  
+  useEffect(() => {
+    let currentIndex = 0;
+    let isDeleting = false;
+    let loopTimeout: NodeJS.Timeout;
+
+    const typeWriter = () => {
+      if (!isDeleting && currentIndex <= fullText.length) {
+        // Typing forward
+        setTypedText(fullText.slice(0, currentIndex));
+        currentIndex++;
+        loopTimeout = setTimeout(typeWriter, 100); // 100ms per character
+      } else if (!isDeleting && currentIndex > fullText.length) {
+        // Pause at end before deleting
+        loopTimeout = setTimeout(() => {
+          isDeleting = true;
+          typeWriter();
+        }, 2000); // Pause for 2 seconds
+      } else if (isDeleting && currentIndex > 0) {
+        // Deleting backward
+        currentIndex--;
+        setTypedText(fullText.slice(0, currentIndex));
+        loopTimeout = setTimeout(typeWriter, 50); // Faster deletion (50ms)
+      } else if (isDeleting && currentIndex === 0) {
+        // Pause at start before typing again
+        isDeleting = false;
+        loopTimeout = setTimeout(() => {
+          currentIndex = 0;
+          typeWriter();
+        }, 500); // Short pause before restarting
+      }
+    };
+
+    typeWriter();
+
+    return () => clearTimeout(loopTimeout);
+  }, []);
+
   return (
     <>
       <section className="relative min-h-[90vh] sm:min-h-screen text-gray-900 dark:text-white overflow-hidden w-screen" id="hero">
@@ -59,20 +99,52 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-6 sm:mb-8"
             >
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6">
-                Hello <span className="text-special">...</span>
-              </h1>
+              <motion.h1 
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6"
+              >
+                Hello <motion.span 
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.6, type: "spring", stiffness: 200 }}
+                  className="text-special inline-block"
+                >...</motion.span>
+              </motion.h1>
               
-              <div className="relative inline-block md:block pl-6 mb-4 sm:mb-6">
-                <div className="absolute left-0 top-1/2 -translate-y-1/2 w-6 h-[2px] bg-special"></div>
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="relative inline-block md:block pl-6 mb-4 sm:mb-6"
+              >
+                <motion.div 
+                  initial={{ width: 0 }}
+                  animate={{ width: 24 }}
+                  transition={{ duration: 0.4, delay: 0.7 }}
+                  className="absolute left-0 top-1/2 -translate-y-1/2 h-[2px] bg-special"
+                ></motion.div>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl">
                   I&apos;m {HERO.name}
                 </h2>
-              </div>
+              </motion.div>
               
-              <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide mb-6 sm:mb-8 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Software Developer
-              </h3>
+              <motion.h3 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+                className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-wide mb-6 sm:mb-8 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent"
+              >
+                {typedText}
+                <motion.span
+                  animate={{ opacity: [1, 0] }}
+                  transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
+                  className="inline-block ml-1"
+                >
+                  |
+                </motion.span>
+              </motion.h3>
             </motion.div>
 
             {/* Social Media Links */}
@@ -119,42 +191,64 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
             >
               <motion.a
-                whileHover={{ scale: 1.05 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.8 }}
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(67, 97, 238, 0.3)" }}
                 whileTap={{ scale: 0.95 }}
                 href="#contact"
-                className="group flex items-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-[#4361ee] to-[#3a0ca3] text-white rounded-full text-sm sm:text-base font-medium hover:from-[#5a76f7] hover:to-[#4a1cb3] transition-all duration-300"
+                className="group flex items-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-[#4361ee] to-[#3a0ca3] text-white rounded-full text-sm sm:text-base font-medium hover:from-[#5a76f7] hover:to-[#4a1cb3] transition-all duration-300 shadow-lg"
               >
                 Hire Me
-                <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                <motion.span
+                  animate={{ x: [0, 3, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                >
+                  <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+                </motion.span>
               </motion.a>
 
               {/* CV buttons: View and Download with icons */}
-              <div className="flex items-center gap-3">
-                <motion.a
-                  whileHover={{ translateY: -3 }}
-                  whileTap={{ scale: 0.98 }}
-                  href="/Sankeethan-SoftwareEngineer-Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 border border-gray-300 dark:border-white/10 text-gray-900 dark:text-white rounded-full text-sm font-medium hover:bg-gray-100 dark:hover:bg-white/10 transition-all duration-200"
-                  aria-label="View CV in new tab"
+              <motion.a
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.9 }}
+                whileHover={{ scale: 1.05, y: -3, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)" }}
+                whileTap={{ scale: 0.95 }}
+                href="/Sankeethan-SoftwareEngineer-Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 sm:px-8 py-3 border-2 border-gray-300 dark:border-white/20 text-gray-900 dark:text-white rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 dark:hover:bg-white/10 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-200"
+                aria-label="View CV in new tab"
+              >
+                <motion.span
+                  whileHover={{ rotate: 10 }}
+                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   <FiEye className="w-4 h-4" />
-                  <span className="hidden sm:inline">View CV</span>
-                </motion.a>
+                </motion.span>
+                View CV
+              </motion.a>
 
-                <motion.a
-                  whileHover={{ translateY: -3 }}
-                  whileTap={{ scale: 0.98 }}
-                  href="/Sankeethan-SoftwareEngineer-Resume.pdf"
-                  download="Sankeethan-SoftwareEngineer-Resume.pdf"
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-900 dark:bg-white text-white dark:text-black rounded-full text-sm font-medium hover:bg-gray-800 dark:hover:opacity-90 transition-all duration-200"
-                  aria-label="Download CV"
+              <motion.a
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 1.0 }}
+                whileHover={{ scale: 1.05, y: -3, boxShadow: "0 5px 20px rgba(0, 0, 0, 0.2)" }}
+                whileTap={{ scale: 0.95 }}
+                href="/Sankeethan-SoftwareEngineer-Resume.pdf"
+                download="Sankeethan-SoftwareEngineer-Resume.pdf"
+                className="flex items-center gap-2 px-6 sm:px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-black rounded-full text-sm sm:text-base font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-200 shadow-lg"
+                aria-label="Download CV"
+              >
+                <motion.span
+                  animate={{ y: [0, 2, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
                 >
                   <FiDownload className="w-4 h-4" />
-                  <span className="hidden sm:inline">Download CV</span>
-                </motion.a>
-              </div>
+                </motion.span>
+                Download CV
+              </motion.a>
             </motion.div>
           </motion.div>
 
@@ -165,12 +259,6 @@ const Hero = () => {
             className="relative w-full md:w-1/2 flex justify-center"
           >
             <div className="relative">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
-              />
               <motion.img
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -187,11 +275,11 @@ const Hero = () => {
       </section>
 
       {/* Scrolling Tech Stack */}
-      <div className="relative overflow-hidden py-6 sm:py-8 border-t border-gray-200 dark:border-gray-800 w-full">
+      <div className="relative overflow-hidden py-4 sm:py-5 border-t border-gray-200 dark:border-gray-800 w-full">
         <div className="absolute inset-0 bg-white dark:bg-black" />
         <div className="relative overflow-hidden">
           <motion.div 
-            className="flex whitespace-nowrap gap-8 sm:gap-12"
+            className="flex whitespace-nowrap gap-6 sm:gap-8"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ 
               x: {
@@ -212,7 +300,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.2, y: -5 }}
                   transition={{ type: "spring", stiffness: 300 }}
                 >
-                  <Icon className={`${tech.color} text-3xl sm:text-4xl md:text-5xl`} />
+                  <Icon className={`${tech.color} text-xl sm:text-2xl md:text-3xl`} />
                 </motion.div>
               );
             })}

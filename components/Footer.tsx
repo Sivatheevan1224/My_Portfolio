@@ -29,7 +29,16 @@ const Footer = () => {
                                 <span className='font-mono'>+94 76 375 3730</span>
                             </div>
                             <div className='flex items-center justify-center sm:justify-start gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors'>
-                                <a href="#contact" className='flex items-center gap-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors' aria-label="Go to contact form">
+                                <a 
+                                    href="#contact" 
+                                    className='flex items-center gap-2 hover:text-blue-500 dark:hover:text-blue-400 transition-colors cursor-pointer' 
+                                    aria-label="Go to contact form"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        const el = document.getElementById('contact');
+                                        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    }}
+                                >
                                     <FiMail className="w-4 h-4" />
                                     <span>Sivatheevan1224@gmail.com</span>
                                 </a>
@@ -43,24 +52,37 @@ const Footer = () => {
                             Connect With Me
                         </h3>
                         <div className='flex items-center justify-center gap-4 sm:gap-6'>
-                            {SOCIAL_MEDIA_LINKS.map((link, index) => (
-                                <motion.a
-                                    initial={{ opacity: 0, scale: 0.5 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    whileHover={{ scale: 1.2, rotate: 8 }}
-                                    transition={{
-                                        duration: 0.2,
-                                        delay: index * 0.1
-                                    }}
-                                    href={link.href}
-                                    key={index}
-                                    target='_blank'
-                                    rel='noopener noreferrer'
-                                    className='text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors p-2 hover:bg-gray-200 dark:hover:bg-white/5 rounded-full'
-                                >
-                                    {link.icon}
-                                </motion.a>
-                            ))}
+                            {SOCIAL_MEDIA_LINKS.map((link, index) => {
+                                const isMail = typeof link.href === 'string' && link.href.startsWith('mailto:');
+                                const hrefValue = isMail ? '#contact' : link.href;
+                                
+                                return (
+                                    <motion.a
+                                        initial={{ opacity: 0, scale: 0.5 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        whileHover={{ scale: 1.2, rotate: 8 }}
+                                        transition={{
+                                            duration: 0.2,
+                                            delay: index * 0.1
+                                        }}
+                                        href={hrefValue}
+                                        key={index}
+                                        target={isMail ? undefined : '_blank'}
+                                        rel={isMail ? undefined : 'noopener noreferrer'}
+                                        onClick={(e) => {
+                                            if (isMail) {
+                                                e.preventDefault();
+                                                const el = document.getElementById('contact');
+                                                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                            }
+                                        }}
+                                        aria-label={isMail ? 'Go to contact form' : undefined}
+                                        className='text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors p-2 hover:bg-gray-200 dark:hover:bg-white/5 rounded-full'
+                                    >
+                                        {link.icon}
+                                    </motion.a>
+                                );
+                            })}
                         </div>
                     </div>
 

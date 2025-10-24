@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Sivatheevan Arulnathan",
   description: "This is my portfolio website",
   icons: {
-    icon: '/favicon.png',
+    icon: process.env.NODE_ENV === 'production' ? '/My_Portfolio/favicon.png' : '/favicon.png',
   },
 };
 
@@ -28,9 +28,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden bg-black dark:bg-black`}
       >
         <ThemeProvider>
           {children}

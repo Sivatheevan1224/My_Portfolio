@@ -3,7 +3,7 @@ import { skills } from '@/constants';
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiCode, FiServer, FiDatabase, FiTool, FiChevronRight } from 'react-icons/fi';
-import FloatingIcons from './FloatingIcons';
+import FloatingIcons from './SectionFloatingIcons';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -175,93 +175,48 @@ const Skills = () => {
                     variants={itemVariants}
                     onMouseEnter={() => setHoveredSkill(skillId)}
                     onMouseLeave={() => setHoveredSkill(null)}
+                    onTouchStart={() => setHoveredSkill(skillId)}
+                    onTouchEnd={() => setTimeout(() => setHoveredSkill(null), 1000)}
                     className='relative'
                   >
                     {/* Card Container */}
                     <motion.div 
-                      className={`relative p-4 sm:p-6 md:p-8 rounded-2xl bg-white/80 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 border-2 text-gray-900 dark:text-white overflow-hidden
+                      className={`relative p-3 sm:p-4 md:p-5 rounded-xl bg-white/80 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 border-2 text-gray-900 dark:text-white overflow-hidden transition-all duration-200 h-28 sm:h-32 md:h-36
                         ${isHovered 
-                          ? `${categories[active].borderColor} shadow-2xl` 
-                          : 'border-gray-200 dark:border-gray-800 shadow-lg'}`}
-                      animate={{
-                        y: isHovered ? -12 : 0,
-                        scale: isHovered ? 1.05 : 1,
+                          ? `${categories[active].borderColor} shadow-xl` 
+                          : 'border-gray-200 dark:border-gray-800 shadow-md'}`}
+                      whileHover={{
+                        y: -4,
+                      }}
+                      whileTap={{
+                        scale: 0.98,
                       }}
                       transition={{ 
-                        type: "spring", 
-                        stiffness: 300, 
-                        damping: 20,
-                        duration: 0.3
+                        duration: 0.2,
                       }}
                     >
-                      {/* Animated background glow */}
-                      <motion.div 
-                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${categories[active].color} blur-xl`}
-                        animate={{
-                          opacity: isHovered ? 0.15 : 0
-                        }}
-                        transition={{ duration: 0.3 }}
-                      />
-                      
-                      {/* Shimmer effect - only on hover */}
-                      <AnimatePresence>
-                        {isHovered && (
-                          <motion.div
-                            className="absolute inset-0 rounded-2xl overflow-hidden"
-                            initial={{ x: '-100%' }}
-                            animate={{ x: '100%' }}
-                            exit={{ x: '100%' }}
-                            transition={{ duration: 0.6, ease: "easeInOut" }}
-                          >
-                            <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/30 dark:via-white/15 to-transparent skew-x-12`} />
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-
-                      <div className='flex flex-col items-center justify-center gap-3 sm:gap-4 relative z-10'>
-                        {/* Icon with animation */}
+                      <div className='flex flex-col items-center justify-center gap-2 sm:gap-3 relative z-10 h-full'>
+                        {/* Icon - simple scale on hover */}
                         <motion.div
-                          animate={{
-                            scale: isHovered ? 1.2 : 1,
-                            rotate: isHovered ? [0, -8, 8, 0] : 0,
+                          whileHover={{
+                            scale: 1.1,
+                          }}
+                          whileTap={{
+                            scale: 1.05,
                           }}
                           transition={{ 
-                            duration: 0.4,
-                            ease: "easeInOut"
+                            duration: 0.2,
                           }}
-                          className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl'
+                          className='text-xl sm:text-2xl md:text-3xl lg:text-4xl flex-shrink-0'
                         >
                           {tech.icon}
                         </motion.div>
                         
-                        {/* Text with animation */}
-                        <motion.p 
-                          className='text-xs sm:text-sm md:text-base font-semibold text-center text-gray-700 dark:text-gray-300'
-                          animate={{ 
-                            y: isHovered ? -3 : 0,
-                            scale: isHovered ? 1.05 : 1,
-                            color: isHovered ? (
-                              // Dynamic color based on theme
-                              'rgb(17, 24, 39)' // gray-900 for light
-                            ) : undefined
-                          }}
-                          transition={{ duration: 0.3 }}
-                          style={{
-                            color: isHovered 
-                              ? 'var(--skill-hover-color, rgb(17, 24, 39))' 
-                              : undefined
-                          }}
-                        >
+                        {/* Text - no animation */}
+                        <p className='text-xs sm:text-sm font-semibold text-center text-gray-700 dark:text-gray-300'>
                           {tech.name}
-                        </motion.p>
+                        </p>
                       </div>
-
-                      {/* Corner accent */}
-                      <motion.div 
-                        className={`absolute top-0 right-0 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br ${categories[active].color} rounded-bl-2xl rounded-tr-2xl`}
-                        animate={{ opacity: isHovered ? 0.4 : 0 }}
-                        transition={{ duration: 0.3 }}
-                      />
                     </motion.div>
                   </motion.div>
                   );

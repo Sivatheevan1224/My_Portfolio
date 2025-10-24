@@ -53,7 +53,7 @@ const Certificates: React.FC = () => {
               </h3>
             </div>
             <p className="text-gray-600 dark:text-gray-400 pl-[52px] group-hover:text-gray-800 dark:group-hover:text-gray-300 transition-colors duration-300">
-              View my professional certifications and achievements ({certificates.length} certificates)
+              View my professional certifications and achievements.
             </p>
           </div>
         </div>
