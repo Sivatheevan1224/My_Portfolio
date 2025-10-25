@@ -39,6 +39,7 @@ const techStack = [
 const Hero = () => {
   const [typedText, setTypedText] = useState("");
   const fullText = "Software Developer";
+  const basePath = process.env.NODE_ENV === 'production' ? '/My_Portfolio' : '';
   
   useEffect(() => {
     let currentIndex = 0;
@@ -215,7 +216,7 @@ const Hero = () => {
                 transition={{ duration: 0.5, delay: 0.9 }}
                 whileHover={{ scale: 1.05, y: -3, boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)" }}
                 whileTap={{ scale: 0.95 }}
-                href="/Sankeethan-SoftwareEngineer-Resume.pdf"
+                href={`${basePath}/CV/SivatheevanCV.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 sm:px-8 py-3 border-2 border-gray-300 dark:border-white/20 text-gray-900 dark:text-white rounded-full text-sm sm:text-base font-medium hover:bg-gray-100 dark:hover:bg-white/10 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-200"
@@ -236,8 +237,8 @@ const Hero = () => {
                 transition={{ duration: 0.5, delay: 1.0 }}
                 whileHover={{ scale: 1.05, y: -3, boxShadow: "0 5px 20px rgba(0, 0, 0, 0.2)" }}
                 whileTap={{ scale: 0.95 }}
-                href="/Sankeethan-SoftwareEngineer-Resume.pdf"
-                download="Sankeethan-SoftwareEngineer-Resume.pdf"
+                href={`${basePath}/CV/SivatheevanCV.pdf`}
+                download="SivatheevanCV.pdf"
                 className="flex items-center gap-2 px-6 sm:px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-black rounded-full text-sm sm:text-base font-medium hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-200 shadow-lg"
                 aria-label="Download CV"
               >
