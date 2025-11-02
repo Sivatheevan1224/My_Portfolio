@@ -75,8 +75,18 @@ export const PROJECTS = [
       "https://www.linkedin.com/posts/sivatheevan_gearsphere-academicproject-webdevelopment-activity-7382678017401155585-xJ2u?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7T3LABOicd7vvlnlzcIfzhLBMQLB8yeSQ",
     tech: ["React.js", "Bootstrap", "PHP","MySQL"],
   },
+  
   {
     id: 2,
+    name: "Sivatheevan Portfolio",
+    description: "Modern, responsive personal portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features smooth animations using Framer Motion, dark/light mode toggle, interactive project showcase, skills section with floating icons, and contact form. Fully optimized for performance and SEO.",
+    image: projectImage5,
+    githubLink: "https://github.com/Sivatheevan1224/My_Portfolio_Siva",
+    viewDemo: "https://sivatheevan1224.github.io/My_Portfolio/",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
+  },
+  {
+    id: 3,
     name: "GYM Management System",
     description:
       "The Gym Management System is designed to help gyms and fitness centres efficiently manage their operations, including member enrolment, trainer assignments, and payment tracking, through a single unified interface. This system is ideal for small to medium-sized gyms looking to digitize their management processes and can also serve as a valuable learning resource for developers interested in understanding how to build a real-world CRUD web application using PHP, a database, and user role management.",
@@ -87,7 +97,7 @@ export const PROJECTS = [
     tech: ["PHP", "CSS", "HTML","MySQL"],
   },
   {
-    id: 3,
+    id: 4,
     name: "Instagram Clone",
     description:
       "Instagram-like frontend built with React and Vite using a local JSON data store to simulate API endpoints; includes responsive feed, stories, suggestions, and profile management.",
@@ -98,14 +108,14 @@ export const PROJECTS = [
     tech: ["React", "json"],
   },
   {
-id: 4,
-name: "Restaurant Website",
-description: "Clean, responsive restaurant website built with semantic HTML, modern CSS (flexbox/grid) and vanilla JavaScript; includes an interactive menu, image gallery, and mobile-first layout. Ideal for showcasing menus and reservations.",
-image: projectImage4,
-githubLink: "https://github.com/Sivatheevan1224/Restaurant-Website",
-viewDemo: "",
-tech: ["HTML", "CSS", "JavaScript"]
-},
+    id: 5,
+    name: "Restaurant Website",
+    description: "Clean, responsive restaurant website built with semantic HTML, modern CSS (flexbox/grid) and vanilla JavaScript; includes an interactive menu, image gallery, and mobile-first layout. Ideal for showcasing menus and reservations.",
+    image: projectImage4,
+    githubLink: "https://github.com/Sivatheevan1224/Restaurant-Website",
+    viewDemo: "",
+    tech: ["HTML", "CSS", "JavaScript"]
+  },
 ];
 
 export const BIO = [
