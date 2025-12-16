@@ -105,8 +105,19 @@ export const PROJECTS = [
     viewDemo: " https://www.linkedin.com/posts/sivatheevan_webdevelopment-fullstack-ai-activity-7402110966924251137-2ibM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7T3LABOicd7vvlnlzcIfzhLBMQLB8yeSQ", 
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Groq AI", "Tailwind CSS", "ImageKit", "JWT"]
 },
-  {
+{
     id: 5,
+    name: "AI Image Generator",
+    description:
+      "A modern web application that generates AI-powered images using Hugging Face's inference API. Features multiple AI models, customizable aspect ratios, batch generation, and dark/light theme support.",
+    image: projectImage7,
+    githubLink: "https://github.com/Sivatheevan1224/AI_Image_Generator.git",
+    viewDemo:
+      "https://sivatheevan1224.github.io/AI_Image_Generator/",
+    tech: ["HTML", "CSS", "JavaScript", "Hugging Face API"],
+},
+  {
+    id: 6,
     name: "Instagram Clone",
     description:
       "Instagram-like frontend built with React and Vite using a local JSON data store to simulate API endpoints; includes responsive feed, stories, suggestions, and profile management.",
@@ -117,7 +128,7 @@ export const PROJECTS = [
     tech: ["React", "json"],
   },
   {
-    id: 6,
+    id: 7,
     name: "Restaurant Website",
     description: "Clean, responsive restaurant website built with semantic HTML, modern CSS (flexbox/grid) and vanilla JavaScript; includes an interactive menu, image gallery, and mobile-first layout. Ideal for showcasing menus and reservations.",
     image: projectImage4,
