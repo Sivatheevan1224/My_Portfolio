@@ -102,7 +102,7 @@ export const PROJECTS = [
     description: "Full-stack web application that revolutionizes resume creation using AI technology. Features Groq AI (Llama 3.3) for automatic resume parsing, 5 professional templates, smart image processing with background removal, JWT authentication, and one-click PDF export. Built with MERN stack and cloud services.",
     image: projectImage6, 
     githubLink: "https://github.com/Sivatheevan1224/Resume_Builder", 
-    viewDemo: " https://www.linkedin.com/posts/sivatheevan_webdevelopment-fullstack-ai-activity-7402110966924251137-2ibM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7T3LABOicd7vvlnlzcIfzhLBMQLB8yeSQ", 
+    viewDemo: "https://resumebuilderfrontend.vercel.app/", 
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Groq AI", "Tailwind CSS", "ImageKit", "JWT"]
 },
 {
