@@ -7,8 +7,7 @@ import projectImage4 from "../assets/project4.png";
 import projectImage5 from "../assets/project5.png";
 import projectImage6 from "../assets/project6.png";
 import projectImage7 from "../assets/project7.png";
-import projectImage8 from "@/assets/book-review-logo.png";
-import projectImage9 from "@/assets/signature.png";
+import projectImage8 from "../assets/project8.png";
 
 import htmlImg from "@/assets/html.png";
 import cssImg from "@/assets/css.png";
@@ -86,7 +85,16 @@ export const PROJECTS = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
   },
   {
-    id: 3,
+  id: 3,
+  name: "Care Connect – Community Healthcare Platform",
+  description: "Full-stack MERN-based community healthcare platform developed during a 12-hour overnight hackathon. Features secure authentication, patient appointment booking, admin and doctor management, and responsive user-friendly interfaces. Designed with scalability, performance, and real-world clinic workflows in mind.",
+  image:projectImage8 , 
+  githubLink: "https://github.com/Sivatheevan1224/Care_Connect",
+  viewDemo: "https://care-connect-swart.vercel.app/",
+  tech: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "JWT"]
+},
+  {
+    id: 4,
     name: "GYM Management System",
     description:
       "The Gym Management System is designed to help gyms and fitness centres efficiently manage their operations, including member enrolment, trainer assignments, and payment tracking, through a single unified interface. This system is ideal for small to medium-sized gyms looking to digitize their management processes and can also serve as a valuable learning resource for developers interested in understanding how to build a real-world CRUD web application using PHP, a database, and user role management.",
@@ -97,7 +105,7 @@ export const PROJECTS = [
     tech: ["PHP", "CSS", "HTML","MySQL"],
   },
   {
-    id: 4,
+    id: 5,
     name: "AI-Powered Resume Builder",
     description: "Full-stack web application that revolutionizes resume creation using AI technology. Features Groq AI (Llama 3.3) for automatic resume parsing, 5 professional templates, smart image processing with background removal, JWT authentication, and one-click PDF export. Built with MERN stack and cloud services.",
     image: projectImage6, 
@@ -106,7 +114,7 @@ export const PROJECTS = [
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Groq AI", "Tailwind CSS", "ImageKit", "JWT"]
 },
 {
-    id: 5,
+    id: 6,
     name: "AI Image Generator",
     description:
       "A modern web application that generates AI-powered images using Hugging Face's inference API. Features multiple AI models, customizable aspect ratios, batch generation, and dark/light theme support.",
@@ -117,7 +125,7 @@ export const PROJECTS = [
     tech: ["HTML", "CSS", "JavaScript", "Hugging Face API"],
 },
   {
-    id: 6,
+    id: 7,
     name: "Instagram Clone",
     description:
       "Instagram-like frontend built with React and Vite using a local JSON data store to simulate API endpoints; includes responsive feed, stories, suggestions, and profile management.",
@@ -128,7 +136,7 @@ export const PROJECTS = [
     tech: ["React", "json"],
   },
   {
-    id: 7,
+    id: 8,
     name: "Restaurant Website",
     description: "Clean, responsive restaurant website built with semantic HTML, modern CSS (flexbox/grid) and vanilla JavaScript; includes an interactive menu, image gallery, and mobile-first layout. Ideal for showcasing menus and reservations.",
     image: projectImage4,
