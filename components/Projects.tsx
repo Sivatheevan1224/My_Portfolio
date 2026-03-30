@@ -21,7 +21,7 @@ const Projects = () => {
   return (
     <section className='relative min-h-screen text-gray-900 dark:text-white px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20' id='projects'>
       {/* Background effects */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-white/80 dark:bg-black" />
         <SectionFloatingIcons />
       </div>

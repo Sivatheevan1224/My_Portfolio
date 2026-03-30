@@ -15,8 +15,8 @@ const Navbar = () => {
         // Use Intersection Observer for more reliable section detection
         const observerOptions = {
             root: null,
-            rootMargin: '-50px 0px -20% 0px', // More forgiving bottom margin for smaller sections like Contact
-            threshold: [0, 0.01, 0.05, 0.1, 0.2, 0.3]
+            rootMargin: '-100px 0px -60% 0px', // Fixed pixel offset from top, percentage from bottom
+            threshold: [0, 0.1, 0.2, 0.3, 0.5]
         };
 
         const observerCallback = (entries: IntersectionObserverEntry[]) => {
