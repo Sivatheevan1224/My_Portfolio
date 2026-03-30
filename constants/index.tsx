@@ -8,6 +8,8 @@ import projectImage5 from "../assets/project5.png";
 import projectImage6 from "../assets/project6.png";
 import projectImage7 from "../assets/project7.png";
 import projectImage8 from "../assets/project8.png";
+import projectImage9 from "../assets/project9.png";
+import projectImage10 from "../assets/project10.png";
 
 import htmlImg from "@/assets/html.png";
 import cssImg from "@/assets/css.png";
@@ -42,6 +44,7 @@ import linuxImg from "@/assets/linux.png";
 import figmaImg from "@/assets/figma.png";
 import androidStudioImg from "@/assets/androidstudio.png";
 import firestoreImg from "@/assets/firestore.png";
+import { i } from "framer-motion/client";
 
 
 
@@ -115,6 +118,24 @@ export const PROJECTS = [
 },
 {
     id: 6,
+    name: "ProGarage - Advanced Garage Management System",
+    description: "Full-stack automotive service center management platform that automates garage operations end-to-end. Features comprehensive customer & vehicle management, intelligent service workflow automation with job tracking, integrated billing & invoicing system with PDF export, role-based access control (Admin & Staff portals), and analytics dashboards with revenue insights. Built with the MERN-like stack combining React frontend with Django backend.",
+    image: projectImage9, 
+    githubLink: "https://github.com/Sivatheevan1224/Garage_Management_System.git", 
+    viewDemo: "https://www.linkedin.com/posts/sivatheevan_progarage-django-react-ugcPost-7443873298976854016-KWIr?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7T3LABOicd7vvlnlzcIfzhLBMQLB8yeSQ", 
+    tech: ["React.js", "Vite", "Tailwind CSS", "Django", "Django REST Framework", "MySQL", "JWT Auth", "jsPDF", "Recharts"]
+},
+{
+    id: 7,
+    name: "FlexiRide - Mobile Vehicle Booking Platform",
+    description: "Full-stack mobile vehicle booking and ride-sharing application with comprehensive fleet management. Features include real-time booking system with confirmation flow, intelligent vehicle discovery and details viewing, user profile management with ride history, role-based access control with dedicated admin dashboard for vehicle and user management, revenue analytics, and booking oversight. Built with React Native/Expo for cross-platform mobility, Firebase for real-time backend services, and TypeScript for type-safe development.",
+    image: projectImage10,
+    githubLink: "https://github.com/Sivatheevan1224/FlexiRide_MAD.git",
+    viewDemo: "https://www.linkedin.com/posts/sivatheevan_flexiride-mobileappdevelopment-reactnative-ugcPost-7444207556866179072-0-tq?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7T3LABOicd7vvlnlzcIfzhLBMQLB8yeSQ",
+    tech: ["React Native", "Expo", "TypeScript", "Firebase Auth", "Firestore", "Firebase Storage", "Tailwind CSS", "NativeWind", "React Navigation"]
+},
+{
+    id: 8,
     name: "AI Image Generator",
     description:
       "A modern web application that generates AI-powered images using Hugging Face's inference API. Features multiple AI models, customizable aspect ratios, batch generation, and dark/light theme support.",
@@ -125,7 +146,7 @@ export const PROJECTS = [
     tech: ["HTML", "CSS", "JavaScript", "Hugging Face API"],
 },
   {
-    id: 7,
+    id: 9,
     name: "Instagram Clone",
     description:
       "Instagram-like frontend built with React and Vite using a local JSON data store to simulate API endpoints; includes responsive feed, stories, suggestions, and profile management.",
@@ -136,7 +157,7 @@ export const PROJECTS = [
     tech: ["React", "json"],
   },
   {
-    id: 8,
+    id: 10,
     name: "Restaurant Website",
     description: "Clean, responsive restaurant website built with semantic HTML, modern CSS (flexbox/grid) and vanilla JavaScript; includes an interactive menu, image gallery, and mobile-first layout. Ideal for showcasing menus and reservations.",
     image: projectImage4,
@@ -226,6 +247,11 @@ export const BACKENDSKILLS = [
     icon: <Image src={phpImg} alt="php" width={60} height={60} />,
     name: "PHP",
   },
+   {
+    id: 5,
+    icon: <Image src={firebaseImg} alt="firebase" width={60} height={60} />,
+    name: "Firebase",
+  },
   // {
   //   id: 5,
   //   icon: (
@@ -233,11 +259,7 @@ export const BACKENDSKILLS = [
   //   ),
   //   name: "Laravel",
   // },
-  // {
-  //   id: 6,
-  //   icon: <Image src={firebaseImg} alt="firebase" width={60} height={60} />,
-  //   name: "Firebase",
-  // },
+ 
   // {
   //   id: 7,
   //   icon: <Image src={supabaseImg} alt="supabase" width={60} height={60} />,
@@ -256,16 +278,17 @@ export const DATABASE = [
     icon: <Image src={mongodbImg} alt="mongodb" width={60} height={60} />,
     name: "MongoDB",
   },
+  {
+    id: 3,
+    icon: <Image src={firestoreImg} alt="firestore" width={60} height={60} />,
+    name: "Firestore",
+  },
   // {
   //   id: 3,
   //   icon: <Image src={postgresImg} alt="postgres" width={60} height={60} />,
   //   name: "PostgreSQL",
   // },
-  // {
-  //   id: 4,
-  //   icon: <Image src={firestoreImg} alt="firestore" width={60} height={60} />,
-  //   name: "Firestore",
-  // },
+
 ];
 
 export const CUSTOMTECS = [
