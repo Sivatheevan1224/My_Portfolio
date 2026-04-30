@@ -44,6 +44,7 @@ import linuxImg from "@/assets/linux.png";
 import figmaImg from "@/assets/figma.png";
 import androidStudioImg from "@/assets/androidstudio.png";
 import firestoreImg from "@/assets/firestore.png";
+import { i } from "framer-motion/client";
 
 
 
@@ -117,13 +118,12 @@ export const PROJECTS = [
 },
 {
     id: 6,
-    name: 'FlexiRide',
-    description:
-      "A cross-platform mobile app (Expo + React Native) that simplifies on-demand rides and vehicle bookings. Uses Firebase for secure authentication and real-time data; includes an intuitive booking flow, searchable vehicle listings, user profiles with booking history, and an admin dashboard for managing vehicles, users, and revenue. Designed with responsive UI and dark/light theme support for a polished mobile experience.",
+    name: "FlexiRide - On-Demand Rideshare App",
+    description: "A cross-platform mobile app (Expo + React Native) that simplifies on-demand rides and vehicle bookings. Uses Firebase for secure authentication and real-time data; includes an intuitive booking flow, searchable vehicle listings, user profiles with booking history, and an admin dashboard for managing vehicles, users, and revenue. Designed with responsive UI and dark/light theme support for a polished mobile experience.",
     image: projectImage9,
-    githubLink: 'https://github.com/Sivatheevan1224/FlexiRide_MAD.git',
-    viewDemo: 'https://www.linkedin.com/posts/sivatheevan_flexiride-mobileappdevelopment-reactnative-ugcPost-7444207556866179072-0-tq?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7T3LABOicd7vvlnlzcIfzhLBMQLB8yeSQ',
-    tech: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'TailwindCSS/NativeWind'],
+    githubLink: "https://github.com/Sivatheevan1224/FlexiRide_MAD.git",
+    viewDemo: "https://www.linkedin.com/posts/sivatheevan_flexiride-mobileappdevelopment-reactnative-ugcPost-7444207556866179072-0-tq?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7T3LABOicd7vvlnlzcIfzhLBMQLB8yeSQ",
+    tech: ["React Native", "Expo", "TypeScript", "Firebase", "TailwindCSS/NativeWind"],
   },
   {
   id: 7,
@@ -146,7 +146,6 @@ export const PROJECTS = [
       "https://sivatheevan1224.github.io/AI_Image_Generator/",
     tech: ["HTML", "CSS", "JavaScript", "Hugging Face API"],
 },
-
 ];
 
 export const BIO = [
@@ -229,6 +228,11 @@ export const BACKENDSKILLS = [
     icon: <Image src={phpImg} alt="php" width={60} height={60} />,
     name: "PHP",
   },
+   {
+    id: 5,
+    icon: <Image src={firebaseImg} alt="firebase" width={60} height={60} />,
+    name: "Firebase",
+  },
   // {
   //   id: 5,
   //   icon: (
@@ -241,6 +245,7 @@ export const BACKENDSKILLS = [
     icon: <Image src={firebaseImg} alt="firebase" width={60} height={60} />,
     name: "Firebase",
   },
+
   // {
   //   id: 7,
   //   icon: <Image src={supabaseImg} alt="supabase" width={60} height={60} />,
@@ -269,6 +274,12 @@ export const DATABASE = [
     icon: <Image src={firestoreImg} alt="firestore" width={60} height={60} />,
     name: "Firestore",
   },
+  // {
+  //   id: 3,
+  //   icon: <Image src={postgresImg} alt="postgres" width={60} height={60} />,
+  //   name: "PostgreSQL",
+  // },
+
 ];
 
 export const CUSTOMTECS = [

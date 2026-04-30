@@ -28,7 +28,7 @@ const Navbar = () => {
                 visibleEntries.sort((a, b) => {
                     // Prioritize by intersection ratio
                     const ratioDiff = b.intersectionRatio - a.intersectionRatio;
-                    if (Math.abs(ratioDiff) > 0.1) {
+                    if (Math.abs(ratioDiff) > 0.01) {
                         return ratioDiff;
                     }
                     // If ratios are similar, prefer the one closer to top of viewport
