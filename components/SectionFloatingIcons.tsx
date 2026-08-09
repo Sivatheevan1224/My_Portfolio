@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
+import HeroStarBackground from './HeroStarBackground';
 import { 
   FiCode, FiGitBranch, FiTerminal, FiDatabase, FiServer, FiLayers, FiCpu, FiCloud,
   FiBox, FiCommand, FiZap, FiPackage, FiTool, FiMonitor
@@ -8,55 +9,56 @@ import {
 import { 
   SiReact, SiNextdotjs, SiNodedotjs, SiTypescript, SiJavascript, SiPython,
   SiHtml5, SiCss3, SiTailwindcss, SiMongodb, SiPostgresql, SiMysql,
-  SiGit, SiGithub, SiDocker, SiVisualstudiocode, SiBootstrap, SiPhp, SiC
+  SiGit, SiGithub, SiDocker, SiVisualstudiocode, SiBootstrap, SiPhp, SiC, SiSpringboot
 } from 'react-icons/si';
 
 const SectionFloatingIcons = () => {
   const icons = [
     // Frontend
-    { Icon: SiReact, color: 'text-cyan-400', size: 'text-4xl', delay: 0 },
-    { Icon: SiNextdotjs, color: 'text-gray-600 dark:text-white', size: 'text-3xl', delay: 0.5 },
-    { Icon: SiHtml5, color: 'text-orange-500', size: 'text-4xl', delay: 1 },
-    { Icon: SiCss3, color: 'text-blue-500', size: 'text-3xl', delay: 1.5 },
-    { Icon: SiTailwindcss, color: 'text-cyan-500', size: 'text-4xl', delay: 2 },
-    { Icon: SiBootstrap, color: 'text-purple-500', size: 'text-3xl', delay: 2.5 },
+    { Icon: SiReact, color: 'text-cyan-400', size: 'text-2xl', delay: 0 },
+    { Icon: SiNextdotjs, color: 'text-gray-600 dark:text-white', size: 'text-xl', delay: 0.5 },
+    { Icon: SiHtml5, color: 'text-orange-500', size: 'text-2xl', delay: 1 },
+    { Icon: SiCss3, color: 'text-blue-500', size: 'text-xl', delay: 1.5 },
+    { Icon: SiTailwindcss, color: 'text-cyan-500', size: 'text-2xl', delay: 2 },
+    { Icon: SiBootstrap, color: 'text-purple-500', size: 'text-xl', delay: 2.5 },
     
     // Backend
-    { Icon: SiNodedotjs, color: 'text-green-500', size: 'text-4xl', delay: 0.7 },
-    { Icon: SiPython, color: 'text-blue-400', size: 'text-4xl', delay: 1.7 },
-    { Icon: SiPhp, color: 'text-indigo-400', size: 'text-3xl', delay: 0.4 },
+    { Icon: SiSpringboot, color: 'text-emerald-500', size: 'text-2xl', delay: 0.3 },
+    { Icon: SiNodedotjs, color: 'text-green-500', size: 'text-2xl', delay: 0.7 },
+    { Icon: SiPython, color: 'text-blue-400', size: 'text-2xl', delay: 1.7 },
+    { Icon: SiPhp, color: 'text-indigo-400', size: 'text-xl', delay: 0.4 },
     
     // Languages
-    { Icon: SiTypescript, color: 'text-blue-500', size: 'text-4xl', delay: 0.9 },
-    { Icon: SiJavascript, color: 'text-yellow-400', size: 'text-3xl', delay: 1.4 },
-    { Icon: SiC, color: 'text-blue-600', size: 'text-3xl', delay: 2.4 },
+    { Icon: SiTypescript, color: 'text-blue-500', size: 'text-2xl', delay: 0.9 },
+    { Icon: SiJavascript, color: 'text-yellow-400', size: 'text-xl', delay: 1.4 },
+    { Icon: SiC, color: 'text-blue-600', size: 'text-xl', delay: 2.4 },
     
     // Databases
-    { Icon: SiMongodb, color: 'text-green-500', size: 'text-4xl', delay: 0.6 },
-    { Icon: SiPostgresql, color: 'text-blue-400', size: 'text-3xl', delay: 1.1 },
-    { Icon: SiMysql, color: 'text-cyan-600', size: 'text-4xl', delay: 1.6 },
+    { Icon: SiMongodb, color: 'text-green-500', size: 'text-2xl', delay: 0.6 },
+    { Icon: SiPostgresql, color: 'text-blue-400', size: 'text-xl', delay: 1.1 },
+    { Icon: SiMysql, color: 'text-cyan-600', size: 'text-2xl', delay: 1.6 },
     
     // Tools & DevOps
-    { Icon: SiGit, color: 'text-orange-500', size: 'text-4xl', delay: 0.8 },
-    { Icon: SiGithub, color: 'text-gray-700 dark:text-white', size: 'text-3xl', delay: 1.3 },
-    { Icon: SiDocker, color: 'text-blue-500', size: 'text-4xl', delay: 1.8 },
-    { Icon: SiVisualstudiocode, color: 'text-blue-400', size: 'text-3xl', delay: 2.3 },
+    { Icon: SiGit, color: 'text-orange-500', size: 'text-2xl', delay: 0.8 },
+    { Icon: SiGithub, color: 'text-gray-700 dark:text-white', size: 'text-xl', delay: 1.3 },
+    { Icon: SiDocker, color: 'text-blue-500', size: 'text-2xl', delay: 1.8 },
+    { Icon: SiVisualstudiocode, color: 'text-blue-400', size: 'text-xl', delay: 2.3 },
     
     // General Icons
-    { Icon: FiCode, color: 'text-purple-400', size: 'text-4xl', delay: 0.2 },
-    { Icon: FiGitBranch, color: 'text-orange-400', size: 'text-3xl', delay: 0.7 },
-    { Icon: FiTerminal, color: 'text-green-400', size: 'text-4xl', delay: 1.2 },
-    { Icon: FiDatabase, color: 'text-indigo-400', size: 'text-3xl', delay: 1.7 },
-    { Icon: FiServer, color: 'text-pink-400', size: 'text-4xl', delay: 2.2 },
-    { Icon: FiLayers, color: 'text-teal-400', size: 'text-3xl', delay: 2.7 },
-    { Icon: FiCpu, color: 'text-red-400', size: 'text-4xl', delay: 0.4 },
-    { Icon: FiCloud, color: 'text-sky-400', size: 'text-3xl', delay: 0.9 },
-    { Icon: FiBox, color: 'text-violet-400', size: 'text-4xl', delay: 1.4 },
-    { Icon: FiCommand, color: 'text-lime-400', size: 'text-3xl', delay: 1.9 },
-    { Icon: FiZap, color: 'text-yellow-500', size: 'text-4xl', delay: 2.4 },
-    { Icon: FiPackage, color: 'text-amber-400', size: 'text-3xl', delay: 0.5 },
-    { Icon: FiTool, color: 'text-slate-400', size: 'text-4xl', delay: 1.0 },
-    { Icon: FiMonitor, color: 'text-fuchsia-400', size: 'text-3xl', delay: 1.5 },
+    { Icon: FiCode, color: 'text-purple-400', size: 'text-2xl', delay: 0.2 },
+    { Icon: FiGitBranch, color: 'text-orange-400', size: 'text-xl', delay: 0.7 },
+    { Icon: FiTerminal, color: 'text-green-400', size: 'text-2xl', delay: 1.2 },
+    { Icon: FiDatabase, color: 'text-indigo-400', size: 'text-xl', delay: 1.7 },
+    { Icon: FiServer, color: 'text-pink-400', size: 'text-2xl', delay: 2.2 },
+    { Icon: FiLayers, color: 'text-teal-400', size: 'text-xl', delay: 2.7 },
+    { Icon: FiCpu, color: 'text-red-400', size: 'text-2xl', delay: 0.4 },
+    { Icon: FiCloud, color: 'text-sky-400', size: 'text-xl', delay: 0.9 },
+    { Icon: FiBox, color: 'text-violet-400', size: 'text-2xl', delay: 1.4 },
+    { Icon: FiCommand, color: 'text-lime-400', size: 'text-xl', delay: 1.9 },
+    { Icon: FiZap, color: 'text-yellow-500', size: 'text-2xl', delay: 2.4 },
+    { Icon: FiPackage, color: 'text-amber-400', size: 'text-xl', delay: 0.5 },
+    { Icon: FiTool, color: 'text-slate-400', size: 'text-2xl', delay: 1.0 },
+    { Icon: FiMonitor, color: 'text-fuchsia-400', size: 'text-xl', delay: 1.5 },
   ];
 
   const positions = [
@@ -73,9 +75,12 @@ const SectionFloatingIcons = () => {
   ];
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {/* Simple Floating Icons - no mouse tracking, always visible */}
-      <div className="opacity-60 dark:opacity-70">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {/* Interactive Shooting Star & Twinkling Canvas */}
+      <HeroStarBackground />
+
+      {/* Floating Tech Icons Layer */}
+      <div className="opacity-80 dark:opacity-50">
         {icons.map((item, index) => {
           const { Icon, color, size, delay } = item;
           const position = positions[index % positions.length];

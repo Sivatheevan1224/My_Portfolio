@@ -25,14 +25,24 @@ body {
   background-attachment: fixed;
 }
 
-/* Light Mode */
+/* Light Mode - Crisp, Sharp, High-Contrast Light Theme */
 html:not(.dark) body {
-  background: #ffffff !important;
-  color: #1f2937 !important;
+  background: #f8fafc !important;
+  color: #0f172a !important;
 }
 
 html:not(.dark) .bg-img{
-  background: #ffffff !important;
+  background: #f8fafc !important;
+}
+
+/* Section Header Underline Enhancements for Crisp Light Mode Visibility */
+.section-underline {
+  box-shadow: 0 4px 14px 0 rgba(147, 51, 234, 0.45);
+}
+
+html:not(.dark) .section-underline {
+  background: linear-gradient(90deg, #2563eb, #7c3aed, #db2777) !important;
+  box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.35) !important;
 }
 
 /* CRITICAL: Keep SAME gradient colors in light mode (blue-purple-pink from dark mode) */
@@ -46,13 +56,13 @@ html:not(.dark) h1.text-transparent,
 html:not(.dark) h2.text-transparent,
 html:not(.dark) h3.text-transparent,
 html:not(.dark) h4.text-transparent {
-  background: linear-gradient(90deg, rgb(59, 130, 246), rgb(147, 51, 234), rgb(236, 72, 153)) !important;
+  background: linear-gradient(90deg, #2563eb, #7c3aed, #db2777) !important;
   background-size: 200% 200% !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
-  filter: none !important;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05)) !important;
   animation: gradientShift 3s ease infinite !important;
   transition: all 0.3s ease !important;
 }
@@ -66,21 +76,17 @@ html:not(.dark) h4.bg-clip-text:hover {
   transform: scale(1.03) translateY(-2px) !important;
 }
 
-/* Text color utilities for light mode - readable dark text */
-html:not(.dark) .text-white:not(.bg-clip-text):not(.text-transparent) {
-  color: #1f2937 !important;
-}
-
+/* Text color utilities for light mode - readable dark text except inside buttons or explicit text-white elements */
 html:not(.dark) .text-gray-400:not(.bg-clip-text):not(.text-transparent) {
-  color: #6b7280 !important;
+  color: #475569 !important;
 }
 
 html:not(.dark) .text-gray-300:not(.bg-clip-text):not(.text-transparent) {
-  color: #4b5563 !important;
+  color: #334155 !important;
 }
 
 html:not(.dark) .text-gray-200:not(.bg-clip-text):not(.text-transparent) {
-  color: #374151 !important;
+  color: #1e293b !important;
 }
 
 html:not(.dark) h1:not(.bg-clip-text):not(.text-transparent),
@@ -89,86 +95,71 @@ html:not(.dark) h3:not(.bg-clip-text):not(.text-transparent),
 html:not(.dark) h4:not(.bg-clip-text):not(.text-transparent),
 html:not(.dark) h5:not(.bg-clip-text):not(.text-transparent),
 html:not(.dark) h6:not(.bg-clip-text):not(.text-transparent) {
-  color: #111827 !important;
+  color: #0f172a !important;
 }
 
 html:not(.dark) p:not(.bg-clip-text):not(.text-transparent),
-html:not(.dark) span:not(.bg-clip-text):not(.text-transparent),
-html:not(.dark) li:not(.bg-clip-text):not(.text-transparent),
-html:not(.dark) a:not(.bg-clip-text):not(.text-transparent) {
-  color: #374151 !important;
+html:not(.dark) li:not(.bg-clip-text):not(.text-transparent) {
+  color: #334155 !important;
 }
 
 /* Background utilities for light mode */
-html:not(.dark) .bg-black,
-html:not(.dark) .bg-black\/20,
-html:not(.dark) .bg-black\/10 {
+html:not(.dark) .bg-black {
   background: #ffffff !important;
 }
 
 html:not(.dark) .bg-gray-900 {
-  background: #f9fafb !important;
+  background: #ffffff !important;
 }
 
 html:not(.dark) .bg-gray-800 {
-  background: #f3f4f6 !important;
+  background: #f8fafc !important;
 }
 
-html:not(.dark) .bg-white\/5,
-html:not(.dark) .bg-white\/10,
-html:not(.dark) .bg-white\/20 {
-  background: rgba(0, 0, 0, 0.05) !important;
-}
-
-/* Border colors for light mode */
-html:not(.dark) .border-gray-800 {
-  border-color: #e5e7eb !important;
-}
-
-html:not(.dark) .border-gray-700 {
-  border-color: #d1d5db !important;
-}
-
-/* Backdrop blur backgrounds for light mode */
+/* Glass cards for light mode - Crisp White, Sharp Borders, Zero Blur Fog */
+html:not(.dark) .backdrop-blur-md,
 html:not(.dark) .backdrop-blur-lg,
-html:not(.dark) .backdrop-blur-xl {
-  background-color: rgba(255, 255, 255, 0.9) !important;
+html:not(.dark) .backdrop-blur-xl,
+html:not(.dark) .backdrop-blur-2xl {
+  background-color: rgba(255, 255, 255, 0.96) !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04) !important;
 }
 
 /* Section backgrounds in light mode */
 html:not(.dark) section {
-  background: #ffffff !important;
+  background: #f8fafc !important;
 }
 
 /* Input backgrounds for light mode */
 html:not(.dark) input,
 html:not(.dark) textarea {
-  background: #f9fafb !important;
-  color: #111827 !important;
-  border-color: #d1d5db !important;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
 }
 
 html:not(.dark) input::placeholder,
 html:not(.dark) textarea::placeholder {
-  color: #9ca3af !important;
+  color: #64748b !important;
 }
 
 /* Button styles for light mode */
 html:not(.dark) button:not([class*="bg-gradient"]) {
-  color: #111827 !important;
+  color: #0f172a !important;
 }
 
 /* Special color overrides for icons in light mode */
 html:not(.dark) .text-yellow-400 {
-  color: #f59e0b !important;
+  color: #d97706 !important;
 }
 
 html:not(.dark) .text-blue-500 {
-  color: #3b82f6 !important;
+  color: #2563eb !important;
 }
 
 html:not(.dark) .text-special {
-  color: #4361ee !important;
+  color: #2563eb !important;
 }
 
 /* Animations for gradient text */
@@ -225,5 +216,3 @@ html:not(.dark) .text-special {
     transform: scale(1.05);
   }
 }
-
-

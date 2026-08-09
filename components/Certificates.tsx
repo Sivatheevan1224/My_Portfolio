@@ -30,7 +30,7 @@ const Certificates: React.FC = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         whileHover={{ scale: 1.02, y: -4 }}
-        className="w-full lg:w-1/3 cursor-pointer group p-6 rounded-xl border-[3px] border-gray-300 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-lg hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20"
+        className="w-full cursor-pointer group p-6 rounded-2xl bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 shadow-xl hover:shadow-2xl"
         onClick={openModal}
         role="button"
         tabIndex={0}
@@ -39,8 +39,8 @@ const Certificates: React.FC = () => {
         <div className="relative flex gap-4 items-start">
           <div className="space-y-2 w-full">
             <div className="flex gap-4 items-center">
-              <motion.div 
-                className="p-3 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-500 shadow-md" 
+              <motion.div
+                className="p-3 rounded-lg bg-gradient-to-br from-blue-500 to-indigo-500 shadow-md"
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -78,8 +78,8 @@ const Certificates: React.FC = () => {
               {certificates.map((cert, index) => {
                 const isImage = cert.file.match(/\.(jpe?g|png|gif|webp|svg)$/i);
                 return (
-                  <motion.div 
-                    key={cert.id} 
+                  <motion.div
+                    key={cert.id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -87,7 +87,7 @@ const Certificates: React.FC = () => {
                     className="border-2 border-gray-200 dark:border-gray-800 rounded-xl p-4 bg-white dark:bg-gray-800/50 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-300 shadow-md hover:shadow-xl hover:shadow-blue-500/20 dark:hover:shadow-blue-500/30 cursor-pointer group"
                   >
                     <div className="flex items-start gap-4">
-                      <motion.div 
+                      <motion.div
                         className="w-24 h-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-lg overflow-hidden flex items-center justify-center border border-gray-200 dark:border-gray-700 group-hover:border-blue-400 dark:group-hover:border-blue-500 transition-all duration-300"
                         whileHover={{ scale: 1.08 }}
                         transition={{ type: "spring", stiffness: 300 }}
@@ -107,10 +107,10 @@ const Certificates: React.FC = () => {
                         </div>
 
                         <div className="flex items-center gap-2">
-                          <motion.a 
-                            href={encodeURI(cert.file)} 
-                            target="_blank" 
-                            rel="noreferrer" 
+                          <motion.a
+                            href={encodeURI(cert.file)}
+                            target="_blank"
+                            rel="noreferrer"
                             className="px-4 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm font-medium hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-md hover:shadow-lg"
                             whileHover={{ scale: 1.08 }}
                             whileTap={{ scale: 0.95 }}
@@ -118,9 +118,9 @@ const Certificates: React.FC = () => {
                           >
                             View
                           </motion.a>
-                          <motion.a 
-                            href={encodeURI(cert.file)} 
-                            download 
+                          <motion.a
+                            href={encodeURI(cert.file)}
+                            download
                             className="px-4 py-1.5 rounded-lg border-2 border-gray-300 dark:border-gray-600 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-700 hover:border-blue-500 dark:hover:border-blue-500 transition-all duration-200"
                             whileHover={{ scale: 1.08 }}
                             whileTap={{ scale: 0.95 }}

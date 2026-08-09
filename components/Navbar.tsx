@@ -91,54 +91,49 @@ const Navbar = () => {
         <div>
             <nav className='fixed left-0 right-0 top-4 z-50 px-2 sm:px-4'>
                 <div className='mx-auto hidden w-fit items-center 
-                justify-center rounded-3xl bg-white/10 dark:bg-black/30
-                py-3 px-6 backdrop-blur-xl backdrop-saturate-150 border-2 border-white/30 dark:border-white/20 shadow-lg hover:border-white/40 dark:hover:border-white/30 transition-all duration-300
+                justify-center rounded-full bg-white/80 dark:bg-black/60
+                py-2.5 px-6 backdrop-blur-2xl border border-gray-200/80 dark:border-white/20 shadow-xl hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-300
                 lg:flex'>
                     <div className='flex items-center justify-center gap-4 xl:gap-6'>
-                        <div className=''>
-                            <ul className='flex items-center gap-3 xl:gap-4 justify-center'>
+                        <div>
+                            <ul className='flex items-center gap-3 xl:gap-5 justify-center'>
                                 {NAVIGATION_LINKS.map((item, index) => (
                                     <li key={index}>
                                         <a 
                                             href={item.href} 
                                             className={`
-                                                ${index === 0 ? 'flex items-center justify-center p-2' : 'text-base xl:text-lg 2xl:text-xl'} 
-                                                font-medium transition-all duration-300 touch-manipulation relative group
+                                                ${index === 0 ? 'flex items-center justify-center p-2' : 'text-sm xl:text-base'} 
+                                                font-semibold transition-all duration-300 touch-manipulation relative group
                                                 ${isActive(item.href) 
-                                                    ? 'text-special scale-110' 
-                                                    : 'text-gray-300 hover:text-special hover:scale-105 hover:drop-shadow-[0_0_10px_rgba(67,97,238,0.8)]'
+                                                    ? 'text-blue-600 dark:text-blue-400 scale-105' 
+                                                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-105'
                                                 }
                                             `}
-                                            style={isActive(item.href) ? {
-                                                filter: 'drop-shadow(0 0 12px rgba(67, 97, 238, 0.8)) drop-shadow(0 0 20px rgba(67, 97, 238, 0.6))',
-                                                textShadow: '0 0 10px rgba(67, 97, 238, 0.8)'
-                                            } : {}}
                                             onClick={(e) => handleLinkClick(e, item.href)}
                                         >
                                             {index === 0 ? (
-                                                <FiHome className="w-6 h-6 transition-all duration-300" />
+                                                <FiHome className="w-5 h-5 transition-all duration-300" />
                                             ) : (
                                                 item.label
                                             )}
                                             {isActive(item.href) && (
-                                                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-special to-transparent animate-pulse"></span>
+                                                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></span>
                                             )}
                                         </a>
                                     </li>
                                 ))}
                             </ul>
-
                         </div>
                         {/* Theme Toggle Button */}
                         <button
                             onClick={toggleTheme}
-                            className='p-2 rounded-xl bg-white/5 hover:bg-white/20 dark:hover:bg-white/15 transition-all duration-300 hover:scale-105'
+                            className='p-2 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition-all duration-300 hover:scale-110 shadow-sm'
                             aria-label='Toggle theme'
                         >
                             {theme === 'dark' ? (
-                                <FiSun className='w-6 h-6 text-yellow-400' />
+                                <FiSun className='w-5 h-5 text-yellow-400' />
                             ) : (
-                                <FiMoon className='w-6 h-6 text-blue-500' />
+                                <FiMoon className='w-5 h-5 text-blue-600' />
                             )}
                         </button>
                     </div>

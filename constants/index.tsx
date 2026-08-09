@@ -43,7 +43,9 @@ import postmanImg from "@/assets/postman.png";
 import linuxImg from "@/assets/linux.png";
 import figmaImg from "@/assets/figma.png";
 import androidStudioImg from "@/assets/androidstudio.png";
+import springbootImg from "@/assets/springboot.png";
 import firestoreImg from "@/assets/firestore.png";
+import csiDevImg from "@/assets/CSI_DEV.jpg";
 import { i } from "framer-motion/client";
 
 
@@ -51,7 +53,7 @@ import { i } from "framer-motion/client";
 export const NAVIGATION_LINKS = [
   { label: "Home", href: "#hero"},
   { label: "About", href: "#about" },
-  // { label: "Experience", href: "#experience" }, // Commented out for future use
+  { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Education", href: "#education" },
@@ -83,7 +85,7 @@ export const PROJECTS = [
     name: "Sivatheevan Portfolio",
     description: "Modern, responsive personal portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features smooth animations using Framer Motion, dark/light mode toggle, interactive project showcase, skills section with floating icons, and contact form. Fully optimized for performance and SEO.",
     image: projectImage5,
-    githubLink: "https://github.com/Sivatheevan1224/My_Portfolio_Siva",
+    githubLink: "https://github.com/Sivatheevan1224/My_Portfolio",
     viewDemo: "https://sivatheevan1224.github.io/My_Portfolio/",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
   },
@@ -158,51 +160,51 @@ export const BIO = [
 export const FRONTENDSKILLS = [
   {
     id: 1,
-    icon: <Image src={nextjsImg} alt="nextJs" width={60} height={60} />,
+    icon: <Image src={nextjsImg} alt="nextJs" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "Next.js",
   },
   {
     id: 2,
-    icon: <Image src={typescriptImg} alt="typescript" width={60} height={60} />,
+    icon: <Image src={typescriptImg} alt="typescript" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "TypeScript",
   },
   {
     id: 3,
-    icon: <Image src={reactImg} alt="react" width={60} height={60} />,
+    icon: <Image src={reactImg} alt="react" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "React",
   },
   {
     id: 4,
     icon: (
-      <Image src={tailwindcssImg} alt="tailwindcss" width={60} height={60} />
+      <Image src={tailwindcssImg} alt="tailwindcss" width={60} height={60} style={{ width: "auto", height: "auto" }} />
     ),
     name: "Tailwind CSS",
   },
   {
     id: 5,
     icon: (
-      <Image src={reactnativeImg} alt="reactnative" width={60} height={60} />
+      <Image src={reactnativeImg} alt="reactnative" width={60} height={60} style={{ width: "auto", height: "auto" }} />
     ),
     name: "React Native",
   },
   {
     id: 6,
-    icon: <Image src={bootstrapImg} alt="bootstrap" width={60} height={60} />,
+    icon: <Image src={bootstrapImg} alt="bootstrap" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "Bootstrap",
   },
   {
     id: 7,
-    icon: <Image src={jsImg} alt="javascript" width={60} height={60} />,
+    icon: <Image src={jsImg} alt="javascript" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "JavaScript",
   },
   {
     id: 8,
-    icon: <Image src={cssImg} alt="css" width={60} height={60} />,
+    icon: <Image src={cssImg} alt="css" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "CSS",
   },
   {
     id: 9,
-    icon: <Image src={htmlImg} alt="html" width={60} height={60} />,
+    icon: <Image src={htmlImg} alt="html" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "HTML",
   },
 ];
@@ -210,28 +212,33 @@ export const FRONTENDSKILLS = [
 export const BACKENDSKILLS = [
   {
     id: 1,
-    icon: <Image src={djangoImg} alt="django" width={100} height={100} />,
+    icon: <Image src={djangoImg} alt="django" width={100} height={100} style={{ width: "auto", height: "auto" }} />,
     name: "Django",
   },
   {
     id: 2,
-    icon: <Image src={nodejsImg} alt="nodeJs" width={60} height={60} />,
+    icon: <Image src={nodejsImg} alt="nodeJs" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "Node.js",
   },
   {
     id: 3,
-    icon: <Image src={expressJsImg} alt="expressJs" width={60} height={60} />,
+    icon: <Image src={expressJsImg} alt="expressJs" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "Express.js",
   },
   {
     id: 4,
-    icon: <Image src={phpImg} alt="php" width={60} height={60} />,
+    icon: <Image src={phpImg} alt="php" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "PHP",
   },
-   {
+  {
     id: 5,
     icon: <Image src={firebaseImg} alt="firebase" width={60} height={60} />,
     name: "Firebase",
+  },
+  {
+    id: 6,
+    icon: <Image src={springbootImg} alt="springboot" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
+    name: "Spring Boot",
   },
   // {
   //   id: 5,
@@ -240,11 +247,6 @@ export const BACKENDSKILLS = [
   //   ),
   //   name: "Laravel",
   // },
-  {
-    id: 5,
-    icon: <Image src={firebaseImg} alt="firebase" width={60} height={60} />,
-    name: "Firebase",
-  },
 
   // {
   //   id: 7,
@@ -256,83 +258,78 @@ export const BACKENDSKILLS = [
 export const DATABASE = [
   {
     id: 1,
-    icon: <Image src={mysqlImg} alt="mysql" width={60} height={60} />,
+    icon: <Image src={mysqlImg} alt="mysql" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "MySQL",
   },
   {
     id: 2,
-    icon: <Image src={mongodbImg} alt="mongodb" width={60} height={60} />,
+    icon: <Image src={mongodbImg} alt="mongodb" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "MongoDB",
   },
   {
     id: 3,
-    icon: <Image src={postgresImg} alt="postgres" width={60} height={60} />,
+    icon: <Image src={postgresImg} alt="postgres" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "PostgreSQL",
   },
   {
     id: 4,
-    icon: <Image src={firestoreImg} alt="firestore" width={60} height={60} />,
+    icon: <Image src={firestoreImg} alt="firestore" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "Firestore",
   },
-  // {
-  //   id: 3,
-  //   icon: <Image src={postgresImg} alt="postgres" width={60} height={60} />,
-  //   name: "PostgreSQL",
-  // },
 
 ];
 
 export const CUSTOMTECS = [
   {
     id: 1,
-    icon: <Image src={javaImg} alt="java" width={60} height={60} />,
+    icon: <Image src={javaImg} alt="java" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "Java",
   },
   {
     id: 2,
-    icon: <Image src={pythonImg} alt="python" width={60} height={60} />,
+    icon: <Image src={pythonImg} alt="python" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "Python",
   },
   {
     id: 3,
-    icon: <Image src={cImg} alt="C" width={60} height={60} />,
+    icon: <Image src={cImg} alt="C" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "C",
   },
   {
     id: 4,
-    icon: <Image src={figmaImg} alt="figma" width={100} height={100} />,
+    icon: <Image src={figmaImg} alt="figma" width={100} height={100} style={{ width: "auto", height: "auto" }} />,
     name: "Figma",
   },
   {
     id: 5,
-    icon: <Image src={androidStudioImg} alt="androidStudio" width={60} height={60} />,
+    icon: <Image src={androidStudioImg} alt="androidStudio" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "Android Studio",
   },
   {
     id: 6,
-    icon: <Image src={gitImg} alt="git" width={60} height={60} />,
+    icon: <Image src={gitImg} alt="git" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "Git",
   },
   {
     id: 7,
-    icon: <Image src={githubImg} alt="github" width={60} height={60} />,
+    icon: <Image src={githubImg} alt="github" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "GitHub",
   },
   {
     id: 8,
-    icon: <Image src={vscodeImg} alt="vscode" width={60} height={60} />,
+    icon: <Image src={vscodeImg} alt="vscode" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "VS Code",
   },
   {
     id: 9,
-    icon: <Image src={postmanImg} alt="postman" width={60} height={60} />,
+    icon: <Image src={postmanImg} alt="postman" width={60} height={60} style={{ width: "auto", height: "auto" }} />,
     name: "Postman",
   },
-  // {
-  //   id: 10,
-  //   icon: <Image src={linuxImg} alt="linux" width={60} height={60} />,
-  //   name: "Linux",
-  // },
+  {
+    id: 10,
+    icon: <Image src={linuxImg} alt="linux" width={60} height={60} />,
+    name: "Linux",
+  },
   
 ];
 
@@ -385,4 +382,26 @@ export const SOCIAL_MEDIA_LINKS = [
     href: "mailto:sivatheevan1224@gmail.com",
     icon: <FaEnvelope fontSize={50} className="hover:opacity-80" />,
   },
+];
+
+export const EXPERIENCES = [
+  {
+    id: 1,
+    role: "Full Stack Developer - Intern",
+    company: "CSI-DevTeam",
+    employmentType: "Part-time",
+    period: "Jun 2026 - Present · 3 mos",
+    status: "Currently Active",
+    location: "Badulla District, Uva Province, Sri Lanka · Hybrid",
+    institution: "Under Uva Wellassa University of Sri Lanka",
+    logo: csiDevImg,
+    description: "As a Full Stack Developer Intern at the CSI Dev Team, I am involved in developing and maintaining web applications using both frontend and backend technologies. My responsibilities include building responsive user interfaces, developing and integrating APIs, working with databases, and gaining practical experience in software development workflows, version control, and collaborative team environments.",
+    skills: [
+      "Mobile Application Development",
+      "Full-Stack Development",
+      "API Integration",
+      "Web Applications",
+      "Database Management"
+    ],
+  }
 ];

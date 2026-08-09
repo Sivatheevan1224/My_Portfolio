@@ -11,7 +11,7 @@ const EducationSection = () => {
             {/* Background effects */}
             <div className="absolute inset-0 overflow-hidden">
                 {/* light-mode subtle backdrop; dark-mode keeps dark backdrop */}
-                <div className="absolute inset-0 bg-white/60 dark:bg-black/90" />
+                <div className="absolute inset-0 bg-transparent dark:bg-black/90" />
                 <SectionFloatingIcons />
             </div>
 
@@ -27,7 +27,7 @@ const EducationSection = () => {
                         Education Journey
                     </h2>
                     <motion.div 
-                        className="w-16 sm:w-20 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full mb-3 sm:mb-6"
+                        className="w-16 sm:w-20 h-1.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full mb-3 sm:mb-6 section-underline shadow-md shadow-purple-500/40"
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
@@ -57,20 +57,14 @@ const EducationSection = () => {
                             {/* Content */}
                             <div className='pl-6 xs:pl-8 w-full'>
                                 <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
+                                    initial={{ opacity: 0, scale: 0.96 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.4, delay: index * 0.2 + 0.2 }}
+                                    transition={{ duration: 0.4, delay: index * 0.15 }}
                                     whileHover={{ 
-                                        scale: 1.05,
-                                        y: -10,
-                                        rotateY: 5,
-                                        transition: { 
-                                            type: "spring", 
-                                            stiffness: 300, 
-                                            damping: 20 
-                                        }
+                                        y: -5,
+                                        transition: { type: "spring", stiffness: 300 }
                                     }}
-                                    className='bg-white/80 dark:bg-gradient-to-br dark:from-gray-900 dark:via-gray-900 dark:to-gray-800 p-3 xs:p-4 sm:p-6 md:p-8 rounded-lg sm:rounded-xl shadow-sm dark:shadow-lg border border-gray-200 dark:border-gray-800 hover:border-blue-500 dark:hover:border-blue-500 hover:shadow-md dark:hover:shadow-2xl dark:hover:shadow-blue-500/30 transition-all duration-500 relative overflow-hidden card-item'
+                                    className='backdrop-blur-2xl bg-white/80 dark:bg-gray-900/80 p-5 sm:p-7 md:p-8 rounded-2xl shadow-xl border border-gray-200/80 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 relative overflow-hidden'
                                 >
                                     <div className='relative z-10'>
                                         <div className='flex items-start gap-2 xs:gap-3 sm:gap-4 md:gap-6 mb-2 xs:mb-3 sm:mb-4 md:mb-6'>

@@ -1,149 +1,157 @@
-// "use client";
-// import React from "react";
-// import { motion } from "framer-motion";
-// import { FiBriefcase, FiCalendar, FiMapPin, FiLink } from "react-icons/fi";
+"use client";
+import React from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { EXPERIENCES } from "@/constants";
+import { FiBriefcase, FiCalendar, FiMapPin, FiCheckCircle } from "react-icons/fi";
+import { FaUniversity } from "react-icons/fa";
+import SectionFloatingIcons from "./SectionFloatingIcons";
 
-// const experiences = [
-//   {
-//     title: "Full Stack Developer",
-//     company: "Freelance",
-//     period: "2024 - Present",
-//     location: "Remote",
-//     website: "https://freelane.com",
-//     description: "Led development of multiple web applications using React, Node.js, and MongoDB. Implemented responsive designs and optimized performance.",
-//     technologies: ["Next.js", "Node.js", "PostgreSQL", "Express", "TypeScript"],
-//     achievements: [
-//       "Developed and deployed 02+ full-stack applications",
-//       "Improved application performance by 40%",
-//       "Implemented responsive designs for all devices",
-//       "Collaborated with cross-functional teams"
-//     ]
-//   },
-// ];
+const Experience = () => {
+  return (
+    <section className="relative min-h-screen text-gray-900 dark:text-white w-full px-4 sm:px-6 lg:px-8 py-14 sm:py-20" id="experience">
+      {/* Edge-to-Edge Background canvas */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute inset-0 bg-transparent dark:bg-black/90" />
+        <SectionFloatingIcons />
+      </div>
 
-// const Experience = () => {
-//   return (
-//     <section className="relative py-16 sm:py-20" id="experience">
-//       {/* Background effects */}
-//       <div className="absolute inset-0 overflow-hidden">
-//         <div className="absolute inset-0 bg-black opacity-100" />
-//       </div>
+      <div className="relative max-w-5xl mx-auto space-y-10 sm:space-y-12 z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center space-y-3"
+        >
+          <motion.h2 
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-tight"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Work & Internship Experience
+          </motion.h2>
+          <motion.div 
+            className="w-20 h-1.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full section-underline shadow-md shadow-purple-500/40"
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base max-w-2xl mx-auto font-medium">
+            My professional development journey, industry software engineering internships, and hands-on experience
+          </p>
+        </motion.div>
 
-//       <div className="container relative mx-auto px-4 sm:px-6 md:px-12 lg:px-24">
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           viewport={{ once: true }}
-//           transition={{ duration: 0.8 }}
-//           className="text-center mb-12 sm:mb-16"
-//         >
-//           <motion.h2 
-//             className='text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent'
-//             initial={{ opacity: 0, y: -20 }}
-//             whileInView={{ opacity: 1, y: 0 }}
-//             transition={{ duration: 0.8 }}
-//           >
-//             Experience
-//           </motion.h2>
-//           <motion.div 
-//             className="w-20 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 mx-auto rounded-full"
-//             initial={{ scaleX: 0 }}
-//             whileInView={{ scaleX: 1 }}
-//             transition={{ duration: 0.8, delay: 0.2 }}
-//           />
-//           <p className="text-gray-400 text-lg">
-//             My professional journey and work experience
-//           </p>
-//         </motion.div>
+        {/* Experience List Container */}
+        <div className="space-y-8">
+          {EXPERIENCES.map((exp, index) => (
+            <motion.div
+              key={exp.id || index}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              whileHover={{ y: -4 }}
+              className="relative backdrop-blur-2xl bg-white/90 dark:bg-gray-900/80 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-white/10 shadow-xl hover:shadow-2xl hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 overflow-hidden group"
+            >
+              {/* Top Accent Gradient Line */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
 
-//         <div className="grid gap-8 sm:gap-12">
-//           {experiences.map((exp, index) => (
-//             <motion.div
-//               key={index}
-//               initial={{ opacity: 0, y: 20 }}
-//               whileInView={{ opacity: 1, y: 0 }}
-//               viewport={{ once: true }}
-//               transition={{ duration: 0.8, delay: index * 0.2 }}
-//               className="relative group"
-//             >
-//               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-//               <div className="relative bg-gray-900 p-6 sm:p-8 rounded-lg border border-gray-800 hover:border-blue-500/50 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10">
-//                 <div className="flex items-start gap-4">
-//                   <div className="p-3 rounded-lg bg-special/10 text-special group-hover:scale-110 transition-transform duration-300">
-//                     <FiBriefcase className="w-6 h-6" />
-//                   </div>
-//                   <div className="flex-1">
-//                     <div className="flex flex-wrap items-center gap-4 mb-2">
-//                       <h3 className="text-xl sm:text-2xl font-bold text-white">
-//                         {exp.title}
-//                       </h3>
-//                       <a 
-//                         href={exp.website}
-//                         target="_blank"
-//                         rel="noopener noreferrer"
-//                         className="flex items-center gap-1 text-special hover:text-blue-400 transition-colors"
-//                       >
-//                         <FiLink className="w-4 h-4" />
-//                         <span className="text-sm">{exp.company}</span>
-//                       </a>
-//                     </div>
-                    
-//                     <div className="flex flex-wrap items-center gap-4 mb-4">
-//                       <div className="flex items-center gap-1 text-gray-400">
-//                         <FiCalendar className="w-4 h-4" />
-//                         <span className="text-sm">{exp.period}</span>
-//                       </div>
-//                       <div className="flex items-center gap-1 text-gray-400">
-//                         <FiMapPin className="w-4 h-4" />
-//                         <span className="text-sm">{exp.location}</span>
-//                       </div>
-//                     </div>
+              <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6">
+                {/* Company Logo Container */}
+                <div className="flex-shrink-0">
+                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-white/15 p-1 shadow-md group-hover:scale-105 transition-transform duration-300">
+                    <Image
+                      src={exp.logo}
+                      alt={exp.company}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-contain rounded-xl"
+                    />
+                  </div>
+                </div>
 
-//                     <p className="text-gray-300 mb-6">{exp.description}</p>
+                {/* Main Content Area */}
+                <div className="flex-1 space-y-3 w-full">
+                  {/* Title & Status Bar */}
+                  <div className="flex flex-wrap items-start justify-between gap-2">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        {exp.role}
+                      </h3>
+                      <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300 mt-1">
+                        <FiBriefcase className="w-4 h-4 text-blue-500" />
+                        <span>{exp.company}</span>
+                        <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                          {exp.employmentType}
+                        </span>
+                      </div>
+                    </div>
 
-//                     <div className="space-y-4">
-//                       <h4 className="text-special font-medium">Key Achievements:</h4>
-//                       <ul className="space-y-2">
-//                         {exp.achievements.map((achievement, idx) => (
-//                           <motion.li
-//                             key={idx}
-//                             initial={{ opacity: 0, x: -20 }}
-//                             whileInView={{ opacity: 1, x: 0 }}
-//                             viewport={{ once: true }}
-//                             transition={{ duration: 0.5, delay: idx * 0.1 }}
-//                             className="flex items-start gap-2 text-gray-300"
-//                           >
-//                             <span className="text-special mt-1">•</span>
-//                             {achievement}
-//                           </motion.li>
-//                         ))}
-//                       </ul>
-//                     </div>
+                    {/* Active Status Badge */}
+                    {exp.status && (
+                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 text-xs font-bold shadow-sm">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                        </span>
+                        {exp.status}
+                      </div>
+                    )}
+                  </div>
 
-//                     <div className="mt-6 flex flex-wrap gap-2">
-//                       {exp.technologies.map((tech, techIndex) => (
-//                         <motion.span
-//                           key={techIndex}
-//                           initial={{ opacity: 0, scale: 0.8 }}
-//                           whileInView={{ opacity: 1, scale: 1 }}
-//                           viewport={{ once: true }}
-//                           transition={{ duration: 0.3, delay: techIndex * 0.1 }}
-//                           whileHover={{ scale: 1.05 }}
-//                           className="px-3 py-1 rounded-full text-sm bg-special/10 text-special border border-special/20 hover:bg-special/20 transition-colors"
-//                         >
-//                           {tech}
-//                         </motion.span>
-//                       ))}
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//             </motion.div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
+                  {/* Metadata Row (Period, Location, University Association) */}
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs sm:text-sm font-semibold text-gray-600 dark:text-gray-400">
+                    <div className="flex items-center gap-1.5">
+                      <FiCalendar className="w-4 h-4 text-purple-500" />
+                      <span>{exp.period}</span>
+                    </div>
 
-// export default Experience; 
+                    <div className="flex items-center gap-1.5">
+                      <FiMapPin className="w-4 h-4 text-pink-500" />
+                      <span>{exp.location}</span>
+                    </div>
+
+                    {exp.institution && (
+                      <div className="flex items-center gap-1.5 text-blue-600 dark:text-blue-400">
+                        <FaUniversity className="w-4 h-4" />
+                        <span>{exp.institution}</span>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Role Description */}
+                  <p className="text-sm sm:text-base text-gray-800 dark:text-gray-200 leading-relaxed font-normal pt-1">
+                    {exp.description}
+                  </p>
+
+                  {/* Key Skills & Tech Stack Pills */}
+                  {exp.skills && exp.skills.length > 0 && (
+                    <div className="pt-2 space-y-2">
+                      <div className="text-xs font-extrabold uppercase tracking-wider text-gray-500 dark:text-gray-400 flex items-center gap-1.5">
+                        <FiCheckCircle className="w-3.5 h-3.5 text-blue-500" />
+                        Core Skills & Competencies
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {exp.skills.map((skill, skillIdx) => (
+                          <span
+                            key={skillIdx}
+                            className="px-3 py-1 rounded-xl text-xs font-bold text-gray-900 dark:text-white bg-gray-100 dark:bg-white/10 border border-gray-300 dark:border-white/15 shadow-sm"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;

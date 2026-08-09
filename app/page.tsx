@@ -6,7 +6,7 @@ import Skills from '@/components/Skills';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import About from '@/components/About';
-// import Experience from '@/components/Experience'; // Commented out for future use
+import Experience from '@/components/Experience';
 import EducationSection from '@/components/EducationSection';
 import LoadingScreen from '@/components/LoadingScreen';
 
@@ -23,7 +23,7 @@ const page = () => {
              <Hero />
              <Navbar />
              <About />
-             {/* <Experience /> */}  {/* Commented out for future use */}
+             <Experience />
              <Skills />
              <Projects />
              <EducationSection />
