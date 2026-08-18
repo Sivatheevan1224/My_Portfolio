@@ -10,6 +10,7 @@ import projectImage7 from "../assets/project7.png";
 import projectImage8 from "../assets/project8.png";
 import projectImage9 from "../assets/project9.png";
 import projectImage10 from "../assets/project10.png";
+import projectImage11 from "../assets/project11.png";
 
 import htmlImg from "@/assets/html.png";
 import cssImg from "@/assets/css.png";
@@ -51,7 +52,7 @@ import { i } from "framer-motion/client";
 
 
 export const NAVIGATION_LINKS = [
-  { label: "Home", href: "#hero"},
+  { label: "Home", href: "#hero" },
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
@@ -77,9 +78,9 @@ export const PROJECTS = [
     githubLink: "https://github.com/Sivatheevan1224/GearSphere-FrontEnd.git",
     viewDemo:
       "https://www.linkedin.com/posts/sivatheevan_gearsphere-academicproject-webdevelopment-activity-7382678017401155585-xJ2u?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7T3LABOicd7vvlnlzcIfzhLBMQLB8yeSQ",
-    tech: ["React.js", "Bootstrap", "PHP","MySQL"],
+    tech: ["React.js", "Bootstrap", "PHP", "MySQL"],
   },
-  
+
   {
     id: 2,
     name: "Sivatheevan Portfolio",
@@ -90,16 +91,26 @@ export const PROJECTS = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
   },
   {
-  id: 3,
-  name: "Care Connect – Community Healthcare Platform",
-  description: "Full-stack MERN-based community healthcare platform developed during a 12-hour overnight hackathon. Features secure authentication, patient appointment booking, admin and doctor management, and responsive user-friendly interfaces. Designed with scalability, performance, and real-world clinic workflows in mind.",
-  image:projectImage8 , 
-  githubLink: "https://github.com/Sivatheevan1224/Care_Connect",
-  viewDemo: "https://care-connect-swart.vercel.app/",
-  tech: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "JWT"]
-},
+    id: 3,
+    name: "NexusAI – Enterprise AI Customer Support & RAG Platform",
+    description: "Full-stack enterprise AI customer support system and copilot platform built with Spring Boot 3, Java 17, and Next.js 14. Features vector Retrieval-Augmented Generation (RAG) powered by Google Gemini AI for automated Knowledge Base answers, automated ticket escalation for low-confidence queries (<45%), an Agent Command Workspace with customer sentiment analysis (FRUSTRATED, URGENT), 1-click AI draft replies, and real-time operations telemetry.",
+    image: projectImage11, // Replace with your image import
+    githubLink: "https://github.com/Sivatheevan1224/ai-customer-support-app.git",
+    viewDemo: "https://ai-customer-support-app-tawny.vercel.app/",
+    tech: ["Spring Boot 3", "Java 17", "Next.js 14", "React", "Google Gemini AI", "PostgreSQL", "Tailwind CSS", "Docker"]
+  },
+
   {
     id: 4,
+    name: "Care Connect – Community Healthcare Platform",
+    description: "Full-stack MERN-based community healthcare platform developed during a 12-hour overnight hackathon. Features secure authentication, patient appointment booking, admin and doctor management, and responsive user-friendly interfaces. Designed with scalability, performance, and real-world clinic workflows in mind.",
+    image: projectImage8,
+    githubLink: "https://github.com/Sivatheevan1224/Care_Connect",
+    viewDemo: "https://care-connect-swart.vercel.app/",
+    tech: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "JWT"]
+  },
+  {
+    id: 5,
     name: "GYM Management System",
     description:
       "The Gym Management System is designed to help gyms and fitness centres efficiently manage their operations, including member enrolment, trainer assignments, and payment tracking, through a single unified interface. This system is ideal for small to medium-sized gyms looking to digitize their management processes and can also serve as a valuable learning resource for developers interested in understanding how to build a real-world CRUD web application using PHP, a database, and user role management.",
@@ -107,19 +118,19 @@ export const PROJECTS = [
     githubLink: "https://github.com/Sivatheevan1224/Gym_Management_System.git",
     viewDemo:
       "",
-    tech: ["PHP", "CSS", "HTML","MySQL"],
+    tech: ["PHP", "CSS", "HTML", "MySQL"],
   },
   {
-    id: 5,
+    id: 6,
     name: "AI-Powered Resume Builder",
     description: "Full-stack web application that revolutionizes resume creation using AI technology. Features Groq AI (Llama 3.3) for automatic resume parsing, 5 professional templates, smart image processing with background removal, JWT authentication, and one-click PDF export. Built with MERN stack and cloud services.",
-    image: projectImage6, 
-    githubLink: "https://github.com/Sivatheevan1224/Resume_Builder", 
-    viewDemo: "https://resumebuilderfrontend.vercel.app/", 
+    image: projectImage6,
+    githubLink: "https://github.com/Sivatheevan1224/Resume_Builder",
+    viewDemo: "https://resumebuilderfrontend.vercel.app/",
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Groq AI", "Tailwind CSS", "ImageKit", "JWT"]
-},
-{
-    id: 6,
+  },
+  {
+    id: 7,
     name: "FlexiRide - On-Demand Rideshare App",
     description: "A cross-platform mobile app (Expo + React Native) that simplifies on-demand rides and vehicle bookings. Uses Firebase for secure authentication and real-time data; includes an intuitive booking flow, searchable vehicle listings, user profiles with booking history, and an admin dashboard for managing vehicles, users, and revenue. Designed with responsive UI and dark/light theme support for a polished mobile experience.",
     image: projectImage9,
@@ -128,17 +139,17 @@ export const PROJECTS = [
     tech: ["React Native", "Expo", "TypeScript", "Firebase", "TailwindCSS/NativeWind"],
   },
   {
-  id: 7,
-  name: 'ProGarage',
-  description:
-    'A full-stack garage management system for customer, vehicle, service, and billing operations. Built with Django REST Framework and React, it streamlines job cards, technician assignments, invoice generation, payment tracking, and service history management with a clean responsive interface.',
-  image: projectImage10,
-  githubLink: 'https://github.com/Sivatheevan1224/Garage_Management_System.git',
-  viewDemo: 'https://www.linkedin.com/posts/sivatheevan_progarage-django-react-ugcPost-7443873298976854016-KWIr?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7T3LABOicd7vvlnlzcIfzhLBMQLB8yeSQ',
-  tech: ['React', 'Vite', 'Django REST Framework', 'MySQL', 'Tailwind CSS'],
-},
-{
     id: 8,
+    name: 'ProGarage',
+    description:
+      'A full-stack garage management system for customer, vehicle, service, and billing operations. Built with Django REST Framework and React, it streamlines job cards, technician assignments, invoice generation, payment tracking, and service history management with a clean responsive interface.',
+    image: projectImage10,
+    githubLink: 'https://github.com/Sivatheevan1224/Garage_Management_System.git',
+    viewDemo: 'https://www.linkedin.com/posts/sivatheevan_progarage-django-react-ugcPost-7443873298976854016-KWIr?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE7T3LABOicd7vvlnlzcIfzhLBMQLB8yeSQ',
+    tech: ['React', 'Vite', 'Django REST Framework', 'MySQL', 'Tailwind CSS'],
+  },
+  {
+    id: 9,
     name: "AI Image Generator",
     description:
       "A modern web application that generates AI-powered images using Hugging Face's inference API. Features multiple AI models, customizable aspect ratios, batch generation, and dark/light theme support.",
@@ -147,7 +158,7 @@ export const PROJECTS = [
     viewDemo:
       "https://sivatheevan1224.github.io/AI_Image_Generator/",
     tech: ["HTML", "CSS", "JavaScript", "Hugging Face API"],
-},
+  },
 ];
 
 export const BIO = [
@@ -330,7 +341,7 @@ export const CUSTOMTECS = [
     icon: <Image src={linuxImg} alt="linux" width={60} height={60} />,
     name: "Linux",
   },
-  
+
 ];
 
 
