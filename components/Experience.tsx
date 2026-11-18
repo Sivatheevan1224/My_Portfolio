@@ -1,11 +1,27 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { EXPERIENCES } from "@/constants";
 import { FiBriefcase, FiCalendar, FiMapPin, FiCheckCircle } from "react-icons/fi";
 import { FaUniversity } from "react-icons/fa";
 import SectionFloatingIcons from "./SectionFloatingIcons";
+
+interface ExperienceItem {
+  id: number;
+  role: string;
+  company: string;
+  employmentType: string;
+  period: string;
+  status?: string;
+  location: string;
+  institution?: string;
+  logo: StaticImageData;
+  logoBg?: string;
+  linkedin?: string;
+  description: string;
+  skills?: string[];
+}
 
 const Experience = () => {
   return (
@@ -45,7 +61,7 @@ const Experience = () => {
 
         {/* Experience List Container */}
         <div className="space-y-8">
-          {EXPERIENCES.map((exp, index) => (
+          {(EXPERIENCES as ExperienceItem[]).map((exp, index) => (
             <motion.div
               key={exp.id || index}
               initial={{ opacity: 0, y: 25 }}
@@ -60,7 +76,7 @@ const Experience = () => {
               <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6">
                 {/* Company Logo Container */}
                 <div className="flex-shrink-0">
-                  <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-white/15 p-1 shadow-md group-hover:scale-105 transition-transform duration-300">
+                  <div className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden ${exp.logoBg || "bg-white dark:bg-gray-800 p-1"} border-2 border-gray-200 dark:border-white/15 shadow-md group-hover:scale-105 transition-transform duration-300 flex items-center justify-center`}>
                     <Image
                       src={exp.logo}
                       alt={exp.company}
@@ -81,7 +97,18 @@ const Experience = () => {
                       </h3>
                       <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300 mt-1">
                         <FiBriefcase className="w-4 h-4 text-blue-500" />
-                        <span>{exp.company}</span>
+                        {exp.linkedin ? (
+                          <a
+                            href={exp.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors"
+                          >
+                            {exp.company}
+                          </a>
+                        ) : (
+                          <span>{exp.company}</span>
+                        )}
                         <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
                           {exp.employmentType}
                         </span>

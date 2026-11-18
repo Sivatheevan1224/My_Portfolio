@@ -119,59 +119,64 @@ const Skills = () => {
         </motion.div>
 
         {/* Categorized Skills Showcase */}
-        <div className="space-y-10 sm:space-y-12">
+        <div>
           <AnimatePresence mode="wait">
-            {getFilteredCategories().map(([catKey, category]) => (
-              <motion.div
-                key={catKey}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-4 sm:space-y-5"
-              >
-                {/* Category Group Header */}
-                <div className="flex items-center gap-3 pb-2 border-b border-gray-200 dark:border-white/10">
-                  <div className="w-2.5 h-6 rounded-full bg-gradient-to-b from-blue-500 to-purple-500" />
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white flex items-center gap-2">
-                    {category.title}
-                  </h3>
-                  <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
-                    {category.skills.length} Items
-                  </span>
-                </div>
+            <motion.div
+              key={activeCategory}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.35 }}
+              className="space-y-10 sm:space-y-12"
+            >
+              {getFilteredCategories().map(([catKey, category]) => (
+                <div
+                  key={catKey}
+                  className="space-y-4 sm:space-y-5"
+                >
+                  {/* Category Group Header */}
+                  <div className="flex items-center gap-3 pb-2 border-b border-gray-200 dark:border-white/10">
+                    <div className="w-2.5 h-6 rounded-full bg-gradient-to-b from-blue-500 to-purple-500" />
+                    <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white flex items-center gap-2">
+                      {category.title}
+                    </h3>
+                    <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
+                      {category.skills.length} Items
+                    </span>
+                  </div>
 
-                {/* Skill Cards Responsive Grid */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 sm:gap-5">
-                  {category.skills.map((skill, index) => (
-                    <motion.div
-                      key={skill.id || index}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: index * 0.05 }}
-                      whileHover={{ y: -6, scale: 1.03 }}
-                      whileTap={{ scale: 0.97 }}
-                      className="group relative backdrop-blur-xl bg-white/90 dark:bg-gray-900/80 p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-white/10 hover:border-blue-500/60 dark:hover:border-blue-400/60 shadow-md hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 transition-all duration-300 flex flex-col items-center justify-center text-center gap-3 cursor-pointer overflow-hidden"
-                    >
-                      {/* Top Accent Gradient Border Effect on Hover */}
-                      <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Skill Cards Responsive Grid */}
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 sm:gap-5">
+                    {category.skills.map((skill, index) => (
+                      <motion.div
+                        key={skill.id || index}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                        whileHover={{ y: -6, scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                        className="group relative backdrop-blur-xl bg-white/90 dark:bg-gray-900/80 p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-white/10 hover:border-blue-500/60 dark:hover:border-blue-400/60 shadow-md hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 transition-all duration-300 flex flex-col items-center justify-center text-center gap-3 cursor-pointer overflow-hidden"
+                      >
+                        {/* Top Accent Gradient Border Effect on Hover */}
+                        <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                      {/* Glass Icon Badge Container */}
-                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gray-100 dark:bg-white/10 flex items-center justify-center p-3 border border-gray-200 dark:border-white/10 shadow-inner group-hover:scale-110 group-hover:bg-blue-500/10 transition-transform duration-300 flex-shrink-0">
-                        <div className="w-full h-full relative flex items-center justify-center [&_img]:w-full [&_img]:h-full [&_img]:object-contain">
-                          {skill.icon}
+                        {/* Glass Icon Badge Container */}
+                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gray-100 dark:bg-white/10 flex items-center justify-center p-3 border border-gray-200 dark:border-white/10 shadow-inner group-hover:scale-110 group-hover:bg-blue-500/10 transition-transform duration-300 flex-shrink-0">
+                          <div className="w-full h-full relative flex items-center justify-center [&_img]:w-full [&_img]:h-full [&_img]:object-contain">
+                            {skill.icon}
+                          </div>
                         </div>
-                      </div>
 
-                      {/* Skill Label */}
-                      <span className="text-xs sm:text-sm font-extrabold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
-                        {skill.name}
-                      </span>
-                    </motion.div>
-                  ))}
+                        {/* Skill Label */}
+                        <span className="text-xs sm:text-sm font-extrabold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
+                          {skill.name}
+                        </span>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </AnimatePresence>
         </div>
       </div>

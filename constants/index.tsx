@@ -11,6 +11,8 @@ import projectImage8 from "../assets/project8.png";
 import projectImage9 from "../assets/project9.png";
 import projectImage10 from "../assets/project10.png";
 import projectImage11 from "../assets/project11.png";
+import projectImage12 from "../assets/project12.png";
+import projectImage13 from "../assets/project13.png";
 
 import htmlImg from "@/assets/html.png";
 import cssImg from "@/assets/css.png";
@@ -47,6 +49,7 @@ import androidStudioImg from "@/assets/androidstudio.png";
 import springbootImg from "@/assets/springboot.png";
 import firestoreImg from "@/assets/firestore.png";
 import csiDevImg from "@/assets/CSI_DEV.jpg";
+import vinasaiImg from "@/assets/vinasai.png";
 import { i } from "framer-motion/client";
 
 
@@ -71,6 +74,20 @@ export const HERO = {
 export const PROJECTS = [
   {
     id: 1,
+    name: "PyramidEdu",
+    type: "Full-Stack Web & Mobile Application",
+    status: "Completed & Verified",
+    description:
+      "PyramidEdu (Academic project) is an enterprise-grade smart institute management ecosystem offering multi-role access management (Admin, Manager, Teacher, Student, Support Staff), QR code-based digital attendance verification, student academic performance analytics with at-risk monitoring, AI-powered study tutor & intelligent learning recommendations with RAG, automated parent reporting & email digests, comprehensive fee tracking & salary payroll management, and real-time announcements developed with a Next.js 16 web portal, React Native (Expo) mobile app, and Node.js-Express-Prisma-PostgreSQL backend.",
+    image: projectImage12,
+    images: [projectImage12, projectImage13],
+    githubLink: "https://github.com/Sivatheevan1224/PyramidEdu_Frontend.git",
+    backendLink: "https://github.com/Sivatheevan1224/PyramidEdu_Backend.git",
+    viewDemo: "https://www.linkedin.com/in/sivatheevan/",
+    tech: ["Next.js", "React Native", "Node.js", "Express.js", "TypeScript", "PostgreSQL"],
+  },
+  {
+    id: 2,
     name: "GearSphere ",
     description:
       "GearSphere(Academic project) is an advanced PC parts marketplace offering role-based user management, intelligent budget-driven PC builder tool, automated PC building recommendations, complete shopping experience, professional technician services, and comprehensive order tracking system developed with React.js frontend and PHP-MySQL backend",
@@ -82,7 +99,7 @@ export const PROJECTS = [
   },
 
   {
-    id: 2,
+    id: 3,
     name: "Sivatheevan Portfolio",
     description: "Modern, responsive personal portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features smooth animations using Framer Motion, dark/light mode toggle, interactive project showcase, skills section with floating icons, and contact form. Fully optimized for performance and SEO.",
     image: projectImage5,
@@ -91,7 +108,7 @@ export const PROJECTS = [
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"]
   },
   {
-    id: 3,
+    id: 4,
     name: "NexusAI – Enterprise AI Customer Support & RAG Platform",
     description: "Full-stack enterprise AI customer support system and copilot platform built with Spring Boot 3, Java 17, and Next.js 14. Features vector Retrieval-Augmented Generation (RAG) powered by Google Gemini AI for automated Knowledge Base answers, automated ticket escalation for low-confidence queries (<45%), an Agent Command Workspace with customer sentiment analysis (FRUSTRATED, URGENT), 1-click AI draft replies, and real-time operations telemetry.",
     image: projectImage11, // Replace with your image import
@@ -101,7 +118,7 @@ export const PROJECTS = [
   },
 
   {
-    id: 4,
+    id: 5,
     name: "Care Connect – Community Healthcare Platform",
     description: "Full-stack MERN-based community healthcare platform developed during a 12-hour overnight hackathon. Features secure authentication, patient appointment booking, admin and doctor management, and responsive user-friendly interfaces. Designed with scalability, performance, and real-world clinic workflows in mind.",
     image: projectImage8,
@@ -110,7 +127,7 @@ export const PROJECTS = [
     tech: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "JWT"]
   },
   {
-    id: 5,
+    id: 6,
     name: "GYM Management System",
     description:
       "The Gym Management System is designed to help gyms and fitness centres efficiently manage their operations, including member enrolment, trainer assignments, and payment tracking, through a single unified interface. This system is ideal for small to medium-sized gyms looking to digitize their management processes and can also serve as a valuable learning resource for developers interested in understanding how to build a real-world CRUD web application using PHP, a database, and user role management.",
@@ -121,7 +138,7 @@ export const PROJECTS = [
     tech: ["PHP", "CSS", "HTML", "MySQL"],
   },
   {
-    id: 6,
+    id: 7,
     name: "AI-Powered Resume Builder",
     description: "Full-stack web application that revolutionizes resume creation using AI technology. Features Groq AI (Llama 3.3) for automatic resume parsing, 5 professional templates, smart image processing with background removal, JWT authentication, and one-click PDF export. Built with MERN stack and cloud services.",
     image: projectImage6,
@@ -130,7 +147,7 @@ export const PROJECTS = [
     tech: ["React.js", "Node.js", "Express.js", "MongoDB", "Groq AI", "Tailwind CSS", "ImageKit", "JWT"]
   },
   {
-    id: 7,
+    id: 8,
     name: "FlexiRide - On-Demand Rideshare App",
     description: "A cross-platform mobile app (Expo + React Native) that simplifies on-demand rides and vehicle bookings. Uses Firebase for secure authentication and real-time data; includes an intuitive booking flow, searchable vehicle listings, user profiles with booking history, and an admin dashboard for managing vehicles, users, and revenue. Designed with responsive UI and dark/light theme support for a polished mobile experience.",
     image: projectImage9,
@@ -139,7 +156,7 @@ export const PROJECTS = [
     tech: ["React Native", "Expo", "TypeScript", "Firebase", "TailwindCSS/NativeWind"],
   },
   {
-    id: 8,
+    id: 9,
     name: 'ProGarage',
     description:
       'A full-stack garage management system for customer, vehicle, service, and billing operations. Built with Django REST Framework and React, it streamlines job cards, technician assignments, invoice generation, payment tracking, and service history management with a clean responsive interface.',
@@ -149,7 +166,7 @@ export const PROJECTS = [
     tech: ['React', 'Vite', 'Django REST Framework', 'MySQL', 'Tailwind CSS'],
   },
   {
-    id: 9,
+    id: 10,
     name: "AI Image Generator",
     description:
       "A modern web application that generates AI-powered images using Hugging Face's inference API. Features multiple AI models, customizable aspect ratios, batch generation, and dark/light theme support.",
@@ -398,6 +415,29 @@ export const SOCIAL_MEDIA_LINKS = [
 export const EXPERIENCES = [
   {
     id: 1,
+    role: "Software Engineer Intern",
+    company: "Vinasai Inc",
+    employmentType: "Internship",
+    period: "Oct 2026 - Present · 2 mos",
+    status: "Currently Active",
+    location: "Canada · Remote",
+    logo: vinasaiImg,
+    logoBg: "bg-red-600 p-2.5",
+    linkedin: "https://www.linkedin.com/in/sivatheevan/",
+    description: "Working as a Software Engineer Intern at Vinasai Inc, developing full-stack web applications for real-world production projects including flyplaces.ca and primeville.ca. Collaborating remotely with engineering teams to build modern responsive user interfaces, develop robust API integrations, and deliver seamless digital experiences using agile workflows.",
+    skills: [
+      "Software Engineering",
+      "Full-Stack Development",
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "API Integration",
+      "Web Applications"
+    ],
+  },
+  {
+    id: 2,
     role: "Full Stack Developer - Intern",
     company: "CSI-DevTeam",
     employmentType: "Part-time",

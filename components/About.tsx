@@ -1,10 +1,10 @@
 "use client"
 import React from 'react'
 import { motion } from 'framer-motion';
-import { FiMonitor, FiLayers } from 'react-icons/fi'
+import { FiMonitor, FiLayers, FiCheckCircle, FiAward, FiBriefcase } from 'react-icons/fi'
 import { FaMobileAlt } from 'react-icons/fa'
 import SectionFloatingIcons from './SectionFloatingIcons';
-import Certificates from './Certificates';
+// import Certificates from './Certificates';
 
 const services = [
   {
@@ -29,22 +29,25 @@ const services = [
 
 const stats = [
   {
-    number: "04",
+    number: "10",
     suffix: "+",
     text: "Completed Projects",
-    icon: "🎯"
+    icon: <FiCheckCircle className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
+    bgColor: "bg-blue-500/10 dark:bg-blue-500/15 border-blue-500/20 group-hover:bg-blue-500/25"
   },
   {
     number: "95",
     suffix: "%",
-    text: "Client satisfaction",
-    icon: "⭐"
+    text: "Client Satisfaction",
+    icon: <FiAward className="w-6 h-6 text-amber-500 dark:text-amber-400" />,
+    bgColor: "bg-amber-500/10 dark:bg-amber-500/15 border-amber-500/20 group-hover:bg-amber-500/25"
   },
   {
     number: "01",
     suffix: "+",
-    text: "Years of experience",
-    icon: "💫"
+    text: "Years of Experience",
+    icon: <FiBriefcase className="w-6 h-6 text-purple-500 dark:text-purple-400" />,
+    bgColor: "bg-purple-500/10 dark:bg-purple-500/15 border-purple-500/20 group-hover:bg-purple-500/25"
   }
 ];
 
@@ -179,9 +182,9 @@ const About = () => {
             <motion.div
               key={idx}
               whileHover={{ y: -4, scale: 1.02 }}
-              className="p-5 rounded-2xl backdrop-blur-2xl bg-white/90 dark:bg-gray-900/80 border border-gray-200 dark:border-white/10 shadow-lg hover:shadow-xl hover:border-blue-500/50 transition-all duration-300 flex items-center gap-4 group"
+              className="p-5 rounded-2xl backdrop-blur-2xl bg-white/90 dark:bg-white/[0.04] border border-gray-200/80 dark:border-white/10 shadow-lg hover:shadow-2xl hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-300 flex items-center gap-4 group"
             >
-              <div className="text-3xl sm:text-4xl p-3 rounded-2xl bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 group-hover:scale-110 transition-transform duration-300">
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center border shadow-sm transition-all duration-300 group-hover:scale-110 flex-shrink-0 ${stat.bgColor}`}>
                 {stat.icon}
               </div>
               <div>
@@ -196,10 +199,10 @@ const About = () => {
           ))}
         </motion.div>
 
-        {/* Certificates card */}
-        <div className="pt-2">
+        {/* Certificates card (hidden) */}
+        {/* <div className="pt-2">
           <Certificates />
-        </div>
+        </div> */}
       </div>
     </section>
   )

@@ -36,38 +36,42 @@ const techStack = [
   { icon: SiFramer, name: "Framer Motion", color: "text-pink-500" },
 ];
 
+const roles = ["Software Engineer", "Full Stack Developer"];
+
 const Hero = () => {
   const [typedText, setTypedText] = useState("");
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const sectionRef = useRef<HTMLDivElement>(null);
-  const fullText = "Software Developer";
   const basePath = process.env.NODE_ENV === 'production' ? '/My_Portfolio' : '';
   
   useEffect(() => {
-    let currentIndex = 0;
+    let roleIndex = 0;
+    let charIndex = 0;
     let isDeleting = false;
     let loopTimeout: NodeJS.Timeout;
 
     const typeWriter = () => {
-      if (!isDeleting && currentIndex <= fullText.length) {
-        setTypedText(fullText.slice(0, currentIndex));
-        currentIndex++;
+      const currentRole = roles[roleIndex];
+
+      if (!isDeleting && charIndex <= currentRole.length) {
+        setTypedText(currentRole.slice(0, charIndex));
+        charIndex++;
         loopTimeout = setTimeout(typeWriter, 100);
-      } else if (!isDeleting && currentIndex > fullText.length) {
+      } else if (!isDeleting && charIndex > currentRole.length) {
         loopTimeout = setTimeout(() => {
           isDeleting = true;
           typeWriter();
         }, 2000);
-      } else if (isDeleting && currentIndex > 0) {
-        currentIndex--;
-        setTypedText(fullText.slice(0, currentIndex));
-        loopTimeout = setTimeout(typeWriter, 50);
-      } else if (isDeleting && currentIndex === 0) {
+      } else if (isDeleting && charIndex > 0) {
+        charIndex--;
+        setTypedText(currentRole.slice(0, charIndex));
+        loopTimeout = setTimeout(typeWriter, 40);
+      } else if (isDeleting && charIndex === 0) {
         isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
         loopTimeout = setTimeout(() => {
-          currentIndex = 0;
           typeWriter();
-        }, 500);
+        }, 400);
       }
     };
 
@@ -93,29 +97,29 @@ const Hero = () => {
         ref={sectionRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative min-h-[90vh] sm:min-h-screen text-gray-900 dark:text-white overflow-hidden w-screen flex flex-col justify-between" 
+        className="relative min-h-screen lg:h-screen lg:max-h-screen text-gray-900 dark:text-white overflow-hidden w-full flex flex-col justify-between" 
         id="hero"
       >
-        <div className="absolute inset-0 overflow-hidden w-screen pointer-events-none z-0">
-          <div className="absolute inset-0 bg-transparent dark:bg-black/50 w-screen" />
+        <div className="absolute inset-0 overflow-hidden w-full pointer-events-none z-0">
+          <div className="absolute inset-0 bg-transparent dark:bg-black/50 w-full" />
           <HeroFloatingIcons />
         </div>
 
-        <div className="relative w-full flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-10 md:gap-12 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20">
+        <div className="relative w-full max-w-[1440px] mx-auto flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16 px-6 sm:px-10 md:px-12 lg:px-16 xl:px-20 pt-16 sm:pt-20 lg:pt-16 pb-3 my-auto z-10">
           
           {/* Left Text & CTA Section */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full md:w-1/2 text-center md:text-left z-10"
+            className="w-full lg:w-1/2 text-center lg:text-left z-10"
           >
             {/* Status Pill Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full backdrop-blur-xl bg-blue-500/10 dark:bg-blue-500/15 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-semibold mb-5 shadow-sm hover:border-blue-500/50 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-xl bg-blue-500/10 dark:bg-blue-500/15 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-sm hover:border-blue-500/50 transition-all"
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -128,13 +132,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-5 sm:mb-6"
+              className="mb-4 sm:mb-5"
             >
               <motion.h1 
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black mb-1.5 tracking-tight"
               >
                 Hello <motion.span 
                   initial={{ opacity: 0, scale: 0 }}
@@ -148,11 +152,11 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="relative inline-block md:block pl-6 mb-3 sm:mb-4"
+                className="relative inline-block lg:block pl-6 mb-2.5 sm:mb-3"
               >
                 <motion.div 
                   initial={{ width: 0 }}
-                  animate={{ width: 24 }}
+                  animate={{ width: 22 }}
                   transition={{ duration: 0.4, delay: 0.7 }}
                   className="absolute left-0 top-1/2 -translate-y-1/2 h-[3px] bg-gradient-to-r from-[#4361ee] to-purple-500 rounded-full"
                 />
@@ -165,7 +169,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-wide mb-5 sm:mb-6 min-h-[50px] flex items-center justify-center md:justify-start"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-extrabold tracking-wide mb-4 sm:mb-5 min-h-[44px] sm:min-h-[52px] flex items-center justify-center lg:justify-start"
               >
                 <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent select-text">
                   {typedText}
@@ -182,7 +186,7 @@ const Hero = () => {
 
             {/* Social Media Links with Glass Hover */}
             <motion.div 
-              className="flex items-center justify-center md:justify-start gap-4 sm:gap-5 mb-6"
+              className="flex items-center justify-center lg:justify-start gap-3.5 sm:gap-4 mb-5 sm:mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -196,7 +200,7 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    whileHover={{ scale: 1.12, rotate: 6, y: -2 }}
+                    whileHover={{ scale: 1.1, rotate: 5, y: -2 }}
                     whileTap={{ scale: 0.95 }}
                     href={hrefValue}
                     target={isMail ? undefined : '_blank'}
@@ -209,7 +213,7 @@ const Hero = () => {
                         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                       }
                     }}
-                    className="p-3 rounded-2xl backdrop-blur-xl bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 shadow-lg hover:shadow-xl hover:border-blue-500/50 transition-all text-xl sm:text-2xl text-gray-800 dark:text-white"
+                    className="p-3 sm:p-3.5 rounded-2xl backdrop-blur-xl bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 shadow-md hover:shadow-lg hover:border-blue-500/50 transition-all text-xl sm:text-2xl text-gray-800 dark:text-white"
                   >
                     {link.icon}
                   </motion.a>
@@ -219,7 +223,7 @@ const Hero = () => {
 
             {/* Action Buttons */}
             <motion.div 
-              className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4"
+              className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-3.5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -228,10 +232,10 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                whileHover={{ scale: 1.05, boxShadow: "0 12px 35px rgba(67, 97, 238, 0.4)" }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04, boxShadow: "0 10px 30px rgba(67, 97, 238, 0.4)" }}
+                whileTap={{ scale: 0.96 }}
                 href="#contact"
-                className="group flex items-center gap-2 px-7 sm:px-9 py-3.5 bg-gradient-to-r from-[#4361ee] via-[#3a0ca3] to-[#7209b7] text-white rounded-full text-sm sm:text-base font-semibold transition-all duration-300 shadow-xl"
+                className="group flex items-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-[#4361ee] via-[#3a0ca3] to-[#7209b7] text-white rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-lg"
               >
                 Hire Me
                 <motion.span
@@ -246,12 +250,12 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.9 }}
-                whileHover={{ scale: 1.05, y: -3, boxShadow: "0 8px 25px rgba(0, 0, 0, 0.12)" }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04, y: -2, boxShadow: "0 8px 20px rgba(0, 0, 0, 0.12)" }}
+                whileTap={{ scale: 0.96 }}
                 href={`${basePath}/CV/Sivatheevan_CV_SE_Intern.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-sm sm:text-base font-bold bg-white text-gray-900 border-2 border-gray-300 hover:border-blue-600 hover:text-blue-600 dark:bg-white/10 dark:text-white dark:border-white/20 dark:hover:bg-white/20 shadow-md transition-all duration-200"
+                className="flex items-center gap-1.5 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-900 border-2 border-gray-300 hover:border-blue-600 hover:text-blue-600 dark:bg-white/10 dark:text-white dark:border-white/20 dark:hover:bg-white/20 shadow-sm transition-all duration-200"
                 aria-label="View CV in new tab"
               >
                 <motion.span
@@ -267,11 +271,11 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 1.0 }}
-                whileHover={{ scale: 1.05, y: -3, boxShadow: "0 10px 30px rgba(0, 0, 0, 0.25)" }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04, y: -2, boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)" }}
+                whileTap={{ scale: 0.96 }}
                 href={`${basePath}/CV/Sivatheevan_CV_SE_Intern.pdf`}
                 download="Sivatheevan_CV_SE_Intern.pdf"
-                className="flex items-center gap-2 px-7 sm:px-8 py-3.5 rounded-full text-sm sm:text-base font-bold bg-white text-black border-2 border-gray-900 hover:bg-gray-100 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 shadow-xl transition-all duration-200"
+                className="flex items-center gap-1.5 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-bold bg-white text-black border-2 border-gray-900 hover:bg-gray-100 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 shadow-md transition-all duration-200"
                 aria-label="Download CV"
               >
                 <motion.span
@@ -290,13 +294,13 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative w-full md:w-1/2 flex justify-center items-center py-6"
+            className="relative w-full lg:w-1/2 flex justify-center items-center py-4 lg:py-2"
           >
-            {/* Main Interactive Glass Container with 3D Tilt */}
+            {/* Main Interactive Glass Container with Subtle 3D Perspective */}
             <div 
-              className="relative z-10 transition-transform duration-200 ease-out"
+              className="relative z-10 transition-transform duration-300 ease-out"
               style={{
-                transform: `perspective(1000px) rotateX(${-mousePos.y * 10}deg) rotateY(${mousePos.x * 10}deg)`,
+                transform: `perspective(1000px) rotateX(${-mousePos.y * 6}deg) rotateY(${mousePos.x * 6}deg)`,
               }}
             >
               {/* Glassmorphic Background Card */}
@@ -305,91 +309,82 @@ const Hero = () => {
                 {/* Glow ring behind image */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
 
-                {/* Hero Image */}
+                {/* Hero Image - Grand, High-Impact & Responsive */}
                 <motion.img
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
                   src={cardimg.src}
                   alt="Sivatheevan"
-                  className="relative w-full max-w-[300px] sm:max-w-[380px] md:max-w-[420px] lg:max-w-[480px] xl:max-w-[520px] h-auto object-contain rounded-2xl filter drop-shadow-2xl"
-                  width={520}
+                  className="relative w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[480px] xl:max-w-[530px] max-h-[50vh] sm:max-h-[56vh] lg:max-h-[62vh] h-auto object-contain rounded-2xl filter drop-shadow-2xl"
+                  width={530}
                   height={500}
                 />
               </div>
 
               {/* ------------------------------------------------------------- */}
-              {/* INTERACTIVE CURSOR CROSSOVER STAT BADGES                       */}
+              {/* STATIC CORNER STAT BADGES (NO JITTER, NEVER COVERS SUBJECT)   */}
               {/* ------------------------------------------------------------- */}
 
-              {/* Stat Badge 1: Top-Left (Moves WITH cursor offset: +X, +Y) */}
+              {/* Stat Badge 1: Top-Left */}
               <motion.div
-                style={{
-                  transform: `translate(${mousePos.x * 35}px, ${mousePos.y * 35}px)`,
-                  transition: 'transform 0.2s ease-out'
-                }}
-                initial={{ opacity: 0, x: -30 }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
-                className="absolute -top-4 -left-4 sm:top-2 sm:-left-8 z-20 p-3 sm:p-4 rounded-2xl backdrop-blur-2xl bg-white/85 dark:bg-gray-900/85 border border-white/70 dark:border-white/20 shadow-2xl shadow-blue-500/20 flex items-center gap-3 cursor-pointer hover:scale-105 transition-all group"
+                whileHover={{ scale: 1.05 }}
+                className="absolute -top-3 -left-3 sm:-top-2 sm:-left-5 lg:-left-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/85 dark:bg-gray-900/85 border border-white/70 dark:border-white/20 shadow-xl shadow-blue-500/15 flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
               >
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-blue-500 to-cyan-400 flex items-center justify-center text-white text-lg sm:text-xl shadow-md shadow-blue-500/30 group-hover:rotate-12 transition-transform">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-500 to-cyan-400 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-blue-500/30 group-hover:rotate-12 transition-transform">
                   <FiCode />
                 </div>
                 <div>
-                  <div className="text-base sm:text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
-                    08+
+                  <div className="text-sm sm:text-lg font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                    10+
                   </div>
-                  <div className="text-[11px] sm:text-xs font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                  <div className="text-[10px] sm:text-xs font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
                     Projects Completed
                   </div>
                 </div>
               </motion.div>
 
-              {/* Stat Badge 2: Bottom-Right (Moves OPPOSITE to cursor: -X, -Y -> CROSSOVER EFFECT!) */}
+              {/* Stat Badge 2: Bottom-Right */}
               <motion.div
-                style={{
-                  transform: `translate(${-mousePos.x * 35}px, ${-mousePos.y * 35}px)`,
-                  transition: 'transform 0.2s ease-out'
-                }}
-                initial={{ opacity: 0, x: 30 }}
+                initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
-                className="absolute -bottom-4 -right-4 sm:bottom-4 sm:-right-8 z-20 p-3 sm:p-4 rounded-2xl backdrop-blur-2xl bg-white/85 dark:bg-gray-900/85 border border-white/70 dark:border-white/20 shadow-2xl shadow-purple-500/20 flex items-center gap-3 cursor-pointer hover:scale-105 transition-all group"
+                whileHover={{ scale: 1.05 }}
+                className="absolute -bottom-3 -right-3 sm:-bottom-2 sm:-right-5 lg:-right-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/85 dark:bg-gray-900/85 border border-white/70 dark:border-white/20 shadow-xl shadow-purple-500/15 flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
               >
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white text-lg sm:text-xl shadow-md shadow-purple-500/30 group-hover:-rotate-12 transition-transform">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-purple-500/30 group-hover:-rotate-12 transition-transform">
                   <FiCpu />
                 </div>
                 <div>
-                  <div className="text-base sm:text-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                  <div className="text-sm sm:text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
                     15+
                   </div>
-                  <div className="text-[11px] sm:text-xs font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                  <div className="text-[10px] sm:text-xs font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
                     Technologies Used
                   </div>
                 </div>
               </motion.div>
 
-              {/* Stat Badge 3: Center-Right (Full University Name & Degree) */}
+              {/* Stat Badge 3: Top-Right (Degree & University) */}
               <motion.div
-                style={{
-                  transform: `translate(${-mousePos.y * 30}px, ${mousePos.x * 30}px)`,
-                  transition: 'transform 0.2s ease-out'
-                }}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.3 }}
-                className="absolute top-1/2 -right-6 sm:-right-14 -translate-y-1/2 z-20 p-3 sm:p-4 rounded-2xl backdrop-blur-2xl bg-white/85 dark:bg-gray-900/85 border border-white/70 dark:border-white/20 shadow-2xl shadow-emerald-500/20 hidden sm:flex items-center gap-3.5 cursor-pointer hover:scale-105 transition-all group max-w-[240px] sm:max-w-[280px]"
+                whileHover={{ scale: 1.05 }}
+                className="absolute -top-3 -right-3 sm:-top-2 sm:-right-5 lg:-right-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/85 dark:bg-gray-900/85 border border-white/70 dark:border-white/20 shadow-xl shadow-emerald-500/15 hidden sm:flex items-center gap-2.5 sm:gap-3 cursor-pointer group max-w-[210px] sm:max-w-[240px]"
               >
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-400 to-teal-500 flex items-center justify-center text-white text-lg sm:text-xl shadow-md shadow-emerald-500/30 group-hover:scale-110 transition-transform flex-shrink-0">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-400 to-teal-500 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-emerald-500/30 group-hover:scale-110 transition-transform flex-shrink-0">
                   <FiCheckCircle />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white leading-tight">
-                    B.Sc (Hons) CST Student
+                  <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white leading-tight truncate">
+                    B.Sc (Hons) CST
                   </div>
-                  <div className="text-[10px] sm:text-[11px] font-medium text-gray-600 dark:text-gray-400 leading-snug mt-0.5">
-                    Uva Wellassa University of Sri Lanka
+                  <div className="text-[10px] sm:text-[11px] font-medium text-gray-600 dark:text-gray-400 leading-snug mt-0.5 truncate">
+                    Uva Wellassa University
                   </div>
                 </div>
               </motion.div>
@@ -400,10 +395,10 @@ const Hero = () => {
         </div>
 
         {/* Scrolling Infinite Tech Marquee Bar */}
-        <div className="relative overflow-hidden py-4 border-t border-gray-200/80 dark:border-gray-800/80 w-full backdrop-blur-md bg-white/50 dark:bg-black/50 z-10">
+        <div className="relative overflow-hidden py-2.5 sm:py-3 border-t border-gray-200/80 dark:border-gray-800/80 w-full backdrop-blur-md bg-white/50 dark:bg-black/50 z-10 flex-shrink-0">
           <div className="relative overflow-hidden">
             <motion.div 
-              className="flex whitespace-nowrap gap-8 sm:gap-10"
+              className="flex whitespace-nowrap gap-6 sm:gap-8"
               animate={{ x: ["0%", "-50%"] }}
               transition={{ 
                 x: {
@@ -419,12 +414,12 @@ const Hero = () => {
                 return (
                   <motion.div
                     key={index}
-                    className="flex items-center gap-2.5 px-3 py-1.5 rounded-xl backdrop-blur-sm bg-white/40 dark:bg-white/5 border border-gray-200/50 dark:border-white/10 shadow-sm"
-                    whileHover={{ scale: 1.15, y: -3 }}
+                    className="flex items-center gap-2 px-2.5 py-1 rounded-xl backdrop-blur-sm bg-white/40 dark:bg-white/5 border border-gray-200/50 dark:border-white/10 shadow-sm"
+                    whileHover={{ scale: 1.15, y: -2 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   >
-                    <Icon className={`${tech.color} text-xl sm:text-2xl`} />
-                    <span className="text-xs sm:text-sm font-medium text-gray-800 dark:text-gray-200">
+                    <Icon className={`${tech.color} text-lg sm:text-xl`} />
+                    <span className="text-xs font-medium text-gray-800 dark:text-gray-200">
                       {tech.name}
                     </span>
                   </motion.div>
