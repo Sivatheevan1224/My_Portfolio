@@ -18,9 +18,9 @@ const page = () => {
       antialiased">
        <div className="fixed inset-0 bg-fixed bg-cover
        bg-center bg-img"></div> 
-       <div className='relative z-10 flex flex-col items-center
-       p-4 space-y-8 container mx-auto'>
+       <div className='relative z-10 flex flex-col items-center w-full'>
              <Hero />
+             <div className='flex flex-col items-center space-y-8 container mx-auto px-4 w-full'>
              <Navbar />
              <About />
              <Experience />
@@ -29,6 +29,7 @@ const page = () => {
              <EducationSection />
              <ContactForm />
              <Footer />
+             </div>
        </div>
       
       </div>

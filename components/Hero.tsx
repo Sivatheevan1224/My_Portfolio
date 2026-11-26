@@ -97,7 +97,7 @@ const Hero = () => {
         ref={sectionRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative min-h-[85vh] lg:h-[88vh] lg:max-h-[880px] text-gray-900 dark:text-white overflow-hidden w-full flex flex-col justify-between" 
+        className="relative min-h-screen lg:h-screen lg:max-h-[960px] text-gray-900 dark:text-white overflow-hidden w-full flex flex-col justify-between" 
         id="hero"
       >
         <div className="absolute inset-0 overflow-hidden w-full pointer-events-none z-0">
@@ -105,21 +105,21 @@ const Hero = () => {
           <HeroFloatingIcons />
         </div>
 
-        <div className="relative w-full max-w-[1440px] mx-auto flex-1 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10 xl:gap-14 px-6 sm:px-10 md:px-12 lg:px-16 xl:px-20 pt-12 sm:pt-14 lg:pt-10 pb-2 my-auto z-10">
+        <div className="relative w-full max-w-[1440px] mx-auto flex-1 flex flex-col lg:flex-row items-center justify-between gap-5 lg:gap-10 xl:gap-14 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-20 pt-[72px] sm:pt-20 lg:pt-14 pb-3 z-10">
           
           {/* Left Text & CTA Section */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="w-full lg:w-1/2 text-center lg:text-left z-10"
+            className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-10"
           >
             {/* Status Pill Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-xl bg-blue-500/10 dark:bg-blue-500/15 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-semibold mb-3 sm:mb-3.5 shadow-sm hover:border-blue-500/50 transition-all"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-xl bg-blue-500/10 dark:bg-blue-500/15 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-semibold mb-2.5 sm:mb-3.5 shadow-sm hover:border-blue-500/50 transition-all"
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -132,7 +132,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-3 sm:mb-3.5"
+              className="mb-2 sm:mb-3.5"
             >
               <motion.h1 
                 initial={{ opacity: 0, x: -30 }}
@@ -152,7 +152,7 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="relative inline-block lg:block pl-6 mb-2 sm:mb-2.5"
+                className="relative inline-block lg:block pl-6 mb-1.5 sm:mb-2.5"
               >
                 <motion.div 
                   initial={{ width: 0 }}
@@ -169,7 +169,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-extrabold tracking-wide mb-3 sm:mb-4 min-h-[36px] sm:min-h-[44px] flex items-center justify-center lg:justify-start"
+                className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-extrabold tracking-wide mb-2 sm:mb-4 min-h-[36px] sm:min-h-[44px] flex items-center justify-center lg:justify-start"
               >
                 <span className="bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent select-text">
                   {typedText}
@@ -186,7 +186,7 @@ const Hero = () => {
 
             {/* Social Media Links with Glass Hover */}
             <motion.div 
-              className="flex items-center justify-center lg:justify-start gap-3 sm:gap-3.5 mb-4 sm:mb-4.5"
+              className="flex items-center justify-center lg:justify-start gap-3 sm:gap-3.5 mb-3 sm:mb-4.5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -294,7 +294,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative w-full lg:w-1/2 flex justify-center items-center py-2 lg:py-1"
+            className="relative w-full lg:w-1/2 flex justify-center items-center py-2 lg:py-1 z-10"
           >
             {/* Main Interactive Glass Container with Subtle 3D Perspective */}
             <div 
@@ -309,21 +309,21 @@ const Hero = () => {
                 {/* Glow ring behind image */}
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-500/20 via-cyan-500/20 to-blue-600/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
 
-                {/* Hero Image - Trimmed height */}
+                {/* Hero Image - Prominent, clean width */}
                 <motion.img
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
                   src={cardimg.src}
                   alt="Sivatheevan"
-                  className="relative w-full max-w-[240px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[420px] xl:max-w-[460px] max-h-[38vh] sm:max-h-[44vh] lg:max-h-[48vh] h-auto object-contain rounded-2xl filter drop-shadow-2xl"
-                  width={460}
-                  height={440}
+                  className="relative w-full max-w-[240px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[460px] xl:max-w-[500px] max-h-[34vh] sm:max-h-[46vh] lg:max-h-[56vh] h-auto object-contain rounded-2xl filter drop-shadow-2xl mx-auto"
+                  width={500}
+                  height={500}
                 />
               </div>
 
               {/* ------------------------------------------------------------- */}
-              {/* STATIC CORNER STAT BADGES (NO JITTER, NEVER COVERS SUBJECT)   */}
+              {/* STATIC CORNER STAT BADGES (CLEAN CORNER OVERLAYS)             */}
               {/* ------------------------------------------------------------- */}
 
               {/* Stat Badge 1: Top-Left */}
@@ -332,16 +332,16 @@ const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
                 whileHover={{ scale: 1.05 }}
-                className="absolute -top-3 -left-3 sm:-top-2 sm:-left-5 lg:-left-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/95 dark:bg-gray-900/90 border border-gray-200/90 dark:border-white/20 shadow-xl shadow-blue-500/10 dark:shadow-blue-500/20 flex items-center gap-2.5 sm:gap-3 cursor-pointer group hover:border-blue-500/50 transition-colors"
+                className="absolute -top-3 -left-3 sm:-top-3 sm:-left-6 lg:-left-8 z-20 p-2 sm:p-2.5 sm:px-3.5 rounded-2xl backdrop-blur-2xl bg-white/95 dark:bg-gray-900/90 border border-gray-200/90 dark:border-white/20 shadow-xl shadow-blue-500/10 dark:shadow-blue-500/20 flex items-center gap-2 sm:gap-2.5 cursor-pointer group hover:border-blue-500/50 transition-colors"
               >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-blue-500/30 group-hover:rotate-12 transition-transform">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white text-sm sm:text-base shadow-md shadow-blue-500/30 group-hover:rotate-12 transition-transform flex-shrink-0">
                   <FiCode />
                 </div>
                 <div>
-                  <div className="text-sm sm:text-lg font-bold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
+                  <div className="text-xs sm:text-base font-bold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
                     10+
                   </div>
-                  <div className="text-[10px] sm:text-xs font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                  <div className="text-[9px] sm:text-[11px] font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
                     Projects Completed
                   </div>
                 </div>
@@ -353,37 +353,37 @@ const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="absolute -bottom-3 -right-3 sm:-bottom-2 sm:-right-5 lg:-right-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/95 dark:bg-gray-900/90 border border-gray-200/90 dark:border-white/20 shadow-xl shadow-cyan-500/10 dark:shadow-cyan-500/20 flex items-center gap-2.5 sm:gap-3 cursor-pointer group hover:border-cyan-500/50 transition-colors"
+                className="absolute -bottom-3 -right-3 sm:-bottom-3 sm:-right-6 lg:-right-8 z-20 p-2 sm:p-2.5 sm:px-3.5 rounded-2xl backdrop-blur-2xl bg-white/95 dark:bg-gray-900/90 border border-gray-200/90 dark:border-white/20 shadow-xl shadow-cyan-500/10 dark:shadow-cyan-500/20 flex items-center gap-2 sm:gap-2.5 cursor-pointer group hover:border-cyan-500/50 transition-colors"
               >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-cyan-500/30 group-hover:-rotate-12 transition-transform">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white text-sm sm:text-base shadow-md shadow-cyan-500/30 group-hover:-rotate-12 transition-transform flex-shrink-0">
                   <FiCpu />
                 </div>
                 <div>
-                  <div className="text-sm sm:text-lg font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
+                  <div className="text-xs sm:text-base font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
                     15+
                   </div>
-                  <div className="text-[10px] sm:text-xs font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                  <div className="text-[9px] sm:text-[11px] font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
                     Technologies Used
                   </div>
                 </div>
               </motion.div>
 
-              {/* Stat Badge 3: Top-Right (Degree & University) */}
+              {/* Stat Badge 3: Upper-Right Flank (Degree & University) - Staggered so it never collides on tablet */}
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.3 }}
                 whileHover={{ scale: 1.05 }}
-                className="absolute -top-3 -right-3 sm:-top-2 sm:-right-5 lg:-right-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/95 dark:bg-gray-900/90 border border-gray-200/90 dark:border-white/20 shadow-xl shadow-emerald-500/10 dark:shadow-emerald-500/20 hidden sm:flex items-center gap-2.5 sm:gap-3 cursor-pointer group max-w-[210px] sm:max-w-[240px] hover:border-emerald-500/50 transition-colors"
+                className="hidden sm:flex absolute top-6 sm:top-10 lg:top-4 -right-3 sm:-right-6 lg:-right-8 z-20 p-2 sm:p-2.5 sm:px-3.5 rounded-2xl backdrop-blur-2xl bg-white/95 dark:bg-gray-900/90 border border-gray-200/90 dark:border-white/20 shadow-xl shadow-emerald-500/10 dark:shadow-emerald-500/20 items-center gap-2 sm:gap-2.5 cursor-pointer group max-w-[200px] sm:max-w-[220px] hover:border-emerald-500/50 transition-colors"
               >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-400 to-teal-500 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-emerald-500/30 group-hover:scale-110 transition-transform flex-shrink-0">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-tr from-emerald-400 to-teal-500 flex items-center justify-center text-white text-sm sm:text-base shadow-md shadow-emerald-500/30 group-hover:scale-110 transition-transform flex-shrink-0">
                   <FiCheckCircle />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white leading-tight truncate">
+                  <div className="text-[11px] sm:text-xs font-bold text-gray-900 dark:text-white leading-tight truncate">
                     B.Sc (Hons) CST
                   </div>
-                  <div className="text-[10px] sm:text-[11px] font-medium text-gray-600 dark:text-gray-400 leading-snug mt-0.5 truncate">
+                  <div className="text-[9px] sm:text-[10px] font-medium text-gray-600 dark:text-gray-400 leading-snug mt-0.5 truncate">
                     Uva Wellassa University
                   </div>
                 </div>

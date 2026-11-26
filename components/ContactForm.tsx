@@ -125,8 +125,8 @@ const ContactForm = () => {
                     transition={{ duration: 0.8 }}
                     className='max-w-3xl mx-auto'
                 >
-                    <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent'>
-                        Let&apos;s Connect
+                    <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 text-gray-900 dark:text-white'>
+                        Let&apos;s <span className="text-blue-600 dark:text-cyan-400">Connect</span>
                     </h2>
                     <p className='text-gray-600 dark:text-gray-400 text-center mb-12 text-sm sm:text-base font-medium'>
                         Have a question or want to work together? Feel free to reach out!

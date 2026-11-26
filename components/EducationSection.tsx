@@ -23,8 +23,8 @@ const EducationSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent'>
-                        Education Journey
+                    <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 text-gray-900 dark:text-white'>
+                        Education <span className="text-blue-600 dark:text-cyan-400">Journey</span>
                     </h2>
                     <motion.div 
                         className="w-16 sm:w-20 h-1.5 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 mx-auto rounded-full mb-3 sm:mb-6 section-underline shadow-md shadow-blue-500/30"
@@ -64,7 +64,7 @@ const EducationSection = () => {
                                         y: -5,
                                         transition: { type: "spring", stiffness: 300 }
                                     }}
-                                    className='backdrop-blur-2xl bg-white/80 dark:bg-gray-900/80 p-5 sm:p-7 md:p-8 rounded-2xl shadow-xl border border-gray-200/80 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 relative overflow-hidden'
+                                    className='backdrop-blur-2xl bg-white/95 dark:bg-gray-900/80 p-5 sm:p-7 md:p-8 rounded-2xl shadow-xl border border-gray-200/90 dark:border-white/10 hover:border-blue-500/70 dark:hover:border-cyan-400/70 hover:shadow-2xl hover:shadow-blue-500/15 dark:hover:shadow-[0_20px_45px_rgba(6,182,212,0.12)] hover:bg-white dark:hover:bg-gray-800/90 transition-all duration-300 relative overflow-hidden'
                                 >
                                     <div className='relative z-10'>
                                         <div className='flex items-start gap-2 xs:gap-3 sm:gap-4 md:gap-6 mb-2 xs:mb-3 sm:mb-4 md:mb-6'>

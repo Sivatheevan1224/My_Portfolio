@@ -75,12 +75,12 @@ const Projects = () => {
           className="text-center mb-10 sm:mb-12"
         >
           <motion.h2
-            className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent'
+            className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 text-gray-900 dark:text-white'
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Featured Projects
+            Featured <span className="text-blue-600 dark:text-cyan-400">Projects</span>
           </motion.h2>
           <motion.div
             className="w-16 sm:w-20 h-1.5 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 mx-auto rounded-full mb-3 section-underline shadow-md shadow-blue-500/30"
@@ -101,9 +101,9 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -6 }}
               onClick={() => handleOpenProject(project)}
-              className='group backdrop-blur-2xl bg-white/90 dark:bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/15 transition-all duration-300 border border-gray-200 dark:border-white/10 hover:border-blue-500/60 dark:hover:border-blue-500/60 flex flex-col h-full cursor-pointer'
+              className='group backdrop-blur-2xl bg-white/95 dark:bg-gray-900/80 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-500/20 dark:hover:shadow-[0_20px_45px_rgba(6,182,212,0.15)] transition-all duration-300 border border-gray-200/90 dark:border-white/10 hover:border-blue-500/70 dark:hover:border-cyan-400/70 flex flex-col h-full cursor-pointer hover:bg-white dark:hover:bg-gray-800/90'
             >
               {/* Image Container */}
               <div className='relative aspect-[16/10] max-h-48 overflow-hidden bg-gray-100 dark:bg-gray-800 flex-shrink-0'>
@@ -112,6 +112,16 @@ const Projects = () => {
                   alt={project.name}
                   className='w-full h-full object-cover group-hover:scale-105 transition-transform duration-500'
                 />
+                <div className="absolute top-2.5 right-2.5 z-10 pointer-events-none">
+                  <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-extrabold shadow-md tracking-wide ${
+                    (project.status || "").includes("In Progress")
+                      ? "bg-amber-600 dark:bg-amber-500 text-white border border-amber-400/40 shadow-amber-900/20"
+                      : "bg-emerald-600 dark:bg-emerald-500 text-white border border-emerald-400/40 shadow-emerald-900/20"
+                  }`}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    {(project.status || "").includes("In Progress") ? "In Progress" : "Completed"}
+                  </span>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
                   <span className="text-xs font-extrabold text-white bg-blue-600 dark:bg-blue-600 px-3.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg border border-white/20">
                     <FiLayers className="text-xs" /> Click for details
@@ -122,7 +132,7 @@ const Projects = () => {
               {/* Content Container */}
               <div className='p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-3'>
                 <div className='space-y-2'>
-                  <h3 className='text-lg sm:text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1'>
+                  <h3 className='text-lg sm:text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-1'>
                     {project.name}
                   </h3>
 
@@ -226,8 +236,16 @@ const Projects = () => {
                         Project Showcase
                       </span>
                       <span className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-700" />
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 dark:text-emerald-400">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                      <span className={`inline-flex items-center gap-1 text-[11px] font-semibold ${
+                        selectedProject.status?.includes("In Progress")
+                          ? "text-amber-600 dark:text-amber-400"
+                          : "text-emerald-600 dark:text-emerald-400"
+                      }`}>
+                        <span className={`w-1.5 h-1.5 rounded-full ${
+                          selectedProject.status?.includes("In Progress")
+                            ? "bg-amber-500 animate-pulse"
+                            : "bg-emerald-500 animate-pulse"
+                        }`} />
                         {selectedProject.status || "Completed & Verified"}
                       </span>
                     </div>
@@ -259,8 +277,16 @@ const Projects = () => {
                     <FiLayers className="w-3.5 h-3.5 text-purple-500" />
                     {selectedProject.tech.length} Technologies
                   </span>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-bold border ${
+                    selectedProject.status?.includes("In Progress")
+                      ? "bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300 border-amber-300 dark:border-amber-500/30"
+                      : "bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300 border-emerald-300 dark:border-emerald-500/30"
+                  }`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${
+                      selectedProject.status?.includes("In Progress")
+                        ? "bg-amber-500 animate-pulse"
+                        : "bg-emerald-500"
+                    }`} />
                     {selectedProject.status || "Completed & Verified"}
                   </span>
                 </div>

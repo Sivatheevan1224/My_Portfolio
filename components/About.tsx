@@ -60,10 +60,10 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="text-center space-y-2 mb-5 sm:mb-7"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">
             About <span className="text-blue-600 dark:text-cyan-400">Me</span>
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full" />
+          <div className="w-16 sm:w-20 h-1.5 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 mx-auto rounded-full section-underline shadow-md shadow-blue-500/30" />
         </motion.div>
 
         {/* Main 2-Column Showcase */}
@@ -75,7 +75,8 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-7 flex flex-col justify-between p-5 sm:p-7 rounded-2xl backdrop-blur-xl bg-white/90 dark:bg-gray-900/80 border border-gray-200/90 dark:border-white/10 shadow-lg space-y-4"
+            whileHover={{ y: -3 }}
+            className="lg:col-span-7 flex flex-col justify-between p-5 sm:p-7 rounded-2xl backdrop-blur-xl bg-white/95 dark:bg-gray-900/80 border border-gray-200/90 dark:border-white/10 shadow-lg hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-[0_15px_35px_rgba(6,182,212,0.1)] hover:border-blue-500/60 dark:hover:border-cyan-400/60 transition-all duration-300 space-y-4"
           >
             <div className="space-y-3">
               <div className="flex flex-wrap items-center gap-2">
@@ -106,7 +107,7 @@ const About = () => {
               {highlights.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-2.5 sm:p-3 rounded-xl bg-gray-50/90 dark:bg-white/[0.04] border border-gray-200/80 dark:border-white/10"
+                  className="p-2.5 sm:p-3 rounded-xl bg-gray-50/90 dark:bg-white/[0.04] border border-gray-200/80 dark:border-white/10 hover:border-blue-500/50 dark:hover:border-cyan-400/50 hover:bg-blue-50/40 dark:hover:bg-white/[0.08] transition-all duration-200"
                 >
                   <div className="text-[10px] sm:text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
                     {item.label}
@@ -126,7 +127,7 @@ const About = () => {
               {stats.map((stat, idx) => (
                 <div
                   key={idx}
-                  className="p-2 sm:p-2.5 rounded-xl bg-gray-50/60 dark:bg-white/[0.02] border border-gray-200/60 dark:border-white/5 flex items-center gap-2"
+                  className="p-2 sm:p-2.5 rounded-xl bg-gray-50/60 dark:bg-white/[0.02] border border-gray-200/60 dark:border-white/5 flex items-center gap-2 hover:border-blue-500/40 dark:hover:border-cyan-400/40 transition-colors"
                 >
                   <div className="w-7 h-7 rounded-lg bg-blue-500/10 dark:bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
                     {stat.icon}
@@ -153,12 +154,15 @@ const About = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                whileHover={{ y: -2 }}
-                className="group relative flex-1 p-4 sm:p-4.5 rounded-2xl backdrop-blur-xl bg-white/90 dark:bg-gray-900/80 border border-gray-200/90 dark:border-white/10 shadow-sm hover:border-blue-500/50 dark:hover:border-cyan-400/50 transition-all duration-200 flex flex-col justify-between"
+                whileHover={{ y: -4, scale: 1.01 }}
+                className="group relative flex-1 p-4 sm:p-4.5 rounded-2xl backdrop-blur-xl bg-white/95 dark:bg-gray-900/80 border border-gray-200/90 dark:border-white/10 shadow-sm hover:shadow-xl hover:shadow-blue-500/15 dark:hover:shadow-[0_15px_30px_rgba(6,182,212,0.15)] hover:border-blue-500/70 dark:hover:border-cyan-400/70 hover:bg-white dark:hover:bg-gray-800/90 transition-all duration-200 flex flex-col justify-between overflow-hidden"
               >
+                {/* Top Accent Gradient Border on Hover */}
+                <div className="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+
                 <div className="space-y-2">
                   <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-xl bg-blue-500/10 dark:bg-cyan-500/10 flex items-center justify-center flex-shrink-0 border border-blue-500/20 dark:border-cyan-500/20">
+                    <div className="w-8 h-8 rounded-xl bg-blue-500/10 dark:bg-cyan-500/10 flex items-center justify-center flex-shrink-0 border border-blue-500/20 dark:border-cyan-500/20 group-hover:scale-110 group-hover:bg-blue-50 dark:group-hover:bg-cyan-500/15 transition-all duration-200">
                       {service.icon}
                     </div>
                     <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">

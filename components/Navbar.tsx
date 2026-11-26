@@ -13,51 +13,50 @@ const Navbar = () => {
     const { theme, toggleTheme } = useTheme();
 
     useEffect(() => {
-        // Use Intersection Observer for more reliable section detection
-        const observerOptions = {
-            root: null,
-            rootMargin: '-100px 0px -60% 0px', // Fixed pixel offset from top, percentage from bottom
-            threshold: [0, 0.1, 0.2, 0.3, 0.5]
-        };
+        const checkActiveSection = () => {
+            const threshold = 240; // Pixels from viewport top (below navbar)
 
-        const observerCallback = (entries: IntersectionObserverEntry[]) => {
-            // Find the most visible section
-            const visibleEntries = entries.filter(entry => entry.isIntersecting);
-            
-            if (visibleEntries.length > 0) {
-                // Sort by intersection ratio and position to find the most visible section
-                visibleEntries.sort((a, b) => {
-                    // Prioritize by intersection ratio
-                    const ratioDiff = b.intersectionRatio - a.intersectionRatio;
-                    if (Math.abs(ratioDiff) > 0.01) {
-                        return ratioDiff;
+            let current = 'hero';
+
+            for (const link of NAVIGATION_LINKS) {
+                const id = link.href.replace('#', '');
+                const el = document.getElementById(id);
+                if (el) {
+                    const rect = el.getBoundingClientRect();
+                    // Section top has reached or scrolled past the threshold, and its bottom is still visible
+                    if (rect.top <= threshold && rect.bottom > 80) {
+                        current = id;
                     }
-                    // If ratios are similar, prefer the one closer to top of viewport
-                    const aTop = Math.abs(a.boundingClientRect.top);
-                    const bTop = Math.abs(b.boundingClientRect.top);
-                    return aTop - bTop;
-                });
-                const mostVisible = visibleEntries[0];
-                const id = mostVisible.target.getAttribute('id');
-                if (id) {
-                    setActiveSection(id);
                 }
             }
+
+            // Check if user has scrolled to the very bottom of the document
+            const scrollHeight = Math.max(
+                document.documentElement.scrollHeight,
+                document.body.scrollHeight
+            );
+            const scrollPos = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+            const isScrollable = scrollHeight > window.innerHeight + 150;
+            if (isScrollable && window.innerHeight + scrollPos >= scrollHeight - 60) {
+                current = 'contact';
+            }
+
+            setActiveSection(current);
         };
 
-        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        window.addEventListener('scroll', checkActiveSection, { passive: true, capture: true });
+        document.addEventListener('scroll', checkActiveSection, { passive: true, capture: true });
+        window.addEventListener('resize', checkActiveSection, { passive: true });
 
-        // Observe all sections
-        NAVIGATION_LINKS.forEach(link => {
-            const id = link.href.replace('#', '');
-            const element = document.getElementById(id);
-            if (element) {
-                observer.observe(element);
-            }
-        });
+        // Run immediately and after initial render
+        checkActiveSection();
+        const timer = setTimeout(checkActiveSection, 150);
 
         return () => {
-            observer.disconnect();
+            window.removeEventListener('scroll', checkActiveSection, { capture: true });
+            document.removeEventListener('scroll', checkActiveSection, { capture: true });
+            window.removeEventListener('resize', checkActiveSection);
+            clearTimeout(timer);
         };
     }, []);
 

@@ -41,12 +41,12 @@ const Experience = () => {
           className="text-center space-y-3"
         >
           <motion.h2 
-            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent tracking-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight"
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Work & Internship Experience
+            Work & <span className="text-blue-600 dark:text-cyan-400">Experience</span>
           </motion.h2>
           <motion.div 
             className="w-20 h-1.5 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 mx-auto rounded-full section-underline shadow-md shadow-blue-500/30"
@@ -67,16 +67,16 @@ const Experience = () => {
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -4 }}
-              className="relative backdrop-blur-2xl bg-white/90 dark:bg-gray-900/80 p-6 sm:p-8 rounded-3xl border border-gray-200 dark:border-white/10 shadow-xl hover:shadow-2xl hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all duration-300 overflow-hidden group"
+              whileHover={{ y: -5 }}
+              className="relative backdrop-blur-2xl bg-white/95 dark:bg-gray-900/80 p-6 sm:p-8 rounded-3xl border border-gray-200/90 dark:border-white/10 shadow-lg hover:shadow-2xl hover:shadow-blue-500/15 dark:hover:shadow-[0_20px_50px_rgba(6,182,212,0.12)] hover:border-blue-500/70 dark:hover:border-cyan-400/70 transition-all duration-300 overflow-hidden group"
             >
-              {/* Top Accent Gradient Line */}
-              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-600 to-cyan-500" />
+              {/* Top Accent Gradient Line (Grows on hover) */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 group-hover:h-1.5 transition-all duration-300" />
 
               <div className="flex flex-col sm:flex-row items-start gap-5 sm:gap-6">
                 {/* Company Logo Container */}
                 <div className="flex-shrink-0">
-                  <div className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden ${exp.logoBg || "bg-white dark:bg-gray-800 p-1"} border-2 border-gray-200 dark:border-white/15 shadow-md group-hover:scale-105 transition-transform duration-300 flex items-center justify-center`}>
+                  <div className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden ${exp.logoBg || "bg-white dark:bg-gray-800 p-1"} border-2 border-gray-200 dark:border-white/15 shadow-md group-hover:scale-105 group-hover:border-blue-500/50 dark:group-hover:border-cyan-400/50 transition-all duration-300 flex items-center justify-center`}>
                     <Image
                       src={exp.logo}
                       alt={exp.company}
@@ -92,7 +92,7 @@ const Experience = () => {
                   {/* Title & Status Bar */}
                   <div className="flex flex-wrap items-start justify-between gap-2">
                     <div>
-                      <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">
                         {exp.role}
                       </h3>
                       <div className="flex items-center gap-2 text-sm font-bold text-gray-700 dark:text-gray-300 mt-1">

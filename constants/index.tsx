@@ -89,6 +89,8 @@ export const PROJECTS = [
   {
     id: 2,
     name: "GearSphere ",
+    type: "Full-Stack Web Application",
+    status: "Completed & Verified",
     description:
       "GearSphere(Academic project) is an advanced PC parts marketplace offering role-based user management, intelligent budget-driven PC builder tool, automated PC building recommendations, complete shopping experience, professional technician services, and comprehensive order tracking system developed with React.js frontend and PHP-MySQL backend",
     image: projectImage1,
@@ -101,6 +103,8 @@ export const PROJECTS = [
   {
     id: 3,
     name: "Sivatheevan Portfolio",
+    type: "Personal Portfolio & Web Showcase",
+    status: "Completed & Verified",
     description: "Modern, responsive personal portfolio website built with Next.js 14, TypeScript, and Tailwind CSS. Features smooth animations using Framer Motion, dark/light mode toggle, interactive project showcase, skills section with floating icons, and contact form. Fully optimized for performance and SEO.",
     image: projectImage5,
     githubLink: "https://github.com/Sivatheevan1224/My_Portfolio",
@@ -110,8 +114,10 @@ export const PROJECTS = [
   {
     id: 4,
     name: "NexusAI – Enterprise AI Customer Support & RAG Platform",
+    type: "Enterprise AI System & Copilot",
+    status: "In Progress (Under Development)",
     description: "Full-stack enterprise AI customer support system and copilot platform built with Spring Boot 3, Java 17, and Next.js 14. Features vector Retrieval-Augmented Generation (RAG) powered by Google Gemini AI for automated Knowledge Base answers, automated ticket escalation for low-confidence queries (<45%), an Agent Command Workspace with customer sentiment analysis (FRUSTRATED, URGENT), 1-click AI draft replies, and real-time operations telemetry.",
-    image: projectImage11, // Replace with your image import
+    image: projectImage11,
     githubLink: "https://github.com/Sivatheevan1224/ai-customer-support-app.git",
     viewDemo: "https://ai-customer-support-app-tawny.vercel.app/",
     tech: ["Spring Boot 3", "Java 17", "Next.js 14", "React", "Google Gemini AI", "PostgreSQL", "Tailwind CSS", "Docker"]
@@ -120,6 +126,8 @@ export const PROJECTS = [
   {
     id: 5,
     name: "Care Connect – Community Healthcare Platform",
+    type: "Healthcare Web Platform",
+    status: "Completed & Verified",
     description: "Full-stack MERN-based community healthcare platform developed during a 12-hour overnight hackathon. Features secure authentication, patient appointment booking, admin and doctor management, and responsive user-friendly interfaces. Designed with scalability, performance, and real-world clinic workflows in mind.",
     image: projectImage8,
     githubLink: "https://github.com/Sivatheevan1224/Care_Connect",
@@ -129,6 +137,8 @@ export const PROJECTS = [
   {
     id: 6,
     name: "GYM Management System",
+    type: "Management System Web Application",
+    status: "Completed & Verified",
     description:
       "The Gym Management System is designed to help gyms and fitness centres efficiently manage their operations, including member enrolment, trainer assignments, and payment tracking, through a single unified interface. This system is ideal for small to medium-sized gyms looking to digitize their management processes and can also serve as a valuable learning resource for developers interested in understanding how to build a real-world CRUD web application using PHP, a database, and user role management.",
     image: projectImage2,
@@ -140,6 +150,8 @@ export const PROJECTS = [
   {
     id: 7,
     name: "AI-Powered Resume Builder",
+    type: "AI Web Application",
+    status: "Completed & Verified",
     description: "Full-stack web application that revolutionizes resume creation using AI technology. Features Groq AI (Llama 3.3) for automatic resume parsing, 5 professional templates, smart image processing with background removal, JWT authentication, and one-click PDF export. Built with MERN stack and cloud services.",
     image: projectImage6,
     githubLink: "https://github.com/Sivatheevan1224/Resume_Builder",
@@ -149,6 +161,8 @@ export const PROJECTS = [
   {
     id: 8,
     name: "FlexiRide - On-Demand Rideshare App",
+    type: "Cross-Platform Mobile Application",
+    status: "Completed & Verified",
     description: "A cross-platform mobile app (Expo + React Native) that simplifies on-demand rides and vehicle bookings. Uses Firebase for secure authentication and real-time data; includes an intuitive booking flow, searchable vehicle listings, user profiles with booking history, and an admin dashboard for managing vehicles, users, and revenue. Designed with responsive UI and dark/light theme support for a polished mobile experience.",
     image: projectImage9,
     githubLink: "https://github.com/Sivatheevan1224/FlexiRide_MAD.git",
@@ -158,6 +172,8 @@ export const PROJECTS = [
   {
     id: 9,
     name: 'ProGarage',
+    type: "Management Web Application",
+    status: "Completed & Verified",
     description:
       'A full-stack garage management system for customer, vehicle, service, and billing operations. Built with Django REST Framework and React, it streamlines job cards, technician assignments, invoice generation, payment tracking, and service history management with a clean responsive interface.',
     image: projectImage10,
@@ -168,6 +184,8 @@ export const PROJECTS = [
   {
     id: 10,
     name: "AI Image Generator",
+    type: "AI Creative Web Application",
+    status: "Completed & Verified",
     description:
       "A modern web application that generates AI-powered images using Hugging Face's inference API. Features multiple AI models, customizable aspect ratios, batch generation, and dark/light theme support.",
     image: projectImage7,

@@ -70,12 +70,12 @@ const Skills = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h2 
-            className='text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent tracking-tight'
+            className='text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight'
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Technical Stack & Expertise
+            Skills & <span className="text-blue-600 dark:text-cyan-400">Expertise</span>
           </motion.h2>
           <motion.div 
             className="w-20 h-1.5 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 mx-auto rounded-full section-underline shadow-md shadow-blue-500/30"
@@ -145,30 +145,30 @@ const Skills = () => {
                     </span>
                   </div>
 
-                  {/* Skill Cards Responsive Grid (Minimized & Compact) */}
-                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2.5 sm:gap-3">
+                  {/* Skill Cards Responsive Grid (3 cards in one line on mobile) */}
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-9 gap-2 sm:gap-3">
                     {category.skills.map((skill, index) => (
                       <motion.div
                         key={skill.id || index}
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3, delay: index * 0.03 }}
-                        whileHover={{ y: -3 }}
+                        whileHover={{ y: -4, scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="group relative backdrop-blur-xl bg-white/90 dark:bg-gray-900/80 p-2.5 sm:p-3 rounded-xl border border-gray-200/90 dark:border-white/10 hover:border-blue-500/60 dark:hover:border-cyan-400/60 shadow-sm hover:shadow-md hover:shadow-blue-500/5 dark:hover:shadow-cyan-500/10 transition-all duration-200 flex flex-col items-center justify-center text-center gap-2 cursor-pointer overflow-hidden"
+                        className="group relative backdrop-blur-xl bg-white/90 dark:bg-gray-900/80 w-full min-h-[86px] sm:min-h-[96px] p-1.5 sm:p-2.5 rounded-xl border border-gray-200/90 dark:border-white/10 hover:border-blue-500/70 dark:hover:border-cyan-400/70 shadow-sm hover:shadow-lg hover:shadow-blue-500/15 dark:hover:shadow-[0_4px_20px_rgba(6,182,212,0.25)] hover:bg-white dark:hover:bg-gray-800/90 transition-all duration-200 flex flex-col items-center justify-center text-center gap-1 sm:gap-1.5 cursor-pointer overflow-hidden"
                       >
                         {/* Top Accent Gradient Border Effect on Hover */}
                         <div className="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
                         {/* Compact Icon Badge Container */}
-                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gray-50 dark:bg-white/5 flex items-center justify-center p-2 border border-gray-200/80 dark:border-white/10 shadow-inner group-hover:scale-105 group-hover:bg-blue-500/10 dark:group-hover:bg-cyan-500/10 transition-transform duration-200 flex-shrink-0">
+                        <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-lg bg-gray-50 dark:bg-white/5 flex items-center justify-center p-1 sm:p-1.5 border border-gray-200/80 dark:border-white/10 shadow-inner group-hover:scale-110 group-hover:bg-blue-50 dark:group-hover:bg-cyan-500/15 transition-all duration-200 flex-shrink-0">
                           <div className="w-full h-full relative flex items-center justify-center [&_img]:w-full [&_img]:h-full [&_img]:object-contain">
                             {skill.icon}
                           </div>
                         </div>
 
                         {/* Skill Label */}
-                        <span className="text-[11px] sm:text-xs font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-1">
+                        <span className="text-[10px] sm:text-xs font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-cyan-300 transition-colors text-center leading-tight line-clamp-2 px-0.5">
                           {skill.name}
                         </span>
                       </motion.div>

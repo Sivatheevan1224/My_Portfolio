@@ -88,18 +88,25 @@ const LoadingScreen = () => {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="w-full space-y-2.5"
             >
-              {/* Visible progress bar track in light mode (bg-slate-200/90 with border) and dark mode */}
-              <div className="w-full h-2.5 bg-slate-200 dark:bg-gray-800 rounded-full overflow-hidden border border-slate-300 dark:border-gray-700 p-0.5 shadow-inner">
+              {/* Progress bar track with distinct border */}
+              <div className="w-full h-3 bg-slate-200 dark:bg-gray-800 rounded-full overflow-hidden border border-slate-300 dark:border-gray-700 p-0.5 shadow-inner">
                 <motion.div
                   initial={{ width: "0%" }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.15 }}
-                  className="h-full bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-500 dark:via-sky-400 dark:to-cyan-400 rounded-full shadow-[0_0_10px_rgba(37,99,235,0.4)]"
+                  className="h-full rounded-full"
+                  style={{
+                    background: 'linear-gradient(90deg, #2563eb 0%, #0284c7 50%, #06b6d4 100%)',
+                    boxShadow: '0 0 12px rgba(37, 99, 235, 0.5)'
+                  }}
                 />
               </div>
 
               <div className="flex items-center justify-between text-xs font-semibold text-gray-700 dark:text-gray-300 px-1">
-                <span className="animate-pulse">Loading experience...</span>
+                <span className="flex items-center gap-1.5 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 dark:bg-cyan-400 animate-ping" />
+                  Loading experience...
+                </span>
                 <span className="text-gray-900 dark:text-white font-mono font-bold">{progress}%</span>
               </div>
             </motion.div>
