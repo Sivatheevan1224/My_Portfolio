@@ -1,5 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { NAVIGATION_LINKS } from '@/constants';
 import { FaTimes } from 'react-icons/fa';
 import { FaBars } from 'react-icons/fa6';
@@ -105,8 +106,8 @@ const Navbar = () => {
                                                 ${index === 0 ? 'flex items-center justify-center p-2' : 'text-sm xl:text-base'} 
                                                 font-semibold transition-all duration-300 touch-manipulation relative group
                                                 ${isActive(item.href) 
-                                                    ? 'text-blue-600 dark:text-blue-400 scale-105' 
-                                                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-105'
+                                                    ? 'text-blue-600 dark:text-cyan-400 scale-105' 
+                                                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400 hover:scale-105'
                                                 }
                                             `}
                                             onClick={(e) => handleLinkClick(e, item.href)}
@@ -117,7 +118,7 @@ const Navbar = () => {
                                                 item.label
                                             )}
                                             {isActive(item.href) && (
-                                                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full animate-pulse"></span>
+                                                <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-400 rounded-full animate-pulse"></span>
                                             )}
                                         </a>
                                     </li>
@@ -127,68 +128,105 @@ const Navbar = () => {
                         {/* Theme Toggle Button */}
                         <button
                             onClick={toggleTheme}
-                            className='p-2 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition-all duration-300 hover:scale-110 shadow-sm'
+                            className='w-9 h-9 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm border border-gray-200/60 dark:border-white/10'
                             aria-label='Toggle theme'
                         >
                             {theme === 'dark' ? (
-                                <FiSun className='w-5 h-5 text-yellow-400' />
+                                <FiSun className='w-4 h-4 text-yellow-400' />
                             ) : (
-                                <FiMoon className='w-5 h-5 text-blue-600' />
+                                <FiMoon className='w-4 h-4 text-blue-600' />
                             )}
                         </button>
                     </div>
                 </div>
-                {/* mobile menu */}
-                <div className='rounded-3xl lg:hidden overflow-hidden w-fit ml-auto mr-4'>
-                    <div className='flex items-center justify-center gap-3 sm:gap-4 bg-white/10 dark:bg-black/30 backdrop-blur-xl backdrop-saturate-150 border-2 border-white/30 dark:border-white/20 shadow-lg rounded-3xl p-2.5 sm:p-3 hover:border-white/40 dark:hover:border-white/30 transition-all duration-300'>
-                        {/* Mobile Theme Toggle */}
-                        <button
-                            onClick={toggleTheme}
-                            className='p-2 sm:p-2.5 rounded-xl bg-white/5 hover:bg-white/20 dark:hover:bg-white/15 transition-all duration-300 hover:scale-105'
-                            aria-label='Toggle theme'
+
+                {/* Mobile Navigation Bar */}
+                <div className='lg:hidden max-w-md mx-auto'>
+                    <div className='flex items-center justify-between bg-white/95 dark:bg-gray-900/95 backdrop-blur-2xl border border-gray-200/90 dark:border-white/15 shadow-xl rounded-full px-4 py-2 transition-all duration-300'>
+                        {/* Brand Logo / Monogram */}
+                        <a 
+                            href="#hero" 
+                            onClick={(e) => handleLinkClick(e, '#hero')}
+                            className="flex items-center gap-2.5 group"
                         >
-                            {theme === 'dark' ? (
-                                <FiSun className='w-5 h-5 sm:w-6 sm:h-6 text-yellow-400' />
-                            ) : (
-                                <FiMoon className='w-5 h-5 sm:w-6 sm:h-6 text-blue-500' />
-                            )}
-                        </button>
-                        <button className='focus:outline-none p-2 sm:p-2.5 touch-manipulation'
-                            onClick={toggleMobileMenu}>
-                            {isMobileMenuOpen ? (
-                                <FaTimes className='h-5 w-5 sm:h-6 sm:w-6 backdrop-blur-lg' />
-                            ) : (
-                                <FaBars className='h-5 w-5 sm:h-6 sm:w-6 backdrop-blur-lg' />
-                            )}
-                        </button>
+                            <span className="w-8 h-8 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-500 text-white font-black text-sm flex items-center justify-center shadow-md shadow-blue-500/25 group-hover:scale-105 transition-transform">
+                                S
+                            </span>
+                            <span className="font-extrabold text-sm tracking-tight text-gray-900 dark:text-white">
+                                Sivatheevan<span className="text-blue-600 dark:text-cyan-400">.</span>
+                            </span>
+                        </a>
+
+                        {/* Action Buttons: Theme Toggle + Hamburger Toggle */}
+                        <div className="flex items-center gap-2">
+                            {/* Mobile Theme Toggle */}
+                            <button
+                                onClick={toggleTheme}
+                                className='w-9 h-9 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-105 border border-gray-200/60 dark:border-white/10'
+                                aria-label='Toggle theme'
+                            >
+                                {theme === 'dark' ? (
+                                    <FiSun className='w-4 h-4 text-yellow-400' />
+                                ) : (
+                                    <FiMoon className='w-4 h-4 text-blue-600' />
+                                )}
+                            </button>
+
+                            {/* Hamburger Menu Toggle Button */}
+                            <button 
+                                className='w-9 h-9 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 flex items-center justify-center transition-all duration-300 hover:scale-105 border border-gray-200/60 dark:border-white/10 text-gray-800 dark:text-white focus:outline-none touch-manipulation'
+                                onClick={toggleMobileMenu}
+                                aria-label='Toggle mobile menu'
+                            >
+                                {isMobileMenuOpen ? (
+                                    <FaTimes className='h-4 w-4' />
+                                ) : (
+                                    <FaBars className='h-4 w-4' />
+                                )}
+                            </button>
+                        </div>
                     </div>
-                    {isMobileMenuOpen && (
-                        <ul className='mt-3 sm:mt-4 flex flex-col gap-2 sm:gap-4 bg-white/10 dark:bg-black/30 backdrop-blur-xl backdrop-saturate-150 border-2 border-white/30 dark:border-white/20 shadow-lg p-3 sm:p-5 rounded-3xl hover:border-white/40 dark:hover:border-white/30 transition-all duration-300'>
-                            {NAVIGATION_LINKS.map((item, index) => (
-                                <li key={index}>
-                                    <a 
-                                        href={item.href}
-                                        className={`
-                                            ${index === 0 ? 'flex items-center gap-2 sm:gap-3' : 'block w-full'}
-                                            text-lg sm:text-xl md:text-2xl font-medium py-1.5 sm:py-2 touch-manipulation transition-all duration-300
-                                            ${isActive(item.href) 
-                                                ? 'text-special scale-105' 
-                                                : 'text-gray-300 hover:text-special hover:translate-x-2 hover:drop-shadow-[0_0_10px_rgba(67,97,238,0.8)]'
-                                            }
-                                        `}
-                                        style={isActive(item.href) ? {
-                                            filter: 'drop-shadow(0 0 12px rgba(67, 97, 238, 0.8)) drop-shadow(0 0 20px rgba(67, 97, 238, 0.6))',
-                                            textShadow: '0 0 10px rgba(67, 97, 238, 0.8)'
-                                        } : {}}
-                                        onClick={(e) => handleLinkClick(e, item.href)}
-                                    >
-                                        {index === 0 && <FiHome className="w-5 h-5 sm:w-6 sm:h-6" />}
-                                        {item.label}
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+
+                    {/* Mobile Dropdown Menu with AnimatePresence */}
+                    <AnimatePresence>
+                        {isMobileMenuOpen && (
+                            <motion.div
+                                initial={{ opacity: 0, y: -10, scale: 0.98 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: -10, scale: 0.98 }}
+                                transition={{ duration: 0.2 }}
+                                className='mt-2.5 overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-2xl border border-gray-200/90 dark:border-white/15 shadow-2xl p-3 sm:p-4 rounded-3xl'
+                            >
+                                <ul className='flex flex-col gap-1'>
+                                    {NAVIGATION_LINKS.map((item, index) => {
+                                        const active = isActive(item.href);
+                                        return (
+                                            <li key={index}>
+                                                <a 
+                                                    href={item.href}
+                                                    className={`
+                                                        flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-sm sm:text-base font-semibold transition-all duration-200
+                                                        ${active 
+                                                            ? 'bg-blue-500/10 dark:bg-cyan-500/10 text-blue-600 dark:text-cyan-400 font-bold border border-blue-500/20 dark:border-cyan-500/20' 
+                                                            : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100/80 dark:hover:bg-white/5 hover:text-blue-600 dark:hover:text-cyan-400'
+                                                        }
+                                                    `}
+                                                    onClick={(e) => handleLinkClick(e, item.href)}
+                                                >
+                                                    {index === 0 ? (
+                                                        <FiHome className="w-4 h-4" />
+                                                    ) : (
+                                                        <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60" />
+                                                    )}
+                                                    {item.label}
+                                                </a>
+                                            </li>
+                                        );
+                                    })}
+                                </ul>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
             </nav>
         </div>

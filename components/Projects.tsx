@@ -75,7 +75,7 @@ const Projects = () => {
           className="text-center mb-10 sm:mb-12"
         >
           <motion.h2
-            className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent'
+            className='text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent'
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -83,7 +83,7 @@ const Projects = () => {
             Featured Projects
           </motion.h2>
           <motion.div
-            className="w-16 sm:w-20 h-1.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full mb-3 section-underline shadow-md shadow-purple-500/40"
+            className="w-16 sm:w-20 h-1.5 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 mx-auto rounded-full mb-3 section-underline shadow-md shadow-blue-500/30"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -181,7 +181,7 @@ const Projects = () => {
                         rel='noopener noreferrer'
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className='flex-1 flex items-center justify-center gap-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-2.5 sm:px-3 py-2 rounded-xl text-xs font-bold hover:from-blue-500 hover:to-pink-500 transition-all duration-200 shadow-md'
+                        className='flex-1 flex items-center justify-center gap-1 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-2.5 sm:px-3 py-2 rounded-xl text-xs font-bold hover:from-blue-500 hover:to-cyan-500 transition-all duration-200 shadow-md shadow-blue-500/20'
                       >
                         <FiExternalLink className="text-sm" />
                         Demo
@@ -377,7 +377,7 @@ const Projects = () => {
                     href={selectedProject.viewDemo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 min-w-[130px] flex items-center justify-center gap-1.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold hover:from-blue-500 hover:to-pink-500 transition-all duration-200 shadow-md"
+                    className="flex-1 min-w-[130px] flex items-center justify-center gap-1.5 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold hover:from-blue-500 hover:to-cyan-500 transition-all duration-200 shadow-md shadow-blue-500/20"
                   >
                     <FiExternalLink className="text-sm sm:text-base" />
                     View Live Demo

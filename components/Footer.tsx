@@ -20,7 +20,7 @@ const Footer = () => {
                 >
                     {/* Contact Info */}
                     <div className='text-center sm:text-left'>
-                        <h3 className='text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-4'>
+                        <h3 className='text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-4'>
                             Get in Touch
                         </h3>
                         <div className='space-y-3'>
@@ -48,7 +48,7 @@ const Footer = () => {
 
                     {/* Social Links */}
                     <div className='text-center'>
-                        <h3 className='text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent mb-4'>
+                        <h3 className='text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent mb-4'>
                             Connect With Me
                         </h3>
                         <div className='flex items-center justify-center gap-4 sm:gap-6'>

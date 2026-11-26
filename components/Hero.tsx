@@ -97,7 +97,7 @@ const Hero = () => {
         ref={sectionRef}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative min-h-screen lg:h-screen lg:max-h-screen text-gray-900 dark:text-white overflow-hidden w-full flex flex-col justify-between" 
+        className="relative min-h-[85vh] lg:h-[88vh] lg:max-h-[880px] text-gray-900 dark:text-white overflow-hidden w-full flex flex-col justify-between" 
         id="hero"
       >
         <div className="absolute inset-0 overflow-hidden w-full pointer-events-none z-0">
@@ -105,7 +105,7 @@ const Hero = () => {
           <HeroFloatingIcons />
         </div>
 
-        <div className="relative w-full max-w-[1440px] mx-auto flex-1 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12 xl:gap-16 px-6 sm:px-10 md:px-12 lg:px-16 xl:px-20 pt-16 sm:pt-20 lg:pt-16 pb-3 my-auto z-10">
+        <div className="relative w-full max-w-[1440px] mx-auto flex-1 flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10 xl:gap-14 px-6 sm:px-10 md:px-12 lg:px-16 xl:px-20 pt-12 sm:pt-14 lg:pt-10 pb-2 my-auto z-10">
           
           {/* Left Text & CTA Section */}
           <motion.div
@@ -119,7 +119,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-xl bg-blue-500/10 dark:bg-blue-500/15 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-semibold mb-4 sm:mb-5 shadow-sm hover:border-blue-500/50 transition-all"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full backdrop-blur-xl bg-blue-500/10 dark:bg-blue-500/15 border border-blue-500/30 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-semibold mb-3 sm:mb-3.5 shadow-sm hover:border-blue-500/50 transition-all"
             >
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -132,13 +132,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-4 sm:mb-5"
+              className="mb-3 sm:mb-3.5"
             >
               <motion.h1 
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black mb-1.5 tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl font-black mb-1 tracking-tight"
               >
                 Hello <motion.span 
                   initial={{ opacity: 0, scale: 0 }}
@@ -152,13 +152,13 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="relative inline-block lg:block pl-6 mb-2.5 sm:mb-3"
+                className="relative inline-block lg:block pl-6 mb-2 sm:mb-2.5"
               >
                 <motion.div 
                   initial={{ width: 0 }}
                   animate={{ width: 22 }}
                   transition={{ duration: 0.4, delay: 0.7 }}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 h-[3px] bg-gradient-to-r from-[#4361ee] to-purple-500 rounded-full"
+                  className="absolute left-0 top-1/2 -translate-y-1/2 h-[3px] bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full"
                 />
                 <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 dark:text-gray-200">
                   I&apos;m <span className="font-bold text-gray-900 dark:text-white">{HERO.name}</span>
@@ -169,15 +169,15 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-extrabold tracking-wide mb-4 sm:mb-5 min-h-[44px] sm:min-h-[52px] flex items-center justify-center lg:justify-start"
+                className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-extrabold tracking-wide mb-3 sm:mb-4 min-h-[36px] sm:min-h-[44px] flex items-center justify-center lg:justify-start"
               >
-                <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent select-text">
+                <span className="bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent select-text">
                   {typedText}
                 </span>
                 <motion.span
                   animate={{ opacity: [1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-                  className="inline-block ml-1 text-purple-500 font-extralight text-2xl sm:text-3xl md:text-4xl select-none"
+                  className="inline-block ml-1 text-cyan-500 dark:text-cyan-400 font-extralight text-xl sm:text-2xl md:text-3xl select-none"
                 >
                   |
                 </motion.span>
@@ -186,7 +186,7 @@ const Hero = () => {
 
             {/* Social Media Links with Glass Hover */}
             <motion.div 
-              className="flex items-center justify-center lg:justify-start gap-3.5 sm:gap-4 mb-5 sm:mb-6"
+              className="flex items-center justify-center lg:justify-start gap-3 sm:gap-3.5 mb-4 sm:mb-4.5"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -213,7 +213,7 @@ const Hero = () => {
                         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
                       }
                     }}
-                    className="p-3 sm:p-3.5 rounded-2xl backdrop-blur-xl bg-white/60 dark:bg-white/10 border border-white/40 dark:border-white/10 shadow-md hover:shadow-lg hover:border-blue-500/50 transition-all text-xl sm:text-2xl text-gray-800 dark:text-white"
+                    className="p-2.5 sm:p-3 rounded-2xl backdrop-blur-xl bg-white/80 dark:bg-white/10 border border-gray-200/80 dark:border-white/10 shadow-md hover:shadow-lg hover:border-blue-500/60 dark:hover:border-blue-500/60 transition-all text-lg sm:text-xl text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-cyan-400"
                   >
                     {link.icon}
                   </motion.a>
@@ -223,7 +223,7 @@ const Hero = () => {
 
             {/* Action Buttons */}
             <motion.div 
-              className="flex flex-wrap justify-center lg:justify-start gap-3 sm:gap-3.5"
+              className="flex flex-wrap justify-center lg:justify-start gap-2.5 sm:gap-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
@@ -232,10 +232,10 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                whileHover={{ scale: 1.04, boxShadow: "0 10px 30px rgba(67, 97, 238, 0.4)" }}
+                whileHover={{ scale: 1.04, boxShadow: "0 10px 30px rgba(37, 99, 235, 0.4)" }}
                 whileTap={{ scale: 0.96 }}
                 href="#contact"
-                className="group flex items-center gap-2 px-6 sm:px-8 py-3 bg-gradient-to-r from-[#4361ee] via-[#3a0ca3] to-[#7209b7] text-white rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-lg"
+                className="group flex items-center gap-2 px-5 sm:px-6 py-2.5 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white rounded-full text-xs sm:text-sm font-bold transition-all duration-300 shadow-lg shadow-blue-500/25"
               >
                 Hire Me
                 <motion.span
@@ -255,7 +255,7 @@ const Hero = () => {
                 href={`${basePath}/CV/Sivatheevan_CV_SE_Intern.pdf`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-900 border-2 border-gray-300 hover:border-blue-600 hover:text-blue-600 dark:bg-white/10 dark:text-white dark:border-white/20 dark:hover:bg-white/20 shadow-sm transition-all duration-200"
+                className="flex items-center gap-1.5 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-white text-gray-900 border-2 border-gray-300 hover:border-blue-600 hover:text-blue-600 dark:bg-white/10 dark:text-white dark:border-white/20 dark:hover:bg-white/20 shadow-sm transition-all duration-200"
                 aria-label="View CV in new tab"
               >
                 <motion.span
@@ -275,7 +275,7 @@ const Hero = () => {
                 whileTap={{ scale: 0.96 }}
                 href={`${basePath}/CV/Sivatheevan_CV_SE_Intern.pdf`}
                 download="Sivatheevan_CV_SE_Intern.pdf"
-                className="flex items-center gap-1.5 px-6 sm:px-7 py-3 rounded-full text-xs sm:text-sm font-bold bg-white text-black border-2 border-gray-900 hover:bg-gray-100 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 shadow-md transition-all duration-200"
+                className="flex items-center gap-1.5 px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold bg-white text-black border-2 border-gray-900 hover:bg-gray-100 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 shadow-md transition-all duration-200"
                 aria-label="Download CV"
               >
                 <motion.span
@@ -294,7 +294,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.85 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative w-full lg:w-1/2 flex justify-center items-center py-4 lg:py-2"
+            className="relative w-full lg:w-1/2 flex justify-center items-center py-2 lg:py-1"
           >
             {/* Main Interactive Glass Container with Subtle 3D Perspective */}
             <div 
@@ -304,21 +304,21 @@ const Hero = () => {
               }}
             >
               {/* Glassmorphic Background Card */}
-              <div className="relative p-3 sm:p-4 rounded-3xl backdrop-blur-2xl bg-white/40 dark:bg-white/5 border border-white/40 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] group">
+              <div className="relative p-2.5 sm:p-3.5 rounded-3xl backdrop-blur-2xl bg-white/80 dark:bg-white/5 border border-gray-200/80 dark:border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.5)] group">
                 
                 {/* Glow ring behind image */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-500/20 via-cyan-500/20 to-blue-600/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity" />
 
-                {/* Hero Image - Grand, High-Impact & Responsive */}
+                {/* Hero Image - Trimmed height */}
                 <motion.img
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.8 }}
                   src={cardimg.src}
                   alt="Sivatheevan"
-                  className="relative w-full max-w-[280px] sm:max-w-[360px] md:max-w-[420px] lg:max-w-[480px] xl:max-w-[530px] max-h-[50vh] sm:max-h-[56vh] lg:max-h-[62vh] h-auto object-contain rounded-2xl filter drop-shadow-2xl"
-                  width={530}
-                  height={500}
+                  className="relative w-full max-w-[240px] sm:max-w-[300px] md:max-w-[360px] lg:max-w-[420px] xl:max-w-[460px] max-h-[38vh] sm:max-h-[44vh] lg:max-h-[48vh] h-auto object-contain rounded-2xl filter drop-shadow-2xl"
+                  width={460}
+                  height={440}
                 />
               </div>
 
@@ -332,13 +332,13 @@ const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
                 whileHover={{ scale: 1.05 }}
-                className="absolute -top-3 -left-3 sm:-top-2 sm:-left-5 lg:-left-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/85 dark:bg-gray-900/85 border border-white/70 dark:border-white/20 shadow-xl shadow-blue-500/15 flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
+                className="absolute -top-3 -left-3 sm:-top-2 sm:-left-5 lg:-left-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/95 dark:bg-gray-900/90 border border-gray-200/90 dark:border-white/20 shadow-xl shadow-blue-500/10 dark:shadow-blue-500/20 flex items-center gap-2.5 sm:gap-3 cursor-pointer group hover:border-blue-500/50 transition-colors"
               >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-500 to-cyan-400 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-blue-500/30 group-hover:rotate-12 transition-transform">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-blue-500/30 group-hover:rotate-12 transition-transform">
                   <FiCode />
                 </div>
                 <div>
-                  <div className="text-sm sm:text-lg font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                  <div className="text-sm sm:text-lg font-bold bg-gradient-to-r from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
                     10+
                   </div>
                   <div className="text-[10px] sm:text-xs font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
@@ -353,13 +353,13 @@ const Hero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 1.1 }}
                 whileHover={{ scale: 1.05 }}
-                className="absolute -bottom-3 -right-3 sm:-bottom-2 sm:-right-5 lg:-right-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/85 dark:bg-gray-900/85 border border-white/70 dark:border-white/20 shadow-xl shadow-purple-500/15 flex items-center gap-2.5 sm:gap-3 cursor-pointer group"
+                className="absolute -bottom-3 -right-3 sm:-bottom-2 sm:-right-5 lg:-right-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/95 dark:bg-gray-900/90 border border-gray-200/90 dark:border-white/20 shadow-xl shadow-cyan-500/10 dark:shadow-cyan-500/20 flex items-center gap-2.5 sm:gap-3 cursor-pointer group hover:border-cyan-500/50 transition-colors"
               >
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-purple-500 to-pink-500 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-purple-500/30 group-hover:-rotate-12 transition-transform">
+                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-cyan-500/30 group-hover:-rotate-12 transition-transform">
                   <FiCpu />
                 </div>
                 <div>
-                  <div className="text-sm sm:text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+                  <div className="text-sm sm:text-lg font-bold bg-gradient-to-r from-cyan-600 to-blue-600 dark:from-cyan-400 dark:to-blue-400 bg-clip-text text-transparent">
                     15+
                   </div>
                   <div className="text-[10px] sm:text-xs font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
@@ -374,7 +374,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.3 }}
                 whileHover={{ scale: 1.05 }}
-                className="absolute -top-3 -right-3 sm:-top-2 sm:-right-5 lg:-right-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/85 dark:bg-gray-900/85 border border-white/70 dark:border-white/20 shadow-xl shadow-emerald-500/15 hidden sm:flex items-center gap-2.5 sm:gap-3 cursor-pointer group max-w-[210px] sm:max-w-[240px]"
+                className="absolute -top-3 -right-3 sm:-top-2 sm:-right-5 lg:-right-7 z-20 p-2.5 sm:p-3.5 rounded-2xl backdrop-blur-2xl bg-white/95 dark:bg-gray-900/90 border border-gray-200/90 dark:border-white/20 shadow-xl shadow-emerald-500/10 dark:shadow-emerald-500/20 hidden sm:flex items-center gap-2.5 sm:gap-3 cursor-pointer group max-w-[210px] sm:max-w-[240px] hover:border-emerald-500/50 transition-colors"
               >
                 <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-400 to-teal-500 flex items-center justify-center text-white text-base sm:text-lg shadow-md shadow-emerald-500/30 group-hover:scale-110 transition-transform flex-shrink-0">
                   <FiCheckCircle />

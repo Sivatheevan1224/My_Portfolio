@@ -12,10 +12,10 @@ const config: Config = {
     extend: {
       colors: {
         background: "var(--background)",
-        special:'#4361ee',
-        accent: '#f59e0b',
-        primary: '#8b5cf6',
-        secondary: '#ec4899',
+        special:'#2563eb',
+        accent: '#06b6d4',
+        primary: '#3b82f6',
+        secondary: '#0ea5e9',
         success: '#10b981',
         dark: '#0f172a',
         darker: '#020617',

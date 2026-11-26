@@ -125,7 +125,7 @@ const ContactForm = () => {
                     transition={{ duration: 0.8 }}
                     className='max-w-3xl mx-auto'
                 >
-                    <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent'>
+                    <h2 className='text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-4 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent'>
                         Let&apos;s Connect
                     </h2>
                     <p className='text-gray-600 dark:text-gray-400 text-center mb-12 text-sm sm:text-base font-medium'>
@@ -230,7 +230,7 @@ const ContactForm = () => {
                             disabled={isSending}
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
-                            className={`w-full py-4 px-8 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-bold rounded-xl shadow-lg hover:shadow-xl hover:from-blue-500 hover:to-pink-500 transition-all duration-300 flex items-center justify-center gap-2 ${
+                            className={`w-full py-4 px-8 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 ${
                                 isSending ? 'opacity-70 cursor-not-allowed' : ''
                             }`}
                         >

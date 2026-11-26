@@ -35,19 +35,21 @@ html:not(.dark) .bg-img{
   background: #f8fafc !important;
 }
 
-/* Section Header Underline Enhancements for Crisp Light Mode Visibility */
+/* Section Header Underline Enhancements for Crisp Cobalt & Cyan Visibility */
 .section-underline {
-  box-shadow: 0 4px 14px 0 rgba(147, 51, 234, 0.45);
+  box-shadow: 0 4px 14px 0 rgba(14, 165, 233, 0.45);
 }
 
 html:not(.dark) .section-underline {
-  background: linear-gradient(90deg, #2563eb, #7c3aed, #db2777) !important;
-  box-shadow: 0 4px 14px 0 rgba(124, 58, 237, 0.35) !important;
+  background: linear-gradient(90deg, #2563eb, #0ea5e9, #06b6d4) !important;
+  box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.3) !important;
 }
 
-/* CRITICAL: Keep SAME gradient colors in light mode (blue-purple-pink from dark mode) */
+/* Unified Electric Cobalt & Ice Cyan Gradient for High-Contrast Modern Tech Theme */
 html:not(.dark) .bg-gradient-to-r.bg-clip-text.text-transparent,
 html:not(.dark) .bg-gradient-to-r.from-blue-500.via-purple-500.to-pink-500,
+html:not(.dark) .bg-gradient-to-r.from-blue-600.to-cyan-500,
+html:not(.dark) .bg-gradient-to-r.from-blue-500.to-cyan-400,
 html:not(.dark) h1.bg-clip-text,
 html:not(.dark) h2.bg-clip-text,
 html:not(.dark) h3.bg-clip-text,
@@ -56,14 +58,14 @@ html:not(.dark) h1.text-transparent,
 html:not(.dark) h2.text-transparent,
 html:not(.dark) h3.text-transparent,
 html:not(.dark) h4.text-transparent {
-  background: linear-gradient(90deg, #2563eb, #7c3aed, #db2777) !important;
+  background: linear-gradient(90deg, #2563eb, #0284c7, #06b6d4) !important;
   background-size: 200% 200% !important;
   -webkit-background-clip: text !important;
   background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
   color: transparent !important;
   filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.05)) !important;
-  animation: gradientShift 3s ease infinite !important;
+  animation: gradientShift 4s ease infinite !important;
   transition: all 0.3s ease !important;
 }
 
@@ -72,8 +74,7 @@ html:not(.dark) h1.bg-clip-text:hover,
 html:not(.dark) h2.bg-clip-text:hover,
 html:not(.dark) h3.bg-clip-text:hover,
 html:not(.dark) h4.bg-clip-text:hover {
-  filter: none !important;
-  transform: scale(1.03) translateY(-2px) !important;
+  filter: drop-shadow(0 2px 4px rgba(37, 99, 235, 0.15)) !important;
 }
 
 /* Text color utilities for light mode - readable dark text except inside buttons or explicit text-white elements */
@@ -162,17 +163,17 @@ html:not(.dark) .text-special {
   color: #2563eb !important;
 }
 
-/* Animations for gradient text */
+/* Animations for gradient text & glow */
 @keyframes glowPulse {
   0%, 100% {
-    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4)) 
-            drop-shadow(0 0 16px rgba(147, 51, 234, 0.3))
-            drop-shadow(0 0 24px rgba(236, 72, 153, 0.2));
+    filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.4)) 
+            drop-shadow(0 0 16px rgba(14, 165, 233, 0.3))
+            drop-shadow(0 0 24px rgba(6, 182, 212, 0.2));
   }
   50% {
-    filter: drop-shadow(0 0 16px rgba(59, 130, 246, 0.6)) 
-            drop-shadow(0 0 32px rgba(147, 51, 234, 0.5))
-            drop-shadow(0 0 48px rgba(236, 72, 153, 0.3));
+    filter: drop-shadow(0 0 16px rgba(37, 99, 235, 0.6)) 
+            drop-shadow(0 0 32px rgba(14, 165, 233, 0.5))
+            drop-shadow(0 0 48px rgba(6, 182, 212, 0.3));
   }
 }
 

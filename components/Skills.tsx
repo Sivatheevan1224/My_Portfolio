@@ -13,11 +13,11 @@ interface SkillItem {
 }
 
 const allSkillCategories = [
-  { id: "all", label: "All Skills", icon: FiGrid, color: "from-blue-600 to-purple-600" },
-  { id: "frontend", label: "Frontend", icon: FiCode, color: "from-blue-500 to-cyan-500" },
-  { id: "backend", label: "Backend", icon: FiServer, color: "from-purple-500 to-pink-500" },
-  { id: "database", label: "Database", icon: FiDatabase, color: "from-orange-500 to-red-500" },
-  { id: "tools", label: "Languages & Tools", icon: FiCpu, color: "from-emerald-500 to-teal-500" }
+  { id: "all", label: "All Skills", icon: FiGrid, color: "from-blue-600 to-cyan-500" },
+  { id: "frontend", label: "Frontend", icon: FiCode, color: "from-blue-600 to-cyan-400" },
+  { id: "backend", label: "Backend", icon: FiServer, color: "from-blue-500 to-indigo-600" },
+  { id: "database", label: "Database", icon: FiDatabase, color: "from-sky-500 to-cyan-500" },
+  { id: "tools", label: "Languages & Tools", icon: FiCpu, color: "from-teal-500 to-cyan-400" }
 ];
 
 const Skills = () => {
@@ -70,7 +70,7 @@ const Skills = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.h2 
-            className='text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent tracking-tight'
+            className='text-3xl sm:text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent tracking-tight'
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -78,7 +78,7 @@ const Skills = () => {
             Technical Stack & Expertise
           </motion.h2>
           <motion.div 
-            className="w-20 h-1.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full section-underline shadow-md shadow-purple-500/40"
+            className="w-20 h-1.5 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 mx-auto rounded-full section-underline shadow-md shadow-blue-500/30"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -105,13 +105,13 @@ const Skills = () => {
                 onClick={() => setActiveCategory(cat.id)}
                 whileHover={{ scale: 1.04, y: -2 }}
                 whileTap={{ scale: 0.96 }}
-                className={`relative px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-extrabold transition-all duration-300 flex items-center gap-2 border shadow-sm ${
+                className={`relative px-4 sm:px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all duration-300 flex items-center gap-2 border shadow-sm ${
                   isActive
-                    ? 'bg-gray-900 text-white dark:bg-white dark:text-gray-900 border-gray-900 dark:border-white shadow-md'
-                    : 'bg-white/80 dark:bg-gray-900/60 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-white/10 hover:border-blue-500 hover:text-blue-600 dark:hover:text-white'
+                    ? 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white border-transparent shadow-md shadow-blue-500/25 scale-105'
+                    : 'bg-white/90 dark:bg-gray-900/70 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-white/10 hover:border-blue-500/50 hover:text-blue-600 dark:hover:text-cyan-400'
                 }`}
               >
-                <Icon className={`w-4 h-4 ${isActive ? 'text-blue-400 dark:text-blue-600' : 'text-gray-500 dark:text-gray-400'}`} />
+                <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-gray-500 dark:text-gray-400'}`} />
                 <span>{cat.label}</span>
               </motion.button>
             );
@@ -136,7 +136,7 @@ const Skills = () => {
                 >
                   {/* Category Group Header */}
                   <div className="flex items-center gap-3 pb-2 border-b border-gray-200 dark:border-white/10">
-                    <div className="w-2.5 h-6 rounded-full bg-gradient-to-b from-blue-500 to-purple-500" />
+                    <div className="w-2.5 h-6 rounded-full bg-gradient-to-b from-blue-600 to-cyan-400" />
                     <h3 className="text-xl sm:text-2xl font-extrabold text-gray-900 dark:text-white flex items-center gap-2">
                       {category.title}
                     </h3>
@@ -145,30 +145,30 @@ const Skills = () => {
                     </span>
                   </div>
 
-                  {/* Skill Cards Responsive Grid */}
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 sm:gap-5">
+                  {/* Skill Cards Responsive Grid (Minimized & Compact) */}
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2.5 sm:gap-3">
                     {category.skills.map((skill, index) => (
                       <motion.div
                         key={skill.id || index}
-                        initial={{ opacity: 0, scale: 0.9 }}
+                        initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, delay: index * 0.05 }}
-                        whileHover={{ y: -6, scale: 1.03 }}
+                        transition={{ duration: 0.3, delay: index * 0.03 }}
+                        whileHover={{ y: -3 }}
                         whileTap={{ scale: 0.97 }}
-                        className="group relative backdrop-blur-xl bg-white/90 dark:bg-gray-900/80 p-4 sm:p-5 rounded-2xl border border-gray-200 dark:border-white/10 hover:border-blue-500/60 dark:hover:border-blue-400/60 shadow-md hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 transition-all duration-300 flex flex-col items-center justify-center text-center gap-3 cursor-pointer overflow-hidden"
+                        className="group relative backdrop-blur-xl bg-white/90 dark:bg-gray-900/80 p-2.5 sm:p-3 rounded-xl border border-gray-200/90 dark:border-white/10 hover:border-blue-500/60 dark:hover:border-cyan-400/60 shadow-sm hover:shadow-md hover:shadow-blue-500/5 dark:hover:shadow-cyan-500/10 transition-all duration-200 flex flex-col items-center justify-center text-center gap-2 cursor-pointer overflow-hidden"
                       >
                         {/* Top Accent Gradient Border Effect on Hover */}
-                        <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
 
-                        {/* Glass Icon Badge Container */}
-                        <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gray-100 dark:bg-white/10 flex items-center justify-center p-3 border border-gray-200 dark:border-white/10 shadow-inner group-hover:scale-110 group-hover:bg-blue-500/10 transition-transform duration-300 flex-shrink-0">
+                        {/* Compact Icon Badge Container */}
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gray-50 dark:bg-white/5 flex items-center justify-center p-2 border border-gray-200/80 dark:border-white/10 shadow-inner group-hover:scale-105 group-hover:bg-blue-500/10 dark:group-hover:bg-cyan-500/10 transition-transform duration-200 flex-shrink-0">
                           <div className="w-full h-full relative flex items-center justify-center [&_img]:w-full [&_img]:h-full [&_img]:object-contain">
                             {skill.icon}
                           </div>
                         </div>
 
                         {/* Skill Label */}
-                        <span className="text-xs sm:text-sm font-extrabold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-1">
+                        <span className="text-[11px] sm:text-xs font-semibold text-gray-800 dark:text-gray-200 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-1">
                           {skill.name}
                         </span>
                       </motion.div>

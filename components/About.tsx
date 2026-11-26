@@ -1,211 +1,195 @@
-"use client"
-import React from 'react'
+"use client";
+import React from 'react';
 import { motion } from 'framer-motion';
-import { FiMonitor, FiLayers, FiCheckCircle, FiAward, FiBriefcase } from 'react-icons/fi'
-import { FaMobileAlt } from 'react-icons/fa'
+import { FiMonitor, FiLayers, FiCheckCircle, FiAward, FiBriefcase } from 'react-icons/fi';
+import { FaMobileAlt } from 'react-icons/fa';
 import SectionFloatingIcons from './SectionFloatingIcons';
-// import Certificates from './Certificates';
 
 const services = [
   {
-    icon: <FiMonitor className="w-8 h-8" />,
+    icon: <FiMonitor className="w-5 h-5 text-blue-600 dark:text-cyan-400" />,
     title: "Web Development",
-    description: "Creating responsive, modern, and high-performance web applications.",
-    color: "from-blue-500 to-cyan-500"
+    description: "Building fast, accessible, and responsive web applications using React, Next.js, and TypeScript.",
+    tags: ["React.js", "Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
-    icon: <FaMobileAlt className="w-7 h-7" />,
+    icon: <FaMobileAlt className="w-5 h-5 text-blue-600 dark:text-cyan-400" />,
     title: "Mobile App Development",
-    description: "Building cross-platform mobile solutions with React Native & Expo.",
-    color: "from-purple-500 to-pink-500"
+    description: "Creating fluid cross-platform iOS & Android mobile apps with React Native and Expo.",
+    tags: ["React Native", "Expo", "Mobile UI", "Native APIs"],
   },
   {
-    icon: <FiLayers className="w-7 h-7" />,
-    title: "Full-Stack Architecture",
-    description: "Connecting frontend interfaces with robust APIs and cloud databases.",
-    color: "from-orange-500 to-red-500"
+    icon: <FiLayers className="w-5 h-5 text-blue-600 dark:text-cyan-400" />,
+    title: "Backend & Database Architecture",
+    description: "Designing reliable RESTful APIs, secure authentication, and scalable PostgreSQL/MongoDB databases.",
+    tags: ["Node.js", "Express", "PostgreSQL", "MongoDB", "MySQL"],
   },
 ];
 
+const highlights = [
+  { label: "Current Role", value: "SE Intern", detail: "Vinasai Inc (Remote)" },
+  { label: "Education", value: "B.Sc (Hons) CST", detail: "UWU (CGPA: 3.9 / 4.0)" },
+  { label: "Focus", value: "Full-Stack & Mobile", detail: "React • Next.js • React Native" },
+  { label: "Location", value: "Jaffna, Sri Lanka", detail: "Open to Remote Worldwide" },
+];
+
 const stats = [
-  {
-    number: "10",
-    suffix: "+",
-    text: "Completed Projects",
-    icon: <FiCheckCircle className="w-6 h-6 text-blue-500 dark:text-blue-400" />,
-    bgColor: "bg-blue-500/10 dark:bg-blue-500/15 border-blue-500/20 group-hover:bg-blue-500/25"
-  },
-  {
-    number: "95",
-    suffix: "%",
-    text: "Client Satisfaction",
-    icon: <FiAward className="w-6 h-6 text-amber-500 dark:text-amber-400" />,
-    bgColor: "bg-amber-500/10 dark:bg-amber-500/15 border-amber-500/20 group-hover:bg-amber-500/25"
-  },
-  {
-    number: "01",
-    suffix: "+",
-    text: "Years of Experience",
-    icon: <FiBriefcase className="w-6 h-6 text-purple-500 dark:text-purple-400" />,
-    bgColor: "bg-purple-500/10 dark:bg-purple-500/15 border-purple-500/20 group-hover:bg-purple-500/25"
-  }
+  { number: "10+", text: "Projects Done", icon: <FiCheckCircle className="w-4 h-4 text-blue-600 dark:text-cyan-400" /> },
+  { number: "95%", text: "Satisfaction", icon: <FiAward className="w-4 h-4 text-cyan-600 dark:text-cyan-400" /> },
+  { number: "01+", text: "Years Exp", icon: <FiBriefcase className="w-4 h-4 text-blue-600 dark:text-cyan-400" /> },
 ];
 
 const About = () => {
   return (
-    <section className='relative min-h-screen text-gray-900 dark:text-white px-4 sm:px-6 md:px-12 lg:px-24 py-16 sm:py-20' id='about'>
-      {/* Animated background effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-transparent dark:bg-black" />
+    <section 
+      className="relative min-h-screen lg:h-screen lg:max-h-screen text-gray-900 dark:text-white px-4 sm:px-6 md:px-10 lg:px-16 py-12 lg:py-0 flex flex-col justify-center overflow-hidden" 
+      id="about"
+    >
+      {/* Background Animated Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-transparent dark:bg-black/50" />
         <SectionFloatingIcons />
       </div>
 
-      <div className="container relative mx-auto space-y-12">
+      <div className="container relative mx-auto max-w-6xl z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center space-y-2 mb-5 sm:mb-7"
         >
-          <motion.h2
-            className='text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent'
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            About me
-          </motion.h2>
-          <motion.div
-            className="w-20 h-1.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full section-underline shadow-md shadow-purple-500/40"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          />
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
+            About <span className="text-blue-600 dark:text-cyan-400">Me</span>
+          </h2>
+          <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-cyan-500 mx-auto rounded-full" />
         </motion.div>
 
-        {/* Main 2-Column Grid */}
-        <div className='grid md:grid-cols-2 gap-12 md:gap-16 items-start'>
-          {/* Services Timeline */}
+        {/* Main 2-Column Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-stretch">
+          
+          {/* Left Column: Personal Story, Highlights & Integrated Stats (7 cols on lg) */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="relative"
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-7 flex flex-col justify-between p-5 sm:p-7 rounded-2xl backdrop-blur-xl bg-white/90 dark:bg-gray-900/80 border border-gray-200/90 dark:border-white/10 shadow-lg space-y-4"
           >
-            <div className="absolute left-8 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500" />
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-blue-500/10 text-blue-600 dark:text-cyan-400 border border-blue-500/20">
+                  Software Engineer Intern @ Vinasai Inc
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 border border-cyan-500/20">
+                  Dean&apos;s List Scholar (UWU)
+                </span>
+              </div>
 
-            <div className="space-y-12">
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  whileHover={{ scale: 1.02 }}
-                  className="relative flex gap-4 items-start pl-16 group"
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white leading-snug">
+                Building scalable web & cross-platform mobile solutions
+              </h3>
+
+              <div className="space-y-2 text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p>
+                  I am a Computer Science undergraduate at <strong>Uva Wellassa University of Sri Lanka</strong> (CGPA 3.9 / 4.0) and currently working as a <strong>Software Engineer Intern at Vinasai Inc</strong>.
+                </p>
+                <p>
+                  I specialize in crafting full-stack web and mobile apps with clean architecture, responsive design, and production security using React, Next.js, React Native, Node.js, and SQL/NoSQL databases.
+                </p>
+              </div>
+            </div>
+
+            {/* Quick Highlights Matrix */}
+            <div className="grid grid-cols-2 gap-2.5 pt-1">
+              {highlights.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="p-2.5 sm:p-3 rounded-xl bg-gray-50/90 dark:bg-white/[0.04] border border-gray-200/80 dark:border-white/10"
                 >
-                  <div className="absolute left-0 w-16 h-16 flex items-center justify-center">
-                    <div className={`absolute w-4 h-4 rounded-full bg-gradient-to-br ${service.color} shadow-lg shadow-blue-500/50`} />
-                    <div className={`absolute w-3 h-3 rounded-full bg-gradient-to-br ${service.color} animate-ping opacity-75`} />
+                  <div className="text-[10px] sm:text-[11px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                    {item.label}
                   </div>
-                  <div className="space-y-2">
-                    <div className="flex gap-4 items-center">
-                      <div className={`p-3 rounded-lg bg-gray-100 dark:bg-gray-900 group-hover:bg-gradient-to-br ${service.color} group-hover:bg-opacity-10 transition-all duration-300`}>
-                        {service.icon}
-                      </div>
-                      <h3 className={`text-xl sm:text-2xl font-semibold bg-gradient-to-r ${service.color} bg-clip-text text-transparent`}>
-                        {service.title}
-                      </h3>
+                  <div className="text-xs sm:text-sm font-bold text-gray-900 dark:text-white truncate mt-0.5">
+                    {item.value}
+                  </div>
+                  <div className="text-[11px] text-gray-600 dark:text-gray-400 truncate">
+                    {item.detail}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Integrated Compact Stats Row */}
+            <div className="grid grid-cols-3 gap-2 pt-2 border-t border-gray-200/80 dark:border-white/10">
+              {stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="p-2 sm:p-2.5 rounded-xl bg-gray-50/60 dark:bg-white/[0.02] border border-gray-200/60 dark:border-white/5 flex items-center gap-2"
+                >
+                  <div className="w-7 h-7 rounded-lg bg-blue-500/10 dark:bg-cyan-500/10 flex items-center justify-center flex-shrink-0">
+                    {stat.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-sm sm:text-base font-extrabold text-blue-600 dark:text-cyan-400 leading-tight">
+                      {stat.number}
                     </div>
-                    <p className="text-gray-600 dark:text-gray-400 pl-[52px] group-hover:text-gray-800 dark:group-hover:text-gray-300 transition-colors duration-300">
-                      {service.description}
-                    </p>
+                    <div className="text-[10px] text-gray-600 dark:text-gray-400 font-medium truncate">
+                      {stat.text}
+                    </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </motion.div>
 
-          {/* About Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
-          >
-            <motion.div
-              className="p-6 sm:p-8 rounded-3xl backdrop-blur-2xl bg-white/80 dark:bg-gray-900/80 border border-gray-200/80 dark:border-white/10 shadow-xl space-y-4"
-              whileHover={{ y: -3 }}
-            >
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">
-                  Full-Stack Developer (Web & Mobile)
-                </span>
-                <span className="px-3 py-1 rounded-full text-xs font-bold bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20">
-                  B.Sc (Hons) CST Scholar
-                </span>
-              </div>
+          {/* Right Column: 3 Core Capabilities / Services (5 cols on lg) */}
+          <div className="lg:col-span-5 flex flex-col justify-between gap-3 sm:gap-3.5">
+            {services.map((service, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                whileHover={{ y: -2 }}
+                className="group relative flex-1 p-4 sm:p-4.5 rounded-2xl backdrop-blur-xl bg-white/90 dark:bg-gray-900/80 border border-gray-200/90 dark:border-white/10 shadow-sm hover:border-blue-500/50 dark:hover:border-cyan-400/50 transition-all duration-200 flex flex-col justify-between"
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-blue-500/10 dark:bg-cyan-500/10 flex items-center justify-center flex-shrink-0 border border-blue-500/20 dark:border-cyan-500/20">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors">
+                      {service.title}
+                    </h3>
+                  </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
-                Passionate about building scalable Web & Mobile digital solutions
-              </h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                    {service.description}
+                  </p>
+                </div>
 
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                I’m a Full Stack Web & Mobile Developer and Computer Science student at <strong>Uva Wellassa University of Sri Lanka</strong>, driven by curiosity and a passion for engineering high-performance software applications.
-              </p>
+                {/* Service Tag Pills */}
+                <div className="flex flex-wrap gap-1 pt-2.5 mt-2 border-t border-gray-100 dark:border-white/5">
+                  {service.tags.map((tag, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="px-2 py-0.5 text-[10px] font-medium rounded-md bg-gray-100 dark:bg-white/[0.05] text-gray-700 dark:text-gray-300"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
-              <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-                I specialize in crafting full-stack web and mobile solutions using <strong>React, Next.js, Node.js, Express.js, Spring Boot, Django, PHP, React Native, MySQL, MongoDB, and Tailwind CSS</strong>. My focus is on clean architecture, intuitive UI/UX design, and scalable code standards.
-              </p>
-
-              {/* Key Tech Badges */}
-              <div className="pt-2 flex flex-wrap gap-2">
-                {["React.js", "Next.js", "React Native", "Node.js", "Spring Boot", "Django", "PHP", "MySQL", "MongoDB", "Python", "Java", "Tailwind CSS"].map((tech, idx) => (
-                  <span key={idx} className="px-2.5 py-1 text-xs font-semibold rounded-lg bg-gray-100 dark:bg-white/10 text-gray-800 dark:text-gray-200 border border-gray-200/80 dark:border-white/10">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          </motion.div>
         </div>
-
-        {/* Sleek Glassmorphic Stats Grid Row */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 pt-4"
-        >
-          {stats.map((stat, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ y: -4, scale: 1.02 }}
-              className="p-5 rounded-2xl backdrop-blur-2xl bg-white/90 dark:bg-white/[0.04] border border-gray-200/80 dark:border-white/10 shadow-lg hover:shadow-2xl hover:border-blue-500/40 dark:hover:border-blue-500/40 transition-all duration-300 flex items-center gap-4 group"
-            >
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center border shadow-sm transition-all duration-300 group-hover:scale-110 flex-shrink-0 ${stat.bgColor}`}>
-                {stat.icon}
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                  {stat.number}{stat.suffix}
-                </div>
-                <div className="text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300">
-                  {stat.text}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Certificates card (hidden) */}
-        {/* <div className="pt-2">
-          <Certificates />
-        </div> */}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default About
+export default About;

@@ -23,11 +23,11 @@ const EducationSection = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                 >
-                    <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent'>
+                    <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-500 dark:from-blue-400 dark:via-sky-300 dark:to-cyan-300 bg-clip-text text-transparent'>
                         Education Journey
                     </h2>
                     <motion.div 
-                        className="w-16 sm:w-20 h-1.5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mx-auto rounded-full mb-3 sm:mb-6 section-underline shadow-md shadow-purple-500/40"
+                        className="w-16 sm:w-20 h-1.5 bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 mx-auto rounded-full mb-3 sm:mb-6 section-underline shadow-md shadow-blue-500/30"
                         initial={{ scaleX: 0 }}
                         whileInView={{ scaleX: 1 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
@@ -39,7 +39,7 @@ const EducationSection = () => {
 
                 <div className='max-w-4xl mx-auto relative'>
                     {/* Timeline line */}
-                    <div className='absolute left-4 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 z-0'></div>
+                    <div className='absolute left-4 top-0 bottom-0 w-[2px] bg-gradient-to-b from-blue-600 via-sky-500 to-cyan-400 z-0'></div>
 
                     {Array.isArray(EDUCATION) && EDUCATION.map((edu, index) => (
                         <motion.div
@@ -50,7 +50,7 @@ const EducationSection = () => {
                             className='relative flex flex-col gap-4 mb-4 sm:mb-6 md:mb-8 group'
                         >
                             {/* Timeline dot */}
-                            <div className='absolute left-3 xs:left-4 transform -translate-x-1/2 w-5 xs:w-6 sm:w-8 md:w-10 h-5 xs:h-6 sm:h-8 md:h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full border-[2px] xs:border-[3px] sm:border-4 border-black shadow-lg shadow-blue-500/25 z-10'>
+                            <div className='absolute left-3 xs:left-4 transform -translate-x-1/2 w-5 xs:w-6 sm:w-8 md:w-10 h-5 xs:h-6 sm:h-8 md:h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-full border-[2px] xs:border-[3px] sm:border-4 border-black shadow-lg shadow-blue-500/25 z-10'>
                                 <FaGraduationCap className="w-2 xs:w-2.5 sm:w-3 md:w-4 h-2 xs:h-2.5 sm:h-3 md:h-4 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white" />
                             </div>
 
@@ -69,7 +69,7 @@ const EducationSection = () => {
                                     <div className='relative z-10'>
                                         <div className='flex items-start gap-2 xs:gap-3 sm:gap-4 md:gap-6 mb-2 xs:mb-3 sm:mb-4 md:mb-6'>
                                             <motion.div 
-                                                className='w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl overflow-hidden flex-shrink-0 bg-white/70 dark:bg-gradient-to-br dark:from-blue-500/20 dark:to-purple-500/20 flex items-center justify-center transition-all duration-300 relative z-30'
+                                                className='w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-lg sm:rounded-xl overflow-hidden flex-shrink-0 bg-white/70 dark:bg-gradient-to-br dark:from-blue-500/20 dark:to-cyan-500/20 flex items-center justify-center transition-all duration-300 relative z-30'
                                                 whileHover={{ 
                                                     scale: 1.2, 
                                                     rotate: 360,
